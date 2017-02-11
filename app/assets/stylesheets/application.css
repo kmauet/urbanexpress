@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require car_theme/css/bootstrap
+ *= require car_theme/css/style
+ *= require car_theme/css/owl.carousel
+ *= require car_theme/css/owl.transitions
+ *= require car_theme/css/slick
+ *= require car_theme/css/bootstrap-slider
+ *= require car_theme/css/font-awesome
+ *= require car_theme/css/colors/red
+ *= require_tree .
+ *= require_self
+ */
+ /*body{
+  background-color: #333;
+ }
+ h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+  }*/
+.about_info h5{
+  margin-left: 22px;
+  margin-right: 22px;
+}
+
+.contact_detail li{
+  padding-right: 100px;
+}
+
+.header_style2 .logo {
+    margin: 20px 0 0 0;
+}
+
+.section-header h2 span{
+  font-weight: bold;
+}
+#banner2 .item:after {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+.dark-overlay {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+
+#our_services{
+  background-image: url('/assets/images/bottom-home.jpg');
+}
