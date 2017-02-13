@@ -27,6 +27,13 @@
  h1, h2, h3, h4, h5, h6 {
     color: #fff;
   }*/
+
+.login_btn{
+   margin-bottom: 10px;
+}
+.social-follow{
+  margin-top: -25px;
+}
 .about_info h5{
   margin-left: 22px;
   margin-right: 22px;

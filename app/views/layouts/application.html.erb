@@ -34,7 +34,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="/"><img src="assets/logo.jpg" alt="image"/></a> </div>
+          <div class="logo"> <a href="/"><img src="/assets/logo.jpg" alt="image"/></a> </div>
         </div>
         <div class="col-sm-9 col-md-10">
           <div class="header_info">
@@ -51,6 +51,9 @@
               <a href="tel:877-840-0411">Toll Free: (877) 840-0411</a></div>
 
             <div class="social-follow">
+              <% unless customer_signed_in? %>
+              <div class="login_btn"> <a href="/customers/sign_in" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
+            <% end%>
               <ul>
                 <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
@@ -59,6 +62,7 @@
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
             </div>
+            
           </div>
         </div>
       </div>
@@ -72,6 +76,20 @@
         <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       </div>
       <div class="header_wrap">
+        <% if customer_signed_in? %>
+          <div class="user_login">
+            <ul>
+              <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_customer.full_name %> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="profile-settings.html">Profile Settings</a></li>
+                  <li><a href="my-vehicles.html">My Reward Points</a></li>
+                  <li><a href="post-vehicle.html">History</a></li>
+                  <li><%= link_to("Sign Out", destroy_customer_session_path, method: :post) %></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        <% end%>
         <div class="header_search">
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
           <form action="#" method="get" id="header-search-form">
@@ -83,11 +101,11 @@
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
           <li ><a href="/"  aria-haspopup="true" aria-expanded="false">Home</a></li>
-          <li><a href="fleet">Fleet</a></li>
-          <li><a href="services">Services</a></li>
+          <li><a href="/fleet">Fleet</a></li>
+          <li><a href="/services">Services</a></li>
           <li><a href="#">Job Opportunities</a></li>
-          <li><a href="about-us">About Us</a></li>
-          <li><a href="contact-us">Contact Us</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/contact-us">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -182,133 +200,7 @@
 
 <!--Back to top-->
 <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
-<!--/Back to top--> 
-
-<!--Login-Form -->
-<div class="modal fade" id="loginform">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Login</h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="login_wrap">
-            <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username or Email address*">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password*">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">Remember Me</label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Login" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p>
-        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot Password ?</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Login-Form --> 
-
-<!--Register-Form -->
-<div class="modal fade" id="signupform">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Sign Up</h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="signup_wrap">
-            <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full Name">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="terms_agree">
-                  <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Sign Up" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Already got an account? <a href="#loginform" data-toggle="modal" data-dismiss="modal">Login Here</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Register-Form --> 
-
-<!--Forgot-password-Form -->
-<div class="modal fade" id="forgotpassword">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Password Recovery</h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="forgotpassword_wrap">
-            <div class="col-md-12">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Your Email address*">
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Reset My Password" class="btn btn-block">
-                </div>
-              </form>
-              <div class="text-center">
-                <p class="gray_text">For security reasons we don't store your password. Your password will be reset and a new one will be send.</p>
-                <p><a href="#loginform" data-toggle="modal" data-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Forgot-password-Form --> 
+<!--/Back to top-->
 
 </body>
 </html>

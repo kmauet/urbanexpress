@@ -1,7 +1,7 @@
 class WebPageController < ApplicationController
   # GET home
   def home
-    render :layout => 'homepage'
+    
   end
 
   def contact_us

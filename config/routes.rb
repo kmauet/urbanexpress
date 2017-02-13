@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'home' => 'web_page#home'
   get 'contact-us' => 'web_page#contact_us'
@@ -7,4 +8,10 @@ Rails.application.routes.draw do
   get 'services' => 'web_page#services'
   get 'vehicule-details' => 'web_page#vehicule_details'
   root 'web_page#home'
+
+  devise_for :customers, controllers: {
+      registrations: 'customers/registrations',
+      sessions: 'customers/sessions',
+      passwords: 'customers/passwords'
+    }
 end

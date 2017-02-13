@@ -1064,7 +1064,7 @@ nav.navbar {
 	3.1. Banner
 -------------------------------*/
 .banner-section {
-  background-image: url("../images/1920x830.jpg");
+  background-image: url("/assets/images/1920x830.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1282,7 +1282,7 @@ nav.navbar {
 	3.5. Fun-Facts
 -----------------------------*/
 .fun-facts-section {
-  background: rgba(0, 0, 0, 0) url("../images/1920x400.jpg") repeat scroll center center;
+  background: rgba(0, 0, 0, 0) url("/assets/images/1920x400.jpg") repeat scroll center center;
   padding: 100px 0;
   position: relative;
 }
@@ -1493,7 +1493,7 @@ nav.navbar {
 	3.8 Testimonial-Section
 -----------------------------*/
 .testimonial-section {
-  background-image: url("../images/1920x830.jpg");
+  background-image: url("/assets/images/1920x830.jpg");
 }
 .white-text h2 {
   color: #ffffff;
@@ -1528,7 +1528,7 @@ nav.navbar {
   width: 425px;
 }
 .testimonial-content::after {
-  background: rgba(0, 0, 0, 0) url("../images/600x380.jpg") repeat scroll 0 0 / cover ;
+  background: rgba(0, 0, 0, 0) url("/assets/images/600x380.jpg") repeat scroll 0 0 / cover ;
   border-radius: 0 30px;
   content: "";
   height: 100%;
@@ -2054,7 +2054,7 @@ form .slider.slider-horizontal {
 	margin:0 10px 20px 0;
 }
 .facts_section_bg {
-  background: rgba(0, 0, 0, 0) url("../images/960x870.jpg") no-repeat scroll center center / cover ;
+  background: rgba(0, 0, 0, 0) url("/assets/images/960x870.jpg") no-repeat scroll center center / cover ;
   bottom: 0;
   height: 100%;
   left: 0;
@@ -2158,7 +2158,7 @@ form .slider.slider-horizontal {
 ------------------------*/
 #help {
   background-attachment: fixed;
-  background-image: url("../images/1920x830.jpg");
+  background-image: url("/assets/images/1920x830.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2173,7 +2173,7 @@ form .slider.slider-horizontal {
 ==============================================*/
 
 .page-header {
-  background-image: url("../images/1920x250.jpg");
+  background-image: url("/assets/images/1920x250.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position:center;
@@ -2403,7 +2403,7 @@ form .slider.slider-horizontal {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: rgba(0, 0, 0, 0);
-  background-image: url("../images/300x300.jpg") !important;
+  background-image: url("/assets/images/300x300.jpg") !important;
   background-origin: padding-box;
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -2716,7 +2716,7 @@ table.info-tabel tr td {
 
 
 .listing_detail_header {
-  background: rgba(0, 0, 0, 0) url("../images/1920x830.jpg") no-repeat fixed center center / cover ;
+  background: rgba(0, 0, 0, 0) url("/assets/images/1920x830.jpg") no-repeat fixed center center / cover ;
   padding: 80px 0;
   position: relative;
 }
@@ -2860,13 +2860,13 @@ table.info-tabel tr td {
 	padding:20px 0;
 }
 .knowledge_base_faq {
-  background: rgba(0, 0, 0, 0) url("../images/700x450.jpg") no-repeat scroll 0 0 / cover ;
+  background: rgba(0, 0, 0, 0) url("/assets/images/700x450.jpg") no-repeat scroll 0 0 / cover ;
 }
 .about_services_faq {
-  background: rgba(0, 0, 0, 0) url("../images/700x450.jpg") no-repeat scroll 0 0 / cover ;
+  background: rgba(0, 0, 0, 0) url("/assets/images/700x450.jpg") no-repeat scroll 0 0 / cover ;
 }
 .support_faq {
-  background: rgba(0, 0, 0, 0) url("../images/700x450.jpg") no-repeat scroll 0 0 / cover ;
+  background: rgba(0, 0, 0, 0) url("/assets/images/700x450.jpg") no-repeat scroll 0 0 / cover ;
 }
 
 
@@ -3032,7 +3032,7 @@ table.info-tabel tr td {
 	13. 404-Page
 ===========================*/
 .page_404 {
-	background-image:url(../images/1920x250.jpg);	
+	background-image:url(/assets/images/1920x250.jpg);	
 }
 .error_text_m {
 	position:relative;
@@ -3090,7 +3090,7 @@ table.info-tabel tr td {
 	14. Our-Services-Page
 ==================================*/
 .services_page {
-	background-image:url(../images/1920x250.jpg);	
+	background-image:url(/assets/images/1920x250.jpg);	
 }
 .services_image {
 	position:relative;
@@ -3137,7 +3137,7 @@ table.info-tabel tr td {
 	15. Our-Blog-Page
 ==============================*/
 .blog_page {
-	background-image:url(../images/1920x250.jpg);
+	background-image:url(/assets/images/1920x250.jpg);
 }
 .our_blog {
   padding: 80px 0;
@@ -3541,7 +3541,7 @@ table.info-tabel tr td {
 	16. Profile-page
 ================================*/
 .profile_page {
-	background-image:url(../images/1920x250.jpg);
+	background-image:url(/assets/images/1920x250.jpg);
 }
 .inner_pages {
 	padding:80px 0;
@@ -3558,7 +3558,7 @@ table.info-tabel tr td {
 }
 .upload_newlogo {
   background-color: rgba(0, 0, 0, 0.8);
-  background-image: url("../images/change_logo.png");
+  background-image: url("/assets/images/change_logo.png");
   background-position: center center;
   background-repeat: no-repeat;
   height: 100%;
@@ -3689,7 +3689,7 @@ table.info-tabel tr td {
 	border:#eee solid 1px;
 }
 .upload_more_img:after {
-  background-image: url("../images/addmore_img.png");
+  background-image: url("/assets/images/addmore_img.png");
   background-position: center center;
   background-repeat: no-repeat;
   content:"";
@@ -3886,7 +3886,7 @@ table.info-tabel tr td {
 	19. Compare-Page
 ================================*/
 .compare_page {
-	background-image:url(../images/1920x250.jpg);
+	background-image:url(/assets/images/1920x250.jpg);
 }
 .compare_info table td, .compare_info table th {
 	font-size:16px;
@@ -4039,7 +4039,7 @@ table.info-tabel tr td {
 	20. Coming-Soon-Page
 ================================*/
 .coming_soon_bg {
-	background-image:url(../images/1920x830.jpg);
+	background-image:url(/assets/images/1920x830.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
 	position:relative;
