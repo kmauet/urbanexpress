@@ -74,9 +74,9 @@
             <ul>
               <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_customer.full_name %> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                 <ul class="dropdown-menu">
-                  <li><a href="profile-settings.html">Profile Settings</a></li>
-                  <li><a href="my-vehicles.html">My Reward Points</a></li>
-                  <li><a href="post-vehicle.html">History</a></li>
+                  <li><a href="/profile-settings.html">Profile Settings</a></li>
+                  <li><a href="/my-vehicles.html">My Reward Points</a></li>
+                  <li><a href="/post-vehicle.html">History</a></li>
                   <li><%= link_to("Sign Out", destroy_customer_session_path, method: :post) %></li>
                 </ul>
               </li>
@@ -96,7 +96,7 @@
           <li ><a href="/"  aria-haspopup="true" aria-expanded="false">Home</a></li>
           <li><a href="/fleet">Fleet</a></li>
           <li><a href="/services">Services</a></li>
-          <li><a href="#">Jobs</a></li>
+          <li><a href="/jobs">Jobs</a></li>
           <li><a href="/about-us">About Us</a></li>
           <li><a href="/contact-us">Contact Us</a></li>
         </ul>

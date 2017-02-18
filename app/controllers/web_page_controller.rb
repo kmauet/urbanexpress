@@ -71,6 +71,17 @@ class WebPageController < ApplicationController
     @other_vehicules = Vehicule.where(vehicule_type: @vehicule.vehicule_type) - [@vehicule]
   end
 
+  def history
+    if current_customer.nil?
+      raise ActionController::RoutingError.new('Not Found')
+    else
+      @current_customer = current_customer
+    end
+  end
+
+  def jobs
+
+  end
   private
     def customer_params
       params.require(:customer).permit(:first_name, :last_name, :email, :phone_number)

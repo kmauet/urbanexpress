@@ -1,4 +1,6 @@
 class Customer < ApplicationRecord
+  has_merit
+
   # Include default devise modules. Others available are:
   # :omniauthable, :lockable
   validates :first_name, presence: true
