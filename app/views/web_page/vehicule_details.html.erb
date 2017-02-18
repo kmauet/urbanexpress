@@ -1,44 +1,6 @@
 <!-- Listing-detail-header -->
-<section class="listing_detail_header">
-  <div class="container">
-    <div class="listing_detail_head white-text div_zindex row">
-      <div class="col-md-9">
-        <h2>Car Name</h2>
-        <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div>
-        <div class="add_compare">
-          <div class="checkbox">
-            <input value="" id="compare14" type="checkbox">
-            <label for="compare14">Add to Compare</label>
-          </div>
-          <div class="share_vehicle">
-            <p>Share: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a> </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="price_info">
-          <p>$90,000</p>
-          <p class="old_price">$95,000</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="dark-overlay"></div>
-</section>
-<!-- /Listing-detail-header -->
 
-<section class="listing_other_info secondary-bg">
-  <div class="container">
-    <div id="filter_toggle" class="search_other"> <i class="fa fa-filter" aria-hidden="true"></i> Search Car </div>
-    <div id="other_info"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
-    <div id="info_toggle">
-      <button type="button" data-toggle="modal" data-target="#schedule"> <i class="fa fa-car" aria-hidden="true"></i> Schedule Test Drive </button>
-      <button type="button" data-toggle="modal" data-target="#make_offer"> <i class="fa fa-money" aria-hidden="true"></i> Make an Offer </button>
-      <button type="button" data-toggle="modal" data-target="#email_friend"> <i class="fa fa-envelope" aria-hidden="true"></i> Email to a Friend </button>
-      <button type="button" data-toggle="modal" data-target="#more_info"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Request More Info </button>
-    </div>
-  </div>
-</section>
+<!-- /Listing-detail-header -->
 
 <!-- Filter-Form -->
 <section id="filter_form" class="inner-filter gray-bg">
@@ -112,57 +74,104 @@
 <section class="listing-detail">
   <div class="container">
     <div class="row">
+      <div class="col-md-6 vehic-det-quote-btn-div">
+        <a href=<%= quote_request_path %> class="btn btn-quote">Get a quote</a>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-9">
         <div class="listing_images">
           <div id="listing_images_slider" class="listing_images_slider">
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
           </div>
           <div id="listing_images_slider_nav" class="listing_images_slider_nav">
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
           </div>
         </div>
         <div class="main_features">
           <ul>
-            <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
-              <h5>13,000</h5>
-              <p>Total Kilometres</p>
-            </li>
-            <li> <i class="fa fa-calendar" aria-hidden="true"></i>
-              <h5>2010</h5>
-              <p>Reg.Year</p>
-            </li>
-            <li> <i class="fa fa-cogs" aria-hidden="true"></i>
-              <h5>Diesel</h5>
-              <p>Fuel Type</p>
-            </li>
-            <li> <i class="fa fa-power-off" aria-hidden="true"></i>
-              <h5>Automatic</h5>
-              <p>Transmission</p>
-            </li>
-            <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
-              <h5>153KW</h5>
-              <p>Engine</p>
-            </li>
-            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
-              <h5>5</h5>
-              <p>Seats</p>
-            </li>
+            <% if @vehicule.amenities.include?("tv") %>
+              <li> <i class="fa fa-television" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>flat screen tv</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("bathroom") %>
+              <li> <i class="fa fa-bath" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>Bathroom</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("dvd_player") %>
+              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>Dvd Player</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("cd_player") %>
+              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>Cd Player</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("am_fm_radio") %>
+              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>AM/FM Radio</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("cooler") %>
+              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>cooler</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("nav_system") %>
+              <li> <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>navigation</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("sound_system") %>
+              <li> <i class="fa fa-music" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>sound system</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("wheelchair") %>
+              <li> <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>wheelchair</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("bluetooth") %>
+              <li> <i class="fa fa-bluetooth" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>bluetooth</p>
+              </li>
+            <% end %>
+            <% if @vehicule.amenities.include?("seats") %>
+              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <h5><%= @vehicule.seats %></h5>
+                <p>Seats</p>
+              </li>
+            <% end %>
           </ul>
         </div>
         <div class="listing_more_info">
@@ -339,26 +348,6 @@
                <iframe class="mfp-iframe" src="https://www.youtube.com/embed/rqSoXtKMU3Q" allowfullscreen></iframe>
             </div>
          </div>
-        
-          <!--Comment-Form-->
-          <div class="comment_form">
-            <h6>Leave a Comment</h6>
-            <form action="#">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Full Name">
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email Address">
-              </div>
-              <div class="form-group">
-                <textarea rows="5" class="form-control" placeholder="Comments"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn" value="Submit Comment">
-              </div>
-            </form>
-          </div>
-          <!--/Comment-Form--> 
           
         </div>
       </div>
@@ -367,53 +356,19 @@
       <aside class="col-md-3">
         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-calculator" aria-hidden="true"></i> Financing Calculator </h5>
+            <h6><i class="fa fa-calculator" aria-hidden="true"></i> Others In Category </h6>
           </div>
           <div class="financing_calculatoe">
-            <form action="#" method="get">
-              <div class="form-group">
-                <label class="form-label">Vehicle Price ($)</label>
-                <input class="form-control" type="text">
+            <% @other_vehicules.each do |other| %>
+              <div class="vehic-detail-side-img">
+                <%= link_to( image_tag(other.display_image_url(), size: "220x150"), "/vehicule-details/#{other.id}")if other.display_image? %>
               </div>
-              <div class="form-group">
-                <label class="form-label">Down Price ($)</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Interest Rate</label>
-                <div class="select">
-                  <select class="form-control select">
-                    <option>12%</option>
-                    <option>13%</option>
-                    <option>14%</option>
-                    <option>15%</option>
-                    <option>16%</option>
-                    <option>17%</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Period in Years</label>
-                <div class="select">
-                  <select class="form-control">
-                    <option>3 Year</option>
-                    <option>4 Year</option>
-                    <option>5 Year</option>
-                    <option>6 Year</option>
-                    <option>7 Year</option>
-                    <option>8 Year</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-block">Calcuate</button>
-              </div>
-            </form>
+            <% end %>
           </div>
         </div>
         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Dealer Contact </h5>
+            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Other Categ </h5>
           </div>
           <div class="dealer_detail"> <img src="assets/images/90x90.jpg" alt="image">
             <p><span>Name:</span> Dealer Name</p>

@@ -1,0 +1,2 @@
+json.extract! vehicule, :id, :name, :vehicule_type, :info, :tv, :bathroom, :dvd_player, :cd_player, :am_fm_radio, :cooler, :nav_system, :sound_system, :wheelchair, :bluetooth, :leather, :created_at, :updated_at
+json.url vehicule_url(vehicule, format: :json)

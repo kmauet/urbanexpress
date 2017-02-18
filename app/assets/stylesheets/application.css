@@ -27,7 +27,25 @@
  h1, h2, h3, h4, h5, h6 {
     color: #fff;
   }*/
-
+.fun-facts-side{
+  display: table;
+  height: 188px;
+  margin-top: 30px;
+}
+.what-we-offer{
+  text-align: center;
+}  
+a.btn:visited {
+  color: white;
+}
+.product-listing-content .btn {
+}
+.btn-quote{
+  float: right;
+}
+.radio input[type=radio], .checkbox input[type=checkbox]{
+  display: block;
+}
 .login_btn{
    margin-bottom: 10px;
 }
@@ -60,3 +78,26 @@
 #our_services{
   background-image: url('/assets/images/bottom-home.jpg');
 }
+.vehic-detail-side-img{
+  padding-bottom: 15px;
+}
+
+/***** vehicule-details page ******/
+.listing-detail{
+  padding: 15px 0;
+}
+.vehic-det-quote-btn-div{
+padding-bottom: 10px;}
+/***** end vehicule-details page ******/
+
+/***** services page ******/
+.section-padding{
+  padding: 40px 0;
+}
+.testimonial-section{
+  background-color: #ccc;
+}
+#services ul li{
+  list-style: none;
+}
+/***** end services page ******/

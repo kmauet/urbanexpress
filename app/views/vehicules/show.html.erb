@@ -1,0 +1,83 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @vehicule.name %>
+  </p>
+  <p>
+  <%= image_tag @vehicule.display_image_url() if @vehicule.display_image? %>
+  </p>
+  <p>
+    <strong>Type:</strong>
+    <%= @vehicule.vehicule_type %>
+  </p>
+
+  <p>
+    <strong>Info:</strong>
+    <%= @vehicule.info %>
+  </p>
+
+  <p>
+    <strong>Seats:</strong>
+    <%= @vehicule.seats %>
+  </p>
+
+  <p>
+    <strong>Tv:</strong>
+    <%= @vehicule.tv %>
+  </p>
+
+  <p>
+    <strong>Bathroom:</strong>
+    <%= @vehicule.bathroom %>
+  </p>
+
+  <p>
+    <strong>Dvd player:</strong>
+    <%= @vehicule.dvd_player %>
+  </p>
+
+  <p>
+    <strong>Cd player:</strong>
+    <%= @vehicule.cd_player %>
+  </p>
+
+  <p>
+    <strong>Am fm radio:</strong>
+    <%= @vehicule.am_fm_radio %>
+  </p>
+
+  <p>
+    <strong>Cooler:</strong>
+    <%= @vehicule.cooler %>
+  </p>
+
+  <p>
+    <strong>Nav system:</strong>
+    <%= @vehicule.nav_system %>
+  </p>
+
+  <p>
+    <strong>Sound system:</strong>
+    <%= @vehicule.sound_system %>
+  </p>
+
+  <p>
+    <strong>Wheelchair:</strong>
+    <%= @vehicule.wheelchair %>
+  </p>
+
+  <p>
+    <strong>Bluetooth:</strong>
+    <%= @vehicule.bluetooth %>
+  </p>
+
+  <p>
+    <strong>Leather:</strong>
+    <%= @vehicule.leather %>
+  </p>
+
+  <%= link_to 'Edit', edit_vehicule_path(@vehicule) %> |
+  <%= link_to 'Back', vehicules_path %>
+</div>

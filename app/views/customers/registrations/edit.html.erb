@@ -1,27 +1,65 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+<!--Page Header-->
+<section class="page-header profile_page">
+  <div class="container">
+    <div class="page-header_wrap">
+      <div class="page-heading">
+        <h1><%= @current_customer.full_name %></h1>
+      </div>
+      <ul class="coustom-breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li>Profile</li>
+      </ul>
+    </div>
   </div>
+  <!-- Dark Overlay-->
+  <div class="dark-overlay"></div>
+</section>
+<!-- /Page Header--> 
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+<!--Profile-setting-->
+<section class="user_profile inner_pages">
+  <div class="container">
+    <div class="user_profile_info gray-bg padding_4x4_40">
+      <div class="upload_user_logo"> <img src="assets/images/222x172.jpg" alt="image">
+        <div class="upload_newlogo">
+          <input name="upload" type="file">
+        </div>
+      </div>
+      <div class="dealer_info">
+        <h5>Autospot Used Cars Center </h5>
+        <p>P.1225 N Broadway Ave <br>
+          Oklahoma City, OK  1234-5678-090</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <div class="profile_nav">
+          <%= render 'web_page/partials/profile_sidemenu' %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-8">
+        <div class="profile_wrap">
+          <h5 class="uppercase underline">Genral Settings</h5>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-group">
+              <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, input_html: {class: "form-control white_bg"} %>
+            </div>
+            <div class="form-group">
+              <%= f.input :password_confirmation, required: false, input_html: {class: "form-control white_bg"} %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: {class: "form-control white_bg"} %>
+            </div>
+            <div class="form-group">
+              <%= f.button :submit, "Save New Password"%>
+            </div>
+          <% end %>
+        </div>
+        </section>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  
+<!--/Profile-setting--> 

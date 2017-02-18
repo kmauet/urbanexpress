@@ -3,16 +3,16 @@
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>Car Listing</h1>
+        <h1>Our Fleet</h1>
       </div>
       <ul class="coustom-breadcrumb">
         <li><a href="#">Home</a></li>
-        <li>Car Listing</li>
+        <li>Our Fleet</li>
       </ul>
     </div>
   </div>
   <!-- Dark Overlay-->
-  <div class="dark-overlay"></div>
+  <div class="dark-overlay" style="background: rgba(0, 0, 0, 0.65) none repeat scroll 0 0;"></div>
 </section>
 <!-- /Page Header--> 
 
@@ -21,288 +21,103 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9 col-md-push-3">
-        <div class="result-sorting-wrapper">
-          <div class="sorting-count">
-            <p>1 - 8 <span>of 50 Listings</span></p>
-          </div>
-          <div class="result-sorting-by">
-            <p>Sort by:</p>
-            <form action="#" method="post">
-              <div class="form-group select sorting-select">
-                <select class="form-control ">
-                  <option>Price (low to high)</option>
-                  <option>$100 to $500</option>
-                  <option>$500 to $1000</option>
-                  <option>$1000 to $1500</option>
-                  <option>$1500 to $2000</option>
-                </select>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-responsive" alt="image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare22">
-                <label for="compare22">Compare</label>
-              </div>
+        <% @vehicules.each do |vehicule| %>        
+          <div class="product-listing-m gray-bg">
+            <div class="product-listing-img"> <a href="#"><%= image_tag( vehicule.display_image_url(), class: "img-responsive") if vehicule.display_image? %> </a>
+            </div>
+            <div class="product-listing-content">
+              <h6><a href="#"><%= vehicule.name %></a></h6>
+              <ul>
+                <% if vehicule.amenities.include?("tv") %>
+              <li> <i class="fa fa-television" aria-hidden="true"></i>
+                flat screen tv
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("bathroom") %>
+              <li> <i class="fa fa-bath" aria-hidden="true"></i>
+                Bathroom
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("dvd_player") %>
+              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+                Dvd Player
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("cd_player") %>
+              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+                Cd Player
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("am_fm_radio") %>
+              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+                AM/FM Radio
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("cooler") %>
+              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                cooler
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("nav_system") %>
+              <li> <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                navigation
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("sound_system") %>
+              <li> <i class="fa fa-music" aria-hidden="true"></i>
+              sound system
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("wheelchair") %>
+              <li> <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                wheelchair
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("bluetooth") %>
+              <li> <i class="fa fa-bluetooth" aria-hidden="true"></i>
+                bluetooth
+              </li>
+            <% end %>
+            <% if vehicule.amenities.include?("seats") %>
+              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <%= vehicule.seats %> seats
+              </li>
+            <% end %>
+              </ul>
+              <a href=<%="/vehicule-details/#{vehicule.id}" %> class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+              <a href=<%= quote_request_path %> class="btn btn-quote">Get a quote</a>
             </div>
           </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Car Name Text</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="/vehicule-details" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-responsive" alt="image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare23">
-                <label for="compare23">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Car Name Text</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="/vehicule-details" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-responsive" alt="image" /> </a>
-            <div class="label_icon">Used</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare24">
-                <label for="compare24">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Car Name Text</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="/vehicule-details" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-responsive" alt="image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare25">
-                <label for="compare25">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Car Name Text</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="/vehicule-details" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-responsive" alt="image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare26">
-                <label for="compare26">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Car Name Text</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="/vehicule-details" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-responsive" alt="image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare27">
-                <label for="compare27">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Car Name Text</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="/vehicule-details" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="pagination">
-          <ul>
-            <li class="current">1</li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-          </ul>
-        </div>
+        <% end %>
+       
       </div>
       
       <!--Side-Bar-->
       <aside class="col-md-3 col-md-pull-9">
         <div class="sidebar_widget">
-          <div class="widget_heading">
-            <h5><i class="fa fa-filter" aria-hidden="true"></i> Find Your Dream Car </h5>
+          <div class="widget_heading">  
+            <h6><i class="fa fa-filter" aria-hidden="true"></i> Filter By Categories </h6>
           </div>
           <div class="sidebar_filter">
-            <form action="#" method="get">
-              <div class="form-group select">
-                <select class="form-control">
-                  <option>Select Location</option>
-                  <option>Location 1</option>
-                  <option>Location 2</option>
-                  <option>Location 3</option>
-                  <option>Location 4</option>
-                </select>
-              </div>
-              <div class="form-group select">
-                <select class="form-control">
-                  <option>Select Brand</option>
-                  <option>Brand 1</option>
-                  <option>Brand 2</option>
-                  <option>Brand 3</option>
-                  <option>Brand 4</option>
-                </select>
-              </div>
-              <div class="form-group select">
-                <select class="form-control">
-                  <option>Select Model</option>
-                  <option>Series 1</option>
-                  <option>Series 2</option>
-                  <option>Series 3</option>
-                  <option>Series 4</option>
-                </select>
-              </div>
-              <div class="form-group select">
-                <select class="form-control">
-                  <option>Year of Model </option>
-                  <option>2016</option>
-                  <option>2015</option>
-                  <option>2014</option>
-                  <option>2013</option>
-                </select>
-              </div>
-              
-              <div class="form-group">
-                  <label class="form-label">Price Range ($)</label>
-                  <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
-              </div>
-              <div class="form-group select">
-                <select class="form-control">
-                  <option>Type of Car </option>
-                  <option>New Car</option>
-                  <option>Used Car</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search Car</button>
-              </div>
-            </form>
+          <div class="form-group ">
+            <%= link_to("All", fleet_path , class: "btn btn-primary") %>
+          </div>
+          <div class="form-group">
+            <%= link_to("Sedans", fleet_path(vehicule_type: "sedan"), class: "btn btn-primary") %>
+          </div>
+          <div class="form-group">
+            <%= link_to("Limousines", fleet_path(vehicule_type: "limousine"), class: "btn btn-primary") %>
+          </div>
+          <div class="form-group">
+            <%= link_to("Shuttles", fleet_path(vehicule_type: "shuttle"), class: "btn btn-primary") %>
+          </div>
+          <div class="form-group">
+            <%= link_to("Buses", fleet_path(vehicule_type: "bus"), class: "btn btn-primary") %>
+          </div>
+
           </div>
         </div>
-        <div class="sidebar_widget sell_car_quote">
-          <div class="white-text div_zindex text-center">
-            <h3>Sell Your Car</h3>
-            <p>Request a quote and sell your car now!</p>
-            <a href="#" class="btn">Request a Quote <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
-          <div class="dark-overlay"></div>
-        </div>
-        <div class="sidebar_widget">
-          <div class="widget_heading">
-            <h5><i class="fa fa-car" aria-hidden="true"></i> Recently Listed Cars</h5>
-          </div>
-          <div class="recent_addedcars">
-            <ul>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Recently Listed Car Name</a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Recently Listed Car Name</a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Recently Listed Car Name</a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Recently Listed Car Name </a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+      
       </aside>
       <!--/Side-Bar--> 
     </div>

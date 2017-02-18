@@ -1,0 +1,26 @@
+<%= simple_form_for(@vehicule, :html => {:multipart => true}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :vehicule_type, :as => :select, :collection => Vehicule.vehicule_types.keys.to_a %>
+    <%= f.input :info %>
+    <%= f.file_field :display_image %>
+    <%= f.input :seats %>
+    <%= f.input :tv %>
+    <%= f.input :bathroom %>
+    <%= f.input :dvd_player %>
+    <%= f.input :cd_player %>
+    <%= f.input :am_fm_radio %>
+    <%= f.input :cooler %>
+    <%= f.input :nav_system %>
+    <%= f.input :sound_system %>
+    <%= f.input :wheelchair %>
+    <%= f.input :bluetooth %>
+    <%= f.input :leather %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

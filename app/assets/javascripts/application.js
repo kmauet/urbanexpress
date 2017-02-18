@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require car_theme/js/bootstrap
 //= require car_theme/js/interface
 //= require car_theme/js/bootstrap-slider

@@ -1,0 +1,63 @@
+<!--Page Header-->
+<section class="page-header profile_page">
+  <div class="container">
+    <div class="page-header_wrap">
+      <div class="page-heading">
+        <h1><%= @current_customer.full_name %></h1>
+      </div>
+      <ul class="coustom-breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li>Profile</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Dark Overlay-->
+  <div class="dark-overlay"></div>
+</section>
+<!-- /Page Header--> 
+
+<!--Profile-setting-->
+<section class="user_profile inner_pages">
+  <div class="container">
+    <div class="user_profile_info gray-bg padding_4x4_40">
+      <div class="upload_user_logo"> <img src="assets/images/222x172.jpg" alt="image">
+        <div class="upload_newlogo">
+          <input name="upload" type="file">
+        </div>
+      </div>
+      <div class="dealer_info">
+        <h5>Autospot Used Cars Center </h5>
+        <p>P.1225 N Broadway Ave <br>
+          Oklahoma City, OK  1234-5678-090</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <div class="profile_nav">
+          <%= render 'web_page/partials/profile_sidemenu' %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-8">
+        <div class="profile_wrap">
+          <h5 class="uppercase underline">Genral Settings</h5>
+          <dl class="dl-horizontal">
+            <dt><strong>first name:</strong></dt>
+            <dd><%= @current_customer.first_name %></dd>
+            <dt><strong>last name:</strong></dt>
+            <dd><%= @current_customer.last_name %></dd>
+            <dt><strong>email:</strong></dt>
+            <dd><%= @current_customer.email %></dd>
+            <dt><strong>phone number:</strong></dt>
+            <dd><%= @current_customer.phone_number %></dd>
+          </dl>
+
+          <div class="form-actions" >
+            <%= link_to t('.edit', :default => t("Edit Profile")),
+                        edit_profile_settings_path(), :class => 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/Profile-setting--> 
