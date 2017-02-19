@@ -130,7 +130,7 @@ blockquote,
 	border-color: #fa2837 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
 }
 .td_divider:after {
-	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0 ) rgba(0, 0, 0, 0 ) #fa2837 ;
+	/* border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0 ) rgba(0, 0, 0, 0 ) #fa2837 ;*/
 }
 
 .navbar-nav > li > .dropdown-menu li {

@@ -15,7 +15,8 @@
   <div class="dark-overlay" style="background: rgba(0, 0, 0, 0.65) none repeat scroll 0 0;"></div>
 </section>
 <!-- /Page Header--> 
-
+  
+    
 <!--Listing-->
 <section class="listing-page">
   <div class="container">
@@ -23,10 +24,13 @@
       <div class="col-md-9 col-md-push-3">
         <% @vehicules.each do |vehicule| %>        
           <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><%= image_tag( vehicule.display_image_url(), class: "img-responsive") if vehicule.display_image? %> </a>
+            <div class="product-listing-img"> 
+              <a href="<%= vehicule.display_image_url() %>" data-lightbox=<%= "example-set-#{vehicule.id}" %> data-title="Click the right half of the image to move forward."><%= image_tag( vehicule.display_image_url(), class: "img-responsive" ) if vehicule.display_image? %> 
+              </a>
+              <%= link_to "", vehicule.display_image_url(), class: "img-responsive", :data => { :lightbox => "example-set-#{vehicule.id}", :title => "Or press the right arrow on your keyboard." } %>
             </div>
             <div class="product-listing-content">
-              <h6><a href="#"><%= vehicule.name %></a></h6>
+              <h6><a href=<%= vehicule_details_path(vehicule.id) %> ><%= vehicule.name %></a></h6>
               <ul>
                 <% if vehicule.amenities.include?("tv") %>
               <li> <i class="fa fa-television" aria-hidden="true"></i>
@@ -39,22 +43,17 @@
               </li>
             <% end %>
             <% if vehicule.amenities.include?("dvd_player") %>
-              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+              <li> <i class="fa fa-circle" aria-hidden="true"></i>
                 Dvd Player
               </li>
             <% end %>
-            <% if vehicule.amenities.include?("cd_player") %>
-              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
-                Cd Player
-              </li>
-            <% end %>
             <% if vehicule.amenities.include?("am_fm_radio") %>
-              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+              <li> <i class="fa fa-microphone" aria-hidden="true"></i>
                 AM/FM Radio
               </li>
             <% end %>
             <% if vehicule.amenities.include?("cooler") %>
-              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <li> <i class="fa fa-snowflake-o" aria-hidden="true"></i>
                 cooler
               </li>
             <% end %>
@@ -78,13 +77,18 @@
                 bluetooth
               </li>
             <% end %>
+            <% if vehicule.amenities.include?("cd_player") %>
+              <li> <i class="fa fa-circle-o" aria-hidden="true"></i>
+                Cd Player
+              </li>
+            <% end %>
             <% if vehicule.amenities.include?("seats") %>
-              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <li> <i class="fa fa-user" aria-hidden="true"></i>
                 <%= vehicule.seats %> seats
               </li>
             <% end %>
               </ul>
-              <a href=<%="/vehicule-details/#{vehicule.id}" %> class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+              <a href=<%= vehicule_details_path(vehicule.id) %> class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
               <a href=<%= quote_request_path %> class="btn btn-quote">Get a quote</a>
             </div>
           </div>

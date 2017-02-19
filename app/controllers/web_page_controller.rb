@@ -1,15 +1,15 @@
 class WebPageController < ApplicationController
   # GET home
   def home
-    
+    @current_menu_item = "home"
   end
 
   def contact_us
-
+    @current_menu_item = "contact_us"
   end
 
   def about_us
-
+    @current_menu_item = "about_us"
   end
 
   def quote_request
@@ -27,6 +27,7 @@ class WebPageController < ApplicationController
   end
 
   def fleet
+    @current_menu_item = "fleet"
     @type = params[:vehicule_type]
     if Vehicule.vehicule_types.keys.include?(@type)
       @vehicules = Vehicule.where(vehicule_type: @type)
@@ -36,10 +37,11 @@ class WebPageController < ApplicationController
   end
 
   def services
-
+    @current_menu_item = "services"
   end
 
   def profile_settings
+    @current_menu_item = "profile"
     if current_customer.nil?
       raise ActionController::RoutingError.new('Not Found')
     else
@@ -59,6 +61,7 @@ class WebPageController < ApplicationController
   end
 
   def edit_profile_settings
+    @current_menu_item = "profile"
     if current_customer.nil?
       raise ActionController::RoutingError.new('Not Found')
     else
@@ -67,11 +70,13 @@ class WebPageController < ApplicationController
   end
 
   def vehicule_details
+    @current_menu_item = "fleet"
     @vehicule = Vehicule.find(params[:id])
     @other_vehicules = Vehicule.where(vehicule_type: @vehicule.vehicule_type) - [@vehicule]
   end
 
   def history
+    @current_menu_item = "history"
     if current_customer.nil?
       raise ActionController::RoutingError.new('Not Found')
     else
@@ -80,7 +85,7 @@ class WebPageController < ApplicationController
   end
 
   def jobs
-
+    @current_menu_item = "jobs"
   end
   private
     def customer_params

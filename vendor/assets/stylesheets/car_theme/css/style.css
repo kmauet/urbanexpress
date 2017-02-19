@@ -415,9 +415,9 @@ blockquote,
 .recent-tab .nav.nav-tabs li.active::after {
 	border-color: #fa2837 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
 }
-.td_divider:after {
+/*.td_divider:after {
 	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0 ) rgba(0, 0, 0, 0 ) #fa2837 ;
-}
+}*/
 
 .navbar-nav > li > .dropdown-menu li {
   border-bottom: 1px solid #e21625;
@@ -3986,7 +3986,7 @@ table.info-tabel tr td {
   top: 15%;
   width: 3px;
 }
-.td_divider:after {
+/*.td_divider:after {
 	position:absolute;
 	right:-20px;
 	border-style:solid;
@@ -3998,7 +3998,7 @@ table.info-tabel tr td {
 	  -o-transform:translateY(-50%);
 	   -webkit-transform:translateY(-50%);
 	    -ms-transform:translateY(-50%);
-}
+}*/
 .compare_product_title a {
 	color:#111;	
 }

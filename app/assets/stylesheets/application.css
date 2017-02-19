@@ -18,15 +18,27 @@
  *= require car_theme/css/bootstrap-slider
  *= require car_theme/css/font-awesome
  *= require car_theme/css/colors/red
+ *= require lightbox
  *= require_tree .
  *= require_self
  */
+
  /*body{
   background-color: #333;
  }
  h1, h2, h3, h4, h5, h6 {
     color: #fff;
   }*/
+
+#navigation li.active{
+  background-color: red;
+}
+#navigation li.active a{
+  color: white;
+}
+.header_search{
+  padding: 14px 0;
+}
 .fun-facts-side{
   display: table;
   height: 188px;
@@ -87,7 +99,7 @@ a.btn:visited {
   padding: 15px 0;
 }
 .vehic-det-quote-btn-div{
-padding-bottom: 10px;}
+padding-bottom: 10px; }
 /***** end vehicule-details page ******/
 
 /***** services page ******/
@@ -101,3 +113,25 @@ padding-bottom: 10px;}
   list-style: none;
 }
 /***** end services page ******/
+
+/***** jobs page ******/
+.compare_product_title li.listing_heading {
+  text-align:center;
+}
+.compare_product_title, .inventory_info_list {
+  margin-bottom: 0;
+}
+.inventory_info_list .active_job{
+  background-color: #bbb;
+}
+.job-desc{
+  background-color: #bbb;
+  padding: 30px;
+}
+.job-desc p{
+  font-size: 1.4em; 
+}
+/***** end jobs page ******/
+.reward-points{
+  font-size: 1.5em;
+}

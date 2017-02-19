@@ -17,4 +17,58 @@
 //= require car_theme/js/bootstrap-slider
 //= require car_theme/js/slick.min
 //= require car_theme/js/owl.carousel
+//= require lightbox
 //= require_tree .
+
+hide_all_info = function() {
+  $(".drivers-job-info").hide();
+  $(".bus-assistant-job-info").hide();
+  $(".dispatchers-job-info").hide();
+  $(".mechanics-job-info").hide();
+  $("#driver-job-info").removeClass('active_job');
+  $("#bus-assist-job-info").removeClass('active_job');
+  $("#dispatcher-job-info").removeClass('active_job');
+  $("#mechanic-job-info").removeClass('active_job');
+}
+default_job = function(){
+  $(".drivers-job-info").hide();
+  $(".bus-assistant-job-info").hide();
+  $(".dispatchers-job-info").hide();
+  $(".mechanics-job-info").hide();
+  $("#driver-job-info").removeClass('active_job');
+  $("#bus-assist-job-info").removeClass('active_job');
+  $("#dispatcher-job-info").removeClass('active_job');
+  $("#mechanic-job-info").removeClass('active_job');
+
+  $(".drivers-job-info").show();
+  $("#driver-job-info").addClass('active_job');
+} 
+
+$(document).ready(default_job
+);
+
+$("#driver-job-info").on('click', function(e) {
+  e.preventDefault()  ;
+  hide_all_info();
+  $(".drivers-job-info").show();
+  $("#driver-job-info").addClass('active_job');
+});
+  
+$("#bus-assist-job-info").on('click', function(e) {
+  e.preventDefault()  ;
+  hide_all_info();
+  $(".bus-assistant-job-info").show();
+  $("#bus-assist-job-info").addClass('active_job');
+});
+$("#dispatcher-job-info").on('click', function(e) {
+  e.preventDefault()  ;
+  hide_all_info();
+  $(".dispatchers-job-info").show();
+  $("#dispatcher-job-info").addClass('active_job');
+});
+$("#mechanic-job-info").on('click', function(e) {
+  e.preventDefault()  ;
+  hide_all_info();
+  $(".mechanics-job-info").show();
+  $("#mechanic-job-info").addClass('active_job');
+});

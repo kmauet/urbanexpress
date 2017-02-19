@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <%= stylesheet_link_tag    'application', media: 'all' %>
-<%= javascript_include_tag 'application' %>
 <%= csrf_meta_tags %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,9 +73,9 @@
             <ul>
               <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_customer.full_name %> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/profile-settings.html">Profile Settings</a></li>
-                  <li><a href="/my-vehicles.html">My Reward Points</a></li>
-                  <li><a href="/post-vehicle.html">History</a></li>
+                  <li><a href="/profile-settings">Profile Settings</a></li>
+                  <li><a href="/history">My Reward Points</a></li>
+                  <li><a href="/history">History</a></li>
                   <li><%= link_to("Sign Out", destroy_customer_session_path, method: :post) %></li>
                 </ul>
               </li>
@@ -93,12 +92,12 @@
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li ><a href="/"  aria-haspopup="true" aria-expanded="false">Home</a></li>
-          <li><a href="/fleet">Fleet</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/jobs">Jobs</a></li>
-          <li><a href="/about-us">About Us</a></li>
-          <li><a href="/contact-us">Contact Us</a></li>
+          <li <%= "class=active" if @current_menu_item == "home"%> ><a href="/"  aria-haspopup="true" aria-expanded="false">Home</a></li>
+          <li <%= "class=active" if @current_menu_item == "fleet"%>><a href="/fleet">Fleet</a></li>
+          <li <%= "class=active" if @current_menu_item == "services"%>><a href="/services">Services</a></li>
+          <li <%= "class=active" if @current_menu_item == "jobs"%>><a href="/jobs">Jobs</a></li>
+          <li <%= "class=active" if @current_menu_item == "about_us"%>><a href="/about-us">About Us</a></li>
+          <li <%= "class=active" if @current_menu_item == "contact_us"%>><a href="/contact-us">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -187,6 +186,7 @@
 <!--Back to top-->
 <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
 <!--/Back to top-->
+<%= javascript_include_tag 'application' %>
 
 </body>
 </html>

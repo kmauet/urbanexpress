@@ -119,25 +119,19 @@
               </li>
             <% end %>
             <% if @vehicule.amenities.include?("dvd_player") %>
-              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+              <li> <i class="fa fa-circle" aria-hidden="true"></i>
                 <h5>&#10003</h5>
                 <p>Dvd Player</p>
               </li>
             <% end %>
-            <% if @vehicule.amenities.include?("cd_player") %>
-              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
-                <h5>&#10003</h5>
-                <p>Cd Player</p>
-              </li>
-            <% end %>
             <% if @vehicule.amenities.include?("am_fm_radio") %>
-              <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+              <li> <i class="fa fa-microphone" aria-hidden="true"></i>
                 <h5>&#10003</h5>
                 <p>AM/FM Radio</p>
               </li>
             <% end %>
             <% if @vehicule.amenities.include?("cooler") %>
-              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <li> <i class="fa fa-snowflake-o" aria-hidden="true"></i>
                 <h5>&#10003</h5>
                 <p>cooler</p>
               </li>
@@ -166,8 +160,14 @@
                 <p>bluetooth</p>
               </li>
             <% end %>
+            <% if @vehicule.amenities.include?("cd_player") %>
+              <li> <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <h5>&#10003</h5>
+                <p>Cd Player</p>
+              </li>
+            <% end %>
             <% if @vehicule.amenities.include?("seats") %>
-              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <li> <i class="fa fa-user" aria-hidden="true"></i>
                 <h5><%= @vehicule.seats %></h5>
                 <p>Seats</p>
               </li>
@@ -187,11 +187,8 @@
             <div class="tab-content"> 
               <!-- vehicle-overview -->
               <div role="tabpanel" class="tab-pane active" id="vehicle-overview">
-                <h4>What is Lorem Ipsum?</h4>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <h4>What is Lorem Ipsum?</h4>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+                <h4>Info</h4>
+                <p><%= @vehicule.info %></p>
               </div>
               
               <!-- Technical-Specification -->
@@ -365,16 +362,6 @@
               </div>
             <% end %>
           </div>
-        </div>
-        <div class="sidebar_widget">
-          <div class="widget_heading">
-            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Other Categ </h5>
-          </div>
-          <div class="dealer_detail"> <img src="assets/images/90x90.jpg" alt="image">
-            <p><span>Name:</span> Dealer Name</p>
-            <p><span>Email:</span> contact@example.com</p>
-            <p><span>Phone:</span> +61-1234-5678-09</p>
-            <a href="#" class="btn btn-xs">View Profile</a> </div>
         </div>
         <div class="sidebar_widget">
           <div class="widget_heading">

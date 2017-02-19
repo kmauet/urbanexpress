@@ -40,11 +40,9 @@
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
           <h5 class="uppercase underline">Reward Points</h5>
-          <dl class="dl-horizontal">
-            <dt><strong>Total Points:</strong></dt>
-            <dd><%= @current_customer.points %></dd>
-
-          </dl>
+          <div class="reward-points">
+            You have earned <strong><%= @current_customer.points %> points!</strong>
+          </div>
         </div>
       </div>
     </div>
