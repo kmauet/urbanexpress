@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
 gem 'merit'
 
+gem 'griddler'
+gem 'griddler-sendgrid'
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

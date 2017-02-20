@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218062806) do
+ActiveRecord::Schema.define(version: 20170220203052) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 20170218062806) do
   create_table "merit_scores", force: :cascade do |t|
     t.integer "sash_id"
     t.string  "category", default: "default"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "quote_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quote_id"], name: "index_messages_on_quote_id"
   end
 
   create_table "quotes", force: :cascade do |t|

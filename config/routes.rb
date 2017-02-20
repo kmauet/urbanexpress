@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :quotes
   resources :vehicules
   devise_for :users
@@ -28,4 +29,6 @@ Rails.application.routes.draw do
       sessions: 'customers/sessions',
       passwords: 'customers/passwords'
     }
+    
+  mount_griddler
 end
