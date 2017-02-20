@@ -1,80 +1,11 @@
-<!-- Listing-detail-header -->
-
-<!-- /Listing-detail-header -->
-
-<!-- Filter-Form -->
-<section id="filter_form" class="inner-filter gray-bg">
-  <div class="container">
-    <h3>Find Your Dream Car <span>(Easy search from here)</span></h3>
-    <div class="row">
-      <form action="#" method="get">
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control">
-              <option value="">Select Location </option>
-              <option value="">Location 1 </option>
-              <option value="">Location 1 </option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control">
-              <option>Select Brand</option>
-              <option>Brand 1</option>
-              <option>Brand 2</option>
-              <option>Brand 3</option>
-              <option>Brand 4</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control">
-              <option>Select Model</option>
-              <option>Series 1</option>
-              <option>Series 2</option>
-              <option>Series 3</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control">
-              <option>Year of Model </option>
-              <option>2016</option>
-              <option>2015</option>
-              <option>2014</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-6 col-sm-6 black_input">
-          <label class="form-label">Price Range ($)</label>
-          <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
-        </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control">
-              <option>Type of Car </option>
-              <option>New Car</option>
-              <option>Used Car</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 col-sm-6">
-          <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search Car </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-<!-- /Filter-Form --> 
-
 <!--Listing-detail-->
 <section class="listing-detail">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 vehic-det-quote-btn-div">
+      <div class="col-md-6 vehic-name">
+        <h3><%= @vehicule.name %></h3>
+      </div>
+      <div class="col-md-3  vehic-det-quote-btn-div">
         <a href=<%= quote_request_path %> class="btn btn-quote">Get a quote</a>
       </div>
     </div>

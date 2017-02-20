@@ -1,10 +1,10 @@
 <div class="container">
   <h2>Request A Quote</h2>
-  <%= simple_form_for(@quote) do |f| %>
+  <%= simple_form_for(@quote, url: create_quote_request_path, method: :post) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-first_name">
-      <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
     </div>
     <div class="form-group">
       <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>

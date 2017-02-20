@@ -82,19 +82,20 @@
             </ul>
           </div>
         <% end%>
-        <div class="header_search">
+        <!--<div class="header_search">
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
           <form action="#" method="get" id="header-search-form">
             <input type="text" placeholder="Search..." class="form-control">
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
-        </div>
+        </div>-->
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
           <li <%= "class=active" if @current_menu_item == "home"%> ><a href="/"  aria-haspopup="true" aria-expanded="false">Home</a></li>
           <li <%= "class=active" if @current_menu_item == "fleet"%>><a href="/fleet">Fleet</a></li>
           <li <%= "class=active" if @current_menu_item == "services"%>><a href="/services">Services</a></li>
+          <li <%= "class=active" if @current_menu_item == "request_quote"%>><a href=<%= quote_request_path %>>Request a Quote</a></li>
           <li <%= "class=active" if @current_menu_item == "jobs"%>><a href="/jobs">Jobs</a></li>
           <li <%= "class=active" if @current_menu_item == "about_us"%>><a href="/about-us">About Us</a></li>
           <li <%= "class=active" if @current_menu_item == "contact_us"%>><a href="/contact-us">Contact Us</a></li>

@@ -13,6 +13,7 @@ class WebPageController < ApplicationController
   end
 
   def quote_request
+     @current_menu_item = "request_quote"
     @quote = Quote.new
   end
 
@@ -93,6 +94,6 @@ class WebPageController < ApplicationController
     end
 
     def quote_request_params
-      params.require(:customer).permit(:first_name, :last_name, :email, :phone_number, :service_type, :vehicule_type, :number_of_people)
+      params.require(:quote).permit(:first_name, :last_name, :email, :phone_number, :service_type, :vehicule_type, :number_of_people)
     end
 end
