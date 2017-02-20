@@ -10,11 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require car_theme/css/bootstrap
- *= require car_theme/css/style
- *= require car_theme/css/owl.carousel
- *= require car_theme/css/owl.transitions
- *= require car_theme/css/slick
  *= require car_theme/css/bootstrap-slider
  *= require car_theme/css/font-awesome
  *= require car_theme/css/colors/red
