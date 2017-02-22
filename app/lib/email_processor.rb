@@ -9,10 +9,9 @@ class EmailProcessor
 
     # here's an example of model creation
     #user = User.find_by_email(@email.from[:email])
-    Message.create!create!(
-      subject: @email.subject,
-      body: @email.body
-      quote_id: Quote.first
+    Message.create!(
+      body: @email.body,
+      quote_id: Quote.first.id
     )
   end
 end
