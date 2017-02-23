@@ -1,0 +1,2 @@
+class AirportPickupQuote < Quote
+end

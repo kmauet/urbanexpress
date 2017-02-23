@@ -135,3 +135,36 @@ padding-bottom: 10px; }
 .reward-points{
   font-size: 1.5em;
 }
+
+
+/******quote request *********/
+body {
+  padding : 10px ;
+  
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+#exTab3 .nav-pills > li{
+  margin-bottom: 0;
+}
+#exTab3 .tab-content {
+  color : white;
+  background-color: #bbb;
+  padding : 5px 15px;
+}
+
+#exTab3 .nav-pills > li.active > a, #exTab3 .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+  background-color: #bbb;
+}
+
+#exTab3 .form-control{
+  height: 35px;
+}
+/****** end quote request *********/
+
+
+

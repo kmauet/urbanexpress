@@ -1,30 +1,33 @@
 <div class="container">
   <h2>Request A Quote</h2>
-  <%= simple_form_for(@quote, url: create_quote_request_path, method: :post) do |f| %>
-    <%= f.error_notification %>
+  <div id="exTab3"> 
+    <ul  class="nav nav-pills">
+      <li class="active">
+        <a  href="#1b" data-toggle="tab">Airport Pickup</a>
+      </li>
+      <li><a href="#2b" data-toggle="tab">Airport Dropoff</a>
+      </li>
+      <li><a href="#3b" data-toggle="tab">Out of Town Charter</a>
+      </li>
+      <li><a href="#4b" data-toggle="tab">Long Term Contracts</a>
+      </li>
+    </ul>
 
-    <div class="form-first_name">
-      <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="tab-content clearfix">
+      <div class="tab-pane active" id="1b">
+        <%= render 'web_page/partials/airport_pickup_form' %>
+      </div>
+      <div class="tab-pane" id="2b">
+        <%= render 'web_page/partials/airport_dropoff_form' %>
+      </div>
+      <div class="tab-pane" id="3b">
+        <%= render 'web_page/partials/out_of_town_form' %>
+      </div>
+        <div class="tab-pane" id="4b">
+        <%= render 'web_page/partials/contract_form' %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-first_name">
-      <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :phone_number, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-first_name">
-      <%= f.input :vehicule_type, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :number_of_people, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.button :submit, "Submit Quote" %>
-    </div>
-  <% end %>
 
 </div>

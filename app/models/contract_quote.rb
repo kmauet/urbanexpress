@@ -1,0 +1,2 @@
+class ContractQuote < Quote
+end

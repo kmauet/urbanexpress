@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220203052) do
+ActiveRecord::Schema.define(version: 20170223063809) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -91,10 +91,29 @@ ActiveRecord::Schema.define(version: 20170220203052) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "service_type"
-    t.string   "vehicule_type"
-    t.integer  "number_of_people"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "type"
+    t.integer  "customer_id"
+    t.string   "organization"
+    t.string   "address"
+    t.string   "extension"
+    t.date     "departure_date"
+    t.time     "departure_time"
+    t.string   "departure_address"
+    t.string   "destination_address"
+    t.integer  "vehicule_type"
+    t.text     "itinirary"
+    t.text     "additional_notes"
+    t.integer  "total_num_of_days"
+    t.date     "return_date"
+    t.time     "return_time"
+    t.integer  "num_of_passengers"
+    t.integer  "num_of_bags"
+    t.string   "airport"
+    t.string   "flight_num"
+    t.string   "pay_method"
+    t.time     "flight_departure_time"
   end
 
   create_table "sashes", force: :cascade do |t|

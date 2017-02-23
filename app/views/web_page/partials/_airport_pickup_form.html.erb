@@ -1,0 +1,47 @@
+<%= simple_form_for(@quote) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :service_type, as: :hidden %>
+    
+    <div class="form-group">
+      <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :phone_number, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :departure_date, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :airport, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :departure_time, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :destination_address, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :flight_num, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :pay_method, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :additional_notes, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.button :submit, "Submit Quote"%>
+    </div>
+
+  </div>
+
+<% end %>

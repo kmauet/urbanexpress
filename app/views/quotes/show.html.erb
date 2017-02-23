@@ -35,5 +35,23 @@
   <%= @quote.number_of_people %>
 </p>
 
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Body</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @quote.messages.each do |message| %>
+        <tr>
+          <td><%= message.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>  
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>

@@ -1,0 +1,2 @@
+class OutOfTownQuote < Quote
+end
