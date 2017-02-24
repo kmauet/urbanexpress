@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      redirect_to @message.quote, notice: 'Message was successfully created.'
+      redirect_to quote_path(@message.quote.id), notice: 'Message was successfully created.'
     else
       render :new
     end
