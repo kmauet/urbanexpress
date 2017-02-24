@@ -11,6 +11,7 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @message = @quote.messages.build
   end
 
   # GET /quotes/new

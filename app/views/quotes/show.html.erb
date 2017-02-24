@@ -88,8 +88,26 @@
         <% end %>
       </tbody>
     </table>
-
   </div>  
-  <%= link_to 'Edit', edit_quote_path(@quote) %> |
-  <%= link_to 'Back', quotes_path %>
+
+  <div class="row" style="padding-bottom:20px">
+    <div class="col-md-12">
+      <%= simple_form_for(@message) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :quote_id, as: :hidden %>
+          <div class="row">
+            <div class="form-group col-md-8">
+              <%= f.input :body, autofocus: true, as: :text, input_html: {class: " white_bg", :cols => 105, :rows => 8 } %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

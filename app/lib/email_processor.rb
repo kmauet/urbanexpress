@@ -8,10 +8,10 @@ class EmailProcessor
     # processing reports, etc
 
     # here's an example of model creation
-    #user = User.find_by_email(@email.from[:email])
-    quote_id = get_quote_id_from_subject(@email.subject)
+    #quote_id = get_quote_id_from_subject(@email.subject)
+    quote_id = Quote.last.id
     if quote_id.blank?
-      check_header_for_reply_to
+      #check_header_for_reply_to
       quote = Quote.create(info: email.body)
     else
       quote = Quote.find(quote_id)
