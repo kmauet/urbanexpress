@@ -12,7 +12,7 @@ class EmailProcessor
     quote_id = Quote.last.id
     if quote_id.blank?
       #check_header_for_reply_to
-      quote = Quote.create(info: email.body)
+      quote = Quote.create(info: @email.body)
     else
       quote = Quote.find(quote_id)
     end
@@ -23,7 +23,7 @@ class EmailProcessor
         quote_id: quote.id
       )
     else
-      quote = Quote.create(info: email.body)
+      quote = Quote.create(info: @email.body)
     end
   end
 end
