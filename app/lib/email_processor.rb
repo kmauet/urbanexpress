@@ -17,7 +17,7 @@ class EmailProcessor
       quote = Quote.find(quote_id)
     end
      
-    if not(quote.blank?) and quote.email == @email.from
+    if not(quote.blank?) #and quote.email == @email.from
       Message.create!(
         body: @email.body,
         quote_id: quote.id
