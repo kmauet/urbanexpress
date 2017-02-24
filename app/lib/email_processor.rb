@@ -23,7 +23,7 @@ class EmailProcessor
         quote_id: quote.id
       )
     else
-      quote = Quote.create(info: @email.body)
+      random_message = Message.create(body: @email.body)
     end
   end
 end
