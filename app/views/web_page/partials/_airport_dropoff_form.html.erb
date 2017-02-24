@@ -1,45 +1,51 @@
-<%= simple_form_for(@quote) do |f| %>
+<%# @quote.type = "AirportDropoffQuote" %>
+<%= simple_form_for(@airport_dropoff_quote, url: create_quote_request_path(anchor: "2b"), method: :post) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :service_type, as: :hidden %>
+    <%= f.input :type, as: :hidden %>
 
-    <div class="form-group">
-      <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :phone_number, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :departure_date, autofocus: true, as: :string,  input_html: {class: "form-control white_bg datepicker"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :airport, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :departure_time, autofocus: true, as: :string, input_html: {class: "form-control white_bg", :data =>{:provide => "timepicker"}} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :departure_address, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :flight_num, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.input :phone_number, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :additional_notes, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group">
+        <%= f.button :submit, "Submit Quote"%>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.input :departure_date, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :airport, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :departure_time, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :departure_address, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :flight_num, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :additional_notes, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-
-    <div class="form-group">
-      <%= f.button :submit, "Submit Quote"%>
-    </div>
-
   </div>
 
 <% end %>

@@ -44,7 +44,15 @@ default_job = function(){
   $("#driver-job-info").addClass('active_job');
 } 
 
-$(document).ready(default_job
+$(document).ready(function(){
+    default_job();
+    $("input.datepicker").datepicker({});
+    //make tabs in quote-request page persist in url
+    if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
+      return $('a[data-toggle="tab"]').on('shown', function(e) {
+      return location.hash = $(e.target).attr('href').substr(1);
+    });
+  }
 );
 
 $("#driver-job-info").on('click', function(e) {

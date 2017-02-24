@@ -1,57 +1,95 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>First name:</strong>
-  <%= @quote.first_name %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @quote.last_name %>
-</p>
+  <div class="col-md-4 col-sm-8">
+    <div class="profile_wrap">
+      <dl class="dl-horizontal">
+        <dt><strong>first name:</strong></dt>
+        <dd><%= @quote.first_name %></dd>
+        <dt><strong>last name:</strong></dt>
+        <dd><%= @quote.last_name %></dd>
+        <dt><strong>email:</strong></dt>
+        <dd><%= @quote.email %></dd>
+        <dt><strong>phone number:</strong></dt>
+        <dd><%= @quote.phone_number %></dd>
+        <dt><strong>organization:</strong></dt>
+        <dd><%= @quote.organization %></dd>
+        <dt><strong>type:</strong></dt>
+        <dd><%= @quote.type %></dd>
+         <dt><strong>airport:</strong></dt>
+        <dd><%= @quote.airport %></dd>
+        <dt><strong>flight num:</strong></dt>
+        <dd><%= @quote.flight_num %></dd>
+        <dt><strong>flight departure time:</strong></dt>
+        <dd><%= @quote.flight_departure_time %></dd>
 
-<p>
-  <strong>Email:</strong>
-  <%= @quote.email %>
-</p>
+      </dl>
+    </div>
+  </div>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @quote.phone_number %>
-</p>
-
-<p>
-  <strong>Service type:</strong>
-  <%= @quote.service_type %>
-</p>
-
-<p>
-  <strong>Vehicule type:</strong>
-  <%= @quote.vehicule_type %>
-</p>
-
-<p>
-  <strong>Number of people:</strong>
-  <%= @quote.number_of_people %>
-</p>
-
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>Body</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @quote.messages.each do |message| %>
+  <div class="col-md-4 col-sm-8">
+    <div class="profile_wrap">
+      <dl class="dl-horizontal">
+        <dt><strong>customer:</strong></dt>
+        <dd><%= @quote.customer_id %></dd>
+        <dt><strong>vehicule type:</strong></dt>
+        <dd><%= @quote.vehicule_type %></dd>
+        <dt><strong>Number of passengers:</strong></dt>
+        <dd><%= @quote.num_of_passengers %></dd>
+        <dt><strong>Number of bags:</strong></dt>
+        <dd><%= @quote.num_of_bags %></dd>
+        <dt><strong>address:</strong></dt>
+        <dd><%= @quote.address %></dd>
+        <dt><strong>extension:</strong></dt>
+        <dd><%= @quote.extension %></dd>
+        <dt><strong>departure_date:</strong></dt>
+        <dd><%= @quote.departure_date %></dd>
+        <dt><strong>departure_address:</strong></dt>
+        <dd><%= @quote.departure_address %></dd>
+        <dt><strong>destination_address:</strong></dt>
+        <dd><%= @quote.destination_address %></dd>
+        
+      </dl>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-8">
+    <div class="profile_wrap">
+      <dl class="dl-horizontal">
+        <dt><strong>itinirary:</strong></dt>
+        <dd><%= @quote.itinirary %></dd>
+        <dt><strong>Additional Notes:</strong></dt>
+        <dd><%= @quote.additional_notes %></dd>
+        <dt><strong>total_num_of_days:</strong></dt>
+        <dd><%= @quote.total_num_of_days %></dd>
+        <dt><strong>Return date:</strong></dt>
+        <dd><%= @quote.return_date %></dd>
+        <dt><strong>return time:</strong></dt>
+        <dd><%= @quote.return_time %></dd>
+        <dt><strong>Payment method:</strong></dt>
+        <dd><%= @quote.pay_method %></dd>
+      </dl>
+    </div>
+  </div>
+ 
+  <div>
+    <table>
+      <thead>
         <tr>
-          <td><%= message.body %></td>
+          <th>Body</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
 
-</div>  
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
-<%= link_to 'Back', quotes_path %>
+      <tbody>
+        <% @quote.messages.each do |message| %>
+          <tr>
+            <td><%= message.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>  
+  <%= link_to 'Edit', edit_quote_path(@quote) %> |
+  <%= link_to 'Back', quotes_path %>
+</div>

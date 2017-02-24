@@ -164,6 +164,9 @@ body {
 #exTab3 .form-control{
   height: 35px;
 }
+#exTab3 .tab-content .error{
+  color: red;
+}
 /****** end quote request *********/
 
 

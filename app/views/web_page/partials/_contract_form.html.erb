@@ -1,35 +1,40 @@
-<%= simple_form_for(@quote) do |f| %>
+<%# @quote.type = "ContractQuote" %>
+<%= simple_form_for(@contract_quote, url: create_quote_request_path(anchor: "4b"), method: :post) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :service_type, as: :hidden %>
+    <%= f.input :type, as: :hidden %>
     
-    <div class="form-group">
-      <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :organization, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :phone_number, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :extension, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.input :organization, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+    <div class="row">
+      <div class="form-group col-md-8">
+        <%= f.input :additional_notes, autofocus: true, as: :text, input_html: {class: " white_bg", :cols => 85, :rows => 8 } %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.button :submit, "Submit Quote"%>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :phone_number, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :extension, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.input :additional_notes, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
-    </div>
-    <div class="form-group">
-      <%= f.button :submit, "Submit Quote"%>
-    </div>
-
   </div>
-  
+
 <% end %>

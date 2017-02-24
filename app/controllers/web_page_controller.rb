@@ -13,18 +13,43 @@ class WebPageController < ApplicationController
   end
 
   def quote_request
-     @current_menu_item = "request_quote"
-    @quote = Quote.new
+    @current_menu_item = "request_quote"
+    @airport_pickup_quote = AirportPickupQuote.new
+    @airport_dropoff_quote = AirportDropoffQuote.new
+    @out_of_town_quote = OutOfTownQuote.new
+    @contract_quote = ContractQuote.new
   end
 
   def create_quote_request
-    @quote = Quote.new(quote_request_params)
-
-    if @quote.save
-      redirect_to quote_request_path, notice: 'Quote was successfully created.' 
+    
+    if quote_request_params[:type] == "AirportPickupQuote"
+      @quote = @airport_pickup_quote = AirportPickupQuote.new(quote_request_params)
+      save_result = @airport_pickup_quote.save
+    elsif quote_request_params[:type] == "AirportDropoffQuote"
+      @quote = @airport_dropoff_quote = AirportDropoffQuote.new(quote_request_params)
+      save_result = @airport_dropoff_quote.save
+    elsif quote_request_params[:type] == "OutOfTownQuote"
+      @quote = @out_of_town_quote = OutOfTownQuote.new(quote_request_params)
+      save_result = @out_of_town_quote.save   
     else
-      render :new 
+      @quote = @contract_quote = ContractQuote.new(quote_request_params)
+      save_result = @contract_quote.save
     end
+
+    if save_result
+      redirect_to quote_success_page_path, notice: "Quote was successfully created. You will be receiving an email confirmation shortly at this email: #{@quote.email}" 
+    else
+      @current_menu_item = "request_quote"
+      @airport_pickup_quote = AirportPickupQuote.new unless @airport_pickup_quote
+      @airport_dropoff_quote = AirportDropoffQuote.new unless @airport_dropoff_quote
+      @out_of_town_quote = OutOfTownQuote.new unless @out_of_town_quote
+      @contract_quote = ContractQuote.new unless @contract_quote
+      render :quote_request 
+    end
+  end
+
+  def quote_success_page 
+
   end
 
   def fleet
@@ -94,6 +119,18 @@ class WebPageController < ApplicationController
     end
 
     def quote_request_params
-      params.require(:quote).permit(:first_name, :last_name, :email, :phone_number, :service_type, :vehicule_type, :number_of_people)
+      if params[:airport_pickup_quote]
+        result = params.require(:airport_pickup_quote)
+      elsif params[:airport_dropoff_quote]
+        result = params.require(:airport_dropoff_quote)
+      elsif params[:out_of_town_quote]
+        result = params.require(:out_of_town_quote)    
+      else
+        result = params.require(:contract_quote)
+      end
+      result.permit(:first_name, :last_name, :email, :phone_number, :service_type, :type, :customer_id, 
+            :organization, :address, :extension, :departure_date, :departure_time, :departure_address, 
+            :destination_address, :vehicule_type, :itinirary, :additional_notes, :total_num_of_days, :return_date, 
+            :return_time, :num_of_passengers, :num_of_bags, :airport, :flight_num, :pay_method, :flight_departure_time)
     end
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'edit-profile-settings' => 'web_page#edit_profile_settings', as: :edit_profile_settings
   patch 'profile-settings' => 'web_page#update_profile_settings'
   get 'quote-request' => 'web_page#quote_request'
+  get 'quote-success' => 'web_page#quote_success_page', as: :quote_success_page
   post 'quote-request' => 'web_page#create_quote_request', as: :create_quote_request
   get 'history' => 'web_page#history'
   get 'jobs' => 'web_page#jobs'
