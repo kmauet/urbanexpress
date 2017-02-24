@@ -167,6 +167,9 @@ body {
 #exTab3 .tab-content .error{
   color: red;
 }
+#exTab3 .nav-pills > li > a{
+  background-color: #eee;
+}
 /****** end quote request *********/
 
 
