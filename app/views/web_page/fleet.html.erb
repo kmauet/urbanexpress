@@ -27,7 +27,9 @@
             <div class="product-listing-img"> 
               <a href="<%= vehicule.display_image_url() %>" data-lightbox=<%= "example-set-#{vehicule.id}" %> data-title="Click the right half of the image to move forward."><%= image_tag( vehicule.display_image_url(), class: "img-responsive" ) if vehicule.display_image? %> 
               </a>
-              <%= link_to "", vehicule.display_image_url(), class: "img-responsive", :data => { :lightbox => "example-set-#{vehicule.id}", :title => "Or press the right arrow on your keyboard." } %>
+              <% vehicule.vehicule_images.each do |vec_im| %>
+                <%= link_to "", vec_im.photo_url(), class: "img-responsive", :data => { :lightbox => "example-set-#{vehicule.id}", :title => "Or press the right arrow on your keyboard." } %>
+              <% end %>
             </div>
             <div class="product-listing-content">
               <h6><a href=<%= vehicule_details_path(vehicule.id) %> ><%= vehicule.name %></a></h6>

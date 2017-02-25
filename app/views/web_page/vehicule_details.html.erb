@@ -13,26 +13,14 @@
       <div class="col-md-9">
         <div class="listing_images">
           <div id="listing_images_slider" class="listing_images_slider">
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <% @vehicule.vehicule_images.each do |vec_im| %>
+              <div><%=link_to( image_tag(vec_im.photo_url()))%></div>
+            <% end %>
           </div>
           <div id="listing_images_slider_nav" class="listing_images_slider_nav">
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
-            <div><%=link_to( image_tag(@vehicule.display_image_url()))%></div>
+            <% @vehicule.vehicule_images.each do |vec_im| %>
+              <div><%=link_to( image_tag(vec_im.photo_url()))%></div>
+            <% end %>
           </div>
         </div>
         <div class="main_features">

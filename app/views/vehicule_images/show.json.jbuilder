@@ -1,0 +1,1 @@
+json.partial! "vehicule_images/vehicule_image", vehicule_image: @vehicule_image

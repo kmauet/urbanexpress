@@ -11,6 +11,7 @@
     <div class="form-group">
       <%= f.input :info %>
     </div>
+    <%= image_tag @vehicule.display_image, height: '150' %>
     <div class="form-group">
       <%= f.file_field :display_image %>
     </div>
@@ -50,6 +51,15 @@
     <div class="form-group">
       <%= f.input :leather %>
     </div>
+
+    <%= f.simple_fields_for :vehicule_images do |p| %>
+     <div class="field">
+      <%= image_tag p.object.photo, height: '150' %>
+      <%= p.file_field :photo %>
+      <%= p.check_box :_destroy %>
+      <%= p.label :_destroy, "Remove Image" %>
+     </div>
+   <% end %>
   </div>
 
   <div class="form-actions">

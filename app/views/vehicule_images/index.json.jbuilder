@@ -1,0 +1,1 @@
+json.array! @vehicule_images, partial: 'vehicule_images/vehicule_image', as: :vehicule_image

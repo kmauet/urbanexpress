@@ -6,7 +6,7 @@
     <%= @vehicule.name %>
   </p>
   <p>
-  <%= image_tag @vehicule.display_image_url() if @vehicule.display_image? %>
+  <%= image_tag @vehicule.display_image_url(), height: '200' if @vehicule.display_image? %>
   </p>
   <p>
     <strong>Type:</strong>
@@ -78,6 +78,14 @@
     <%= @vehicule.leather %>
   </p>
 
-  <%= link_to 'Edit', edit_vehicule_path(@vehicule) %> |
-  <%= link_to 'Back', vehicules_path %>
+  <div>
+    <% @vehicule_images.each do |p| %>
+      <%= image_tag p.photo_url, height: '150' %>
+      <%# link_to "Edit Image", edit_vehicule_image_path(p) %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'Edit', edit_vehicule_path(@vehicule), class: "btn" %> |
+    <%= link_to 'Back', vehicules_path, class: "btn" %>
+  </div>
 </div>

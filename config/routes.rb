@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vehicule_images
   resources :messages
   resources :quotes
   resources :vehicules

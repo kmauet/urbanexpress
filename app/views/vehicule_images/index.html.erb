@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicule Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehicule</th>
+      <th>Photo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicule_images.each do |vehicule_image| %>
+      <tr>
+        <td><%= vehicule_image.vehicule_id %></td>
+        <td><%= vehicule_image.photo %></td>
+        <td><%= link_to 'Show', vehicule_image %></td>
+        <td><%= link_to 'Edit', edit_vehicule_image_path(vehicule_image) %></td>
+        <td><%= link_to 'Destroy', vehicule_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicule Image', new_vehicule_image_path %>

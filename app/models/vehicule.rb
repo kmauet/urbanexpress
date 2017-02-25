@@ -1,4 +1,7 @@
 class Vehicule < ApplicationRecord
+  has_many :vehicule_images, dependent: :destroy
+  accepts_nested_attributes_for :vehicule_images, reject_if: proc { |attributes| attributes[:photo].blank? }, allow_destroy: true
+
   enum vehicule_types: [:shuttle, :limousine, :sedan, :bus]
   validates_presence_of :vehicule_type
   mount_uploader :display_image, ImageUploader
