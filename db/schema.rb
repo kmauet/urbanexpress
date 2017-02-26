@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226035944) do
+ActiveRecord::Schema.define(version: 20170226075636) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -80,9 +80,14 @@ ActiveRecord::Schema.define(version: 20170226035944) do
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "quote_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.text     "email_hash"
+    t.index ["customer_id"], name: "index_messages_on_customer_id"
     t.index ["quote_id"], name: "index_messages_on_quote_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "quotes", force: :cascade do |t|

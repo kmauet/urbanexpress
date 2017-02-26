@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :quotes
+  has_many :messages
+  
   # Let the first declared role be the default.
   enum role: [:basic, :admin, :super_admin]
 

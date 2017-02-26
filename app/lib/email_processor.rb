@@ -21,6 +21,7 @@ class EmailProcessor
       Message.create!(
         body: @email.body,
         quote_id: quote.id
+        email_hash: @email.to_h
       )
     else
       random_message = Message.create(body: @email.body)
