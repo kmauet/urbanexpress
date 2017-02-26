@@ -30,9 +30,7 @@ class EmailProcessor
         raw_body: @email.raw_body,
         attachments: @email.attachments,
         headers: @email.headers,
-        raw_headers: @email.raw_headers,
-        customer_id: customer_id,
-        user_id: user_id
+        raw_headers: @email.raw_headers
       )
     else
       random_message = Message.create(body: @email.body)
