@@ -21,11 +21,17 @@ class EmailProcessor
       Message.create!(
         body: @email.body,
         quote_id: quote.id,
-        email_hash: @email.to_h
+        to: @email.to,
+        subject: @email.subject,
+        raw_text: @email.raw_text,
+        raw_html: @email.raw_html,
+        raw_body: @email.raw_body,
+        attachments: @email.attachments,
+        headers: @email.headers,
+        raw_headers: @email.raw_headers
       )
     else
       random_message = Message.create(body: @email.body)
     end
   end
 end
-
