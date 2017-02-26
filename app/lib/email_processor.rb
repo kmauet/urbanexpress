@@ -20,7 +20,7 @@ class EmailProcessor
     if not(quote.blank?) #and quote.email == @email.from
       Message.create!(
         body: @email.body,
-        quote_id: quote.id
+        quote_id: quote.id,
         email_hash: @email.to_h
       )
     else
