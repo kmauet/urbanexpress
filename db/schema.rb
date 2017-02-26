@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225023256) do
+ActiveRecord::Schema.define(version: 20170226035944) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(version: 20170225023256) do
     t.string   "flight_num"
     t.string   "pay_method"
     t.time     "flight_departure_time"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_quotes_on_user_id"
   end
 
   create_table "sashes", force: :cascade do |t|
@@ -135,6 +137,7 @@ ActiveRecord::Schema.define(version: 20170225023256) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role"
+    t.boolean  "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

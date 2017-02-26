@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :vehicule_images
   resources :messages
   resources :quotes
+  patch 'update_quote_assigned_user/:id' => 'quotes#update_quote_assigned_user', as: :update_quote_assigned_user
   resources :vehicules
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -24,6 +25,10 @@ Rails.application.routes.draw do
   devise_scope :customer do
     get "/change-password" => "customers/registrations#edit"
     post "/change-password" => "customers/registrations#update"
+  end
+
+  scope "/admin" do
+    resources :users
   end
 
   devise_for :customers, controllers: {
