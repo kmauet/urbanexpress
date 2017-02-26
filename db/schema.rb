@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226075636) do
+ActiveRecord::Schema.define(version: 20170226085824) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 20170226075636) do
     t.integer  "user_id"
     t.integer  "customer_id"
     t.text     "email_hash"
+    t.text     "to"
+    t.text     "from"
+    t.text     "cc"
+    t.text     "subject"
+    t.text     "raw_text"
+    t.text     "raw_html"
+    t.text     "raw_body"
+    t.text     "attachments"
+    t.text     "headers"
+    t.text     "raw_headers"
     t.index ["customer_id"], name: "index_messages_on_customer_id"
     t.index ["quote_id"], name: "index_messages_on_quote_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
