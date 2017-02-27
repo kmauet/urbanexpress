@@ -81,9 +81,20 @@
       </thead>
 
       <tbody>
-        <% @quote.messages.each do |message| %>
-          <tr>
-            <td><%= message.body %></td>
+        <% @messages.each do |message| %>
+          <tr  class="message-display<%= ' customer' unless message.customer.blank?  %>">
+            <td><div>
+                  <div>
+                    <% unless message.customer.blank? %> 
+                      <%= message.customer.email %>
+                    <% end %>
+                    <% unless message.user.blank? %> 
+                      <%= message.user.email %>
+                    <% end %>
+                  </div>
+                  <%= message.body %>
+                </div>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -97,6 +108,7 @@
 
         <div class="form-inputs">
           <%= f.input :quote_id, as: :hidden %>
+          <%= f.input :user_id, as: :hidden %>
           <div class="row">
             <div class="form-group col-md-8">
               <%= f.input :body, autofocus: true, as: :text, input_html: {class: " white_bg", :cols => 105, :rows => 8 } %>

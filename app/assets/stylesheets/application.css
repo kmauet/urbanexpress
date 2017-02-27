@@ -173,4 +173,6 @@ body {
 /****** end quote request *********/
 
 
-
+tr.message-display.customer{
+  background-color: #ddd;
+}
