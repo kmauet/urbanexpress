@@ -91,8 +91,9 @@
                     <% unless message.user.blank? %> 
                       <%= message.user.email %>
                     <% end %>
+                    <%= message.created_at %>
                   </div>
-                  <%= message.body %>
+                  <%= simple_format message.body %>
                 </div>
             </td>
           </tr>

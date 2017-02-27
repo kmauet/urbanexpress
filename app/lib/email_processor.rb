@@ -28,20 +28,21 @@ class EmailProcessor
 
   private
     def get_quote_id_from_subject(subject)
-      quote_id = subject.match(/\(#([1-9]+)\)/)[1]
+      quote_id = subject.match(/\(#([0-9]+)\)/)[1]
     end
 
     def create_message_from_email(email, quote_id, user, customer)
+      # Use redcarpet gem for markdown?
       Message.create!(
-        body: email.body,
+        body: sanitize email.body,
         quote_id: quote_id,
         to: email.to,
         from: email.from,
         cc: email.cc,
         subject: email.subject,
-        raw_text: email.raw_text,
-        raw_html: email.raw_html,
-        raw_body: email.raw_body,
+        raw_text: sanitize email.raw_text,
+        raw_html: sanitize email.raw_html,
+        raw_body: sanitize email.raw_body,
         attachments: email.attachments,
         headers: email.headers,
         raw_headers: email.raw_headers,
