@@ -10,7 +10,7 @@ class EmailProcessor
     user = User.find_by(email: @from_email)
     customer = Customer.find_by(email: @from_email)
 
-    if quote_id.is_number?
+    if is_number?(quote_id)
       #only trust quote_id if email comming from original customer or urbanexpress user
       begin
         quote = Quote.find(quote_id)
