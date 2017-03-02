@@ -12,7 +12,7 @@ class QuoteMailer < ApplicationMailer
       to_email = @message.quote.email
     end
     mail(:to => to_email,
-      :from => @message.quote_email_token,
+      :from => @message.quote_email_token + '@urbanexpress.zesasoccer.com',
       :subject => "Quote Request") 
   end
 end
