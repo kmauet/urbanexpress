@@ -14,6 +14,7 @@ class EmailProcessor
       #only trust quote_id if email comming from original customer or urbanexpress user
       begin
         quote = Quote.find(quote_id)
+        quote_email = quote.email
       rescue
         quote = nil
       end
