@@ -80,7 +80,7 @@
 
   <div>
     <% @vehicule_images.each do |p| %>
-      <%= image_tag p.photo_url, height: '150' %>
+      <%= image_tag p.photo.thumb %>
       <%# link_to "Edit Image", edit_vehicule_image_path(p) %>
     <% end %>
   </div>

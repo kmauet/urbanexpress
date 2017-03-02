@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
+gem 'fog'
+gem "mini_magick"
+#gem "fog-aws"
 gem 'merit'
 gem 'sanitize'
 
@@ -45,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'seed_dump'
   gem 'localtunnel'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
