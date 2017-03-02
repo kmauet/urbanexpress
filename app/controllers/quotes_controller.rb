@@ -14,7 +14,7 @@ class QuotesController < ApplicationController
   def show
     @messages = @quote.messages
     @message = @quote.messages.build
-    @message.user_id = current_user.try(:id)
+    #@message.user_id = current_user.try(:id)
   end
 
   # GET /quotes/new

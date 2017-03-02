@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -25,7 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+    @message.user_id = current_user.try(:id)
     if @message.save
       redirect_to quote_path(@message.quote.id), notice: 'Message was successfully created.'
     else

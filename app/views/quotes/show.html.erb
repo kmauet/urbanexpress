@@ -71,36 +71,38 @@
       </dl>
     </div>
   </div>
- 
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Body</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @messages.each do |message| %>
-          <tr  class="message-display<%= ' customer' unless message.customer.blank?  %>">
-            <td><div>
-                  <div>
-                    <% unless message.customer.blank? %> 
-                      <%= message.customer.email %>
-                    <% end %>
-                    <% unless message.user.blank? %> 
-                      <%= message.user.email %>
-                    <% end %>
-                    <%= message.created_at %>
+<hr style="clear:both"/>
+  <div class="panel-body">
+    <ul class="chat">
+      <% @messages.each do |message| %>
+        <% if message.owner == "user" %>
+          <li class="left clearfix"><span class="chat-img pull-left">
+              <img src="http://placehold.it/50/55C1E7/fff&text=REP" alt="User Avatar" class="img-circle" />
+          </span>
+              <div class="chat-body clearfix">
+                  <div class="header">
+                      <strong class="primary-font"><%= message.user.full_name %></strong> <small class="pull-right text-muted">
+                          <span class="glyphicon glyphicon-time"></span><%= message.created_at.strftime("%b-%d-%Y at %I:%M %p") %></small>
                   </div>
                   <%= simple_format message.body %>
-                </div>
-            </td>
-          </tr>
+              </div>
+          </li>
+        <% elsif message.owner == "customer" %>
+          <li class="right clearfix"><span class="chat-img pull-right">
+              <img src="http://placehold.it/50/FA6F57/fff&text=CUST" alt="User Avatar" class="img-circle" />
+          </span>
+              <div class="chat-body clearfix">
+                  <div class="header">
+                      <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><%= message.created_at.strftime("%b-%d-%Y at %I:%M %p") %></small>
+                      <strong class="pull-right primary-font"><%= message.customer.full_name %></strong>
+                  </div>
+                  <%= simple_format message.body %>
+              </div>
+          </li>
         <% end %>
-      </tbody>
-    </table>
-  </div>  
+      <% end %>
+    </ul>
+  </div> 
 
   <div class="row" style="padding-bottom:20px">
     <div class="col-md-12">

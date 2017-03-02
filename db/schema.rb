@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226085824) do
+ActiveRecord::Schema.define(version: 20170228192732) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -153,6 +153,9 @@ ActiveRecord::Schema.define(version: 20170226085824) do
     t.datetime "updated_at",                          null: false
     t.integer  "role"
     t.boolean  "admin"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "active"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

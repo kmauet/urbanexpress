@@ -34,6 +34,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
 gem 'merit'
+gem 'sanitize'
 
 gem 'griddler'
 gem 'griddler-sendgrid'
@@ -43,6 +44,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'seed_dump'
+  gem 'localtunnel'
 end
 
 group :development do
