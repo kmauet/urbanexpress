@@ -5,7 +5,7 @@ class EmailProcessor
 
   def process
     # quote request subject Quote Request (#32355)
-    quote_id = get_quote_id_from_subject(@email.to[:token])
+    quote_id = get_quote_id_from_subject(@email.to.first[:token])
     @from_email = @email.from[:email]
     user = User.find_by(email: @from_email)
     customer = Customer.find_by(email: @from_email)
