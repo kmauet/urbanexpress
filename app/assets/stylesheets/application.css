@@ -170,6 +170,9 @@ body {
 #exTab3 .nav-pills > li > a{
   background-color: #eee;
 }
+textarea.white_bg{
+color: #888888;
+}
 /****** end quote request *********/
 
 /****** Quote Message Display *********/

@@ -43,14 +43,13 @@
       <div class="form-group  col-md-3">
         <%= f.input :pay_method, autofocus: true, input_html: {class: "form-control white_bg"} %>
       </div>
-      <div class="form-group  col-md-3">
-        <%= f.input :additional_notes, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      <div class="form-group  col-md-6">
+        <%= f.input :additional_notes, autofocus: true, input_html: {class: "white_bg", :cols => 65, :rows => 8 } %>
       </div>
-    </div>
-    <div class="form-group">
+      <div class="form-group">
       <%= f.button :submit, "Submit Quote"%>
     </div>
-
+    </div>
   </div>
 
 <% end %>
