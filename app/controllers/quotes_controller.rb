@@ -60,6 +60,7 @@ class QuotesController < ApplicationController
     respond_to do |format|
       if @quote.update(quote_params)
         format.html { redirect_to quotes_path, notice: 'User was successfully assigned.' }
+        @quote.send_quote_assignment_notice
       else
         flash[:error] = "Sorry, unable to assign user."
         format.html { redirect_to quotes_path }

@@ -22,4 +22,13 @@ class QuoteMailer < ApplicationMailer
       :from => @quote.email_token + '@urbanexpress.zesasoccer.com',
       :subject => "Quote Request") 
   end
+
+
+  def quote_assignment_email(quote)
+    @quote = quote
+    to_email = @quote.user.email
+    mail(:to => to_email,
+      :from => @quote.email_token + '@urbanexpress.zesasoccer.com',
+      :subject => "Quote Request") 
+  end
 end
