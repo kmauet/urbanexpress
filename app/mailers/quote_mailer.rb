@@ -15,7 +15,7 @@ class QuoteMailer < ApplicationMailer
       :subject => "Quote Request") 
   end
 
-  def send_quote_confirmation(quote)
+  def quote_confirmation_email(quote)
     @quote = quote
     to_email = @quote.email
     mail(:to => to_email,
