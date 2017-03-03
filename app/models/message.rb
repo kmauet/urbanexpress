@@ -13,8 +13,8 @@ class Message < ApplicationRecord
   after_create :send_message_quote_email
 
   def owner
-    return "none" if message.quote_id.nil?
-    return "customer" if message.quote.email == message.from[:email]
+    return "none" if quote_id.nil?
+    return "customer" if quote.email == self.from[:email]
     return "user" unless user_id.nil?
     return "none"
   end
