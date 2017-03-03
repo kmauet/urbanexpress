@@ -11,14 +11,12 @@ class Message < ApplicationRecord
   serialize :headers, Hash 
 
   after_create :send_message_quote_email
+
   def owner
-    return "customer" unless customer_id.nil?
+    return "none" if message.quote_id.nil?
+    return "customer" if message.quote.email == message.from[:email]
     return "user" unless user_id.nil?
     return "none"
-  end
-
-  def quote_email_token
-    quote.id.to_s + '-request'
   end
 
   def send_message_quote_email
