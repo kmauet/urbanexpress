@@ -10,7 +10,7 @@
     <ul>
       <li>
         <% @quote.quote_fields.each do |field| %>
-          <%= field.to_s + ": " + @quote.send(field) %>
+          <%= field.to_s + ": " + (@quote.send(field) || "") %>
         <% end %>
       </li>
     </ul>
