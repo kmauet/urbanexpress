@@ -7,5 +7,12 @@
     <h1>Quote Request</h1>
     <p>Thank you for submitting your request, a representative will get back to you shortly.
     </p>
+    <ul>
+      <li>
+        <% @quote.quote_fields.each do |field| %>
+          <%= field.to_s + ": " + @quote.send(field) %>
+        <% end %>
+      </li>
+    </ul>
   </body>
 </html>
