@@ -9,7 +9,7 @@
     <ul>
       <% @quote.quote_fields.each do |field| %>
         <li>
-          <%= field.to_s + ": " + (@quote.send(field) || "") %>
+          <%= field.to_s + ": " + (@quote.send(field).to_s || "") %>
         </li> 
       <% end %>
     </ul>
