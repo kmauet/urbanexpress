@@ -6,6 +6,7 @@ class WebPageController < ApplicationController
 
   def contact_us
     @current_menu_item = "contact_us"
+    @contact_us_quote = ContactUsQuote.new
   end
 
   def about_us
@@ -18,6 +19,15 @@ class WebPageController < ApplicationController
     @airport_dropoff_quote = AirportDropoffQuote.new
     @out_of_town_quote = OutOfTownQuote.new
     @contract_quote = ContractQuote.new
+  end
+
+  def create_contact_us_quote_request
+    @contact_us_quote = ContactUsQuote.new(quote_request_params)
+    if @contact_us_quote.save
+      redirect_to quote_success_page_path, notice: "Message was successfully sent. You will be receiving an email confirmation shortly at this email: #{@contact_us_quote.email}"       
+    else
+      render :contact_us 
+    end
   end
 
   def create_quote_request
@@ -125,8 +135,10 @@ class WebPageController < ApplicationController
         result = params.require(:airport_dropoff_quote)
       elsif params[:out_of_town_quote]
         result = params.require(:out_of_town_quote)    
-      else
+      elsif params[:contract_quote]
         result = params.require(:contract_quote)
+      else
+        result = params.require(:contact_us_quote)
       end
       result.permit(:first_name, :last_name, :email, :phone_number, :service_type, :type, :customer_id, 
             :organization, :address, :extension, :departure_date, :departure_time, :departure_address, 

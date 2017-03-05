@@ -2,8 +2,19 @@
   <p id="notice"><%= notice %></p>
 
   <h1>Quotes</h1>
+  <div>
+    <p>
+    <%= search_form_for @q do |f| %>
 
-  <table>
+      <%= f.label :email_cont %>
+      <%= f.search_field :email_cont %>
+
+      <%= f.submit %>
+    <% end %>
+    </p>
+  </div>
+  <div class="table-paginate"><%= will_paginate(@quotes, :renderer => 'BootstrapPaginationHelper::LinkRenderer' ) %></div>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>First name</th>

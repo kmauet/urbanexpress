@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'quote-request' => 'web_page#quote_request'
   get 'quote-success' => 'web_page#quote_success_page', as: :quote_success_page
   post 'quote-request' => 'web_page#create_quote_request', as: :create_quote_request
+  post 'contact-us' => 'web_page#create_contact_us_quote_request', as: :create_contact_us_quote_request
   get 'history' => 'web_page#history'
   get 'jobs' => 'web_page#jobs'
   root 'web_page#home'

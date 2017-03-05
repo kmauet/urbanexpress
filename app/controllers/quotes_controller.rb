@@ -5,7 +5,8 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all
+    @q = Quote.ransack(params[:q])
+    @quotes = @q.result(distinct: true).paginate(:page => params[:page], per_page: 12)
     @users_select = User.all.map {|u| [u.email, u.id]}
   end
 
@@ -96,7 +97,7 @@ class QuotesController < ApplicationController
       elsif params[:contract_quote]
         result = params.require(:contract_quote)    
       else
-        result = params.require(:quote)
+        result = params.require(:contact_us_quote)
       end
       result.permit(:first_name, :last_name, :email, :phone_number, :service_type, :type, :customer_id, 
             :organization, :address, :extension, :departure_date, :departure_time, :departure_address, 

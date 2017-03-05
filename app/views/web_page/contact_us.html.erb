@@ -23,27 +23,28 @@
       <div class="col-md-6">
         <h3>Get in touch using the form below</h3>
         <div class="contact_form gray-bg">
-          <form action="#" method="get">
-            <div class="form-group">
-              <label class="control-label">Full Name <span>*</span></label>
-              <input type="text" class="form-control white_bg" id="fullname">
+          <%= simple_form_for(@contact_us_quote, url: create_contact_us_quote_request_path(), method: :post) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :type, as: :hidden %>
+            <div class="form-group" style="float:left;width:50%;padding-right:10px;">
+              <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+            </div>
+            <div class="form-group" style="float:left;width:50%;padding-left:10px;">
+              <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+            </div>
+            <div class="form-group" style="clear:both">
+              <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
             </div>
             <div class="form-group">
-              <label class="control-label">Email Address <span>*</span></label>
-              <input type="email" class="form-control white_bg" id="emailaddress">
+              <%= f.input :phone_number, autofocus: true, input_html: {class: "form-control white_bg"} %>
             </div>
             <div class="form-group">
-              <label class="control-label">Phone Number </label>
-              <input type="text" class="form-control white_bg" id="phonenumber">
+              <%= f.input :additional_notes, autofocus: true, as: :text, input_html: {class: "white_bg", :cols => 60, :rows => 8 } %>
             </div>
             <div class="form-group">
-              <label class="control-label">Message <span>*</span></label>
-              <textarea class="form-control white_bg" rows="4"></textarea>
+              <%= f.button :submit, "Send Message"%>
             </div>
-            <div class="form-group">
-              <button class="btn" type="submit">Send Message <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-            </div>
-          </form>
+          <% end %>
         </div>
       </div>
       <div class="col-md-6">
