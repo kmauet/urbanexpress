@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   scope "/admin" do
     resources :users
+    resources :customers
   end
 
   devise_for :customers, controllers: {

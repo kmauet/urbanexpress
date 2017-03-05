@@ -93,6 +93,17 @@ a.btn:visited {
 .vehic-detail-side-img{
   padding-bottom: 15px;
 }
+#our_services .section-padding{
+  z-index: 100;
+  padding-bottom:0px;
+}
+#our_services .contact_form .form-group{
+  margin-bottom:15px;
+}
+#our_services .contact_form{
+  padding-top:0px;
+  padding-bottom:0px;
+}
 
 /***** vehicule-details page ******/
 .listing-detail{

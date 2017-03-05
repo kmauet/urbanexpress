@@ -2,6 +2,7 @@ class WebPageController < ApplicationController
   # GET home
   def home
     @current_menu_item = "home"
+    @contact_us_quote = ContactUsQuote.new
   end
 
   def contact_us
