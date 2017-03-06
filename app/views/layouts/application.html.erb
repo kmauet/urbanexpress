@@ -24,9 +24,6 @@
 <![endif]-->  
 
  <script type="text/javascript">
-      var verifyCallback = function(response) {
-        alert(response);
-      };
       var widgetId1;
       var widgetId2;
       var onloadCallback = function() {
@@ -38,15 +35,15 @@
         });
         widgetId2 = grecaptcha.render(document.getElementById('example2'), {
           'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>"
+          'theme' : 'light'
         });
         grecaptcha.render('example3', {
           'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>",
-          'callback' : verifyCallback,
-          'theme' : 'dark'
+          'theme' : 'light'
         });
         grecaptcha.render('example4', {
           'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>",
-          'theme' : 'dark'
+          'theme' : 'light'
         });
       };
     </script>
