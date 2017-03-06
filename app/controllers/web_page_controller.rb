@@ -47,7 +47,7 @@ class WebPageController < ApplicationController
       save_result = @contract_quote.save
     end
 
-    if save_result
+    if verify_recaptcha(model: @quote) && save_result
       redirect_to quote_success_page_path, notice: "Quote was successfully created. You will be receiving an email confirmation shortly at this email: #{@quote.email}" 
     else
       @current_menu_item = "request_quote"
