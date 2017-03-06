@@ -1,28 +1,36 @@
-<h1>New user</h1>
+<div class="container">
+  <h2>New user</h2>
 
-<%= simple_form_for(@user , :url => users_path()) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <%= simple_form_for(@user , :url => users_path()) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-inputs">
+      <div class="form-group">
+        <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group">
+        <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group">
+        <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group">
+        <%= f.input :admin, autofocus: true, input_html: {class: " "} %>
+      </div>
     </div>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  users_path, :class => 'btn' %>
+    </div>  
   <% end %>
-  <div class="form-inputs">
-    <%= f.input :first_name, :required => true, :autofocus => true %>
-    <%= f.input :last_name, :required => true, :autofocus => true %>
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password%>
-    <%= f.input :password_confirmation %>
-    <%= f.input :admin %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                users_path, :class => 'btn' %>
-  </div>  
-<% end %>
+</div>

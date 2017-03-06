@@ -44,6 +44,7 @@ gem 'griddler-sendgrid'
 gem 'ransack'
 gem 'will_paginate', '~> 3.1'
 
+gem "recaptcha", require: "recaptcha/rails"
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -66,7 +66,7 @@ class CustomersController < ApplicationController
     def verify_is_admin
       (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
     end
-    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
       @customer = Customer.find(params[:id])
@@ -74,6 +74,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.required(:customer).permit( :first_name, :last_name, :email, :password)
+      params.required(:customer).permit( :first_name, :last_name, :email)
     end
 end

@@ -1,52 +1,54 @@
-<h2>Customers List</h2>
+<div class="container">
+  <h2>Customers List</h2>
 
-  <% if @customers.count > 0 %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th><%=t '.actions', :default => t("helpers.actions") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @customers.each do |customer| %>
+    <% if @customers.count > 0 %>
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= link_to customer.id, customer_path(customer) %></td>
-            <td><%= link_to customer.first_name, customer_path(customer) %></td>
-            <td><%= link_to customer.last_name, customer_path(customer) %></td>
-            <td><%= link_to customer.email, customer_path(customer) %></td>
-            <td>
-              <% if current_user.admin? %>
-                <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                            edit_customer_path(customer), :class => 'btn btn-mini' %>
-                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                            customer_path(customer),
-                            :method => :delete,
-                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                            :class => 'btn btn-mini btn-danger' %>
-              <% else %>
-                <%= link_to t('.show', :default => t("helpers.links.show")),
-                            customer_path(customer), :class => 'btn btn-mini' %>
-              <% end %>
-
-            </td>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= link_to customer.id, customer_path(customer) %></td>
+              <td><%= link_to customer.first_name, customer_path(customer) %></td>
+              <td><%= link_to customer.last_name, customer_path(customer) %></td>
+              <td><%= link_to customer.email, customer_path(customer) %></td>
+              <td>
+                <% if current_user.admin? %>
+                  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                              edit_customer_path(customer), :class => 'btn btn-mini' %>
+                  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                              customer_path(customer),
+                              :method => :delete,
+                              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                              :class => 'btn btn-mini btn-danger' %>
+                <% else %>
+                  <%= link_to t('.show', :default => t("helpers.links.show")),
+                              customer_path(customer), :class => 'btn btn-mini' %>
+                <% end %>
 
-  <% else %>
-    <h4>No results found.</h4>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <% else %>
+      <h4>No results found.</h4>
+    <% end %>
+
+
+  <br>
+
+  <% if current_user.admin? %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+                new_customer_path,
+                :class => 'btn btn-primary' %>
   <% end %>
-
-
-<br>
-
-<% if current_user.admin? %>
-  <%= link_to t('.new', :default => t("helpers.links.new")),
-              new_customer_path,
-              :class => 'btn btn-primary' %>
-<% end %>
+</div>
