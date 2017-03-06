@@ -24,7 +24,7 @@ class WebPageController < ApplicationController
 
   def create_contact_us_quote_request
     @contact_us_quote = ContactUsQuote.new(quote_request_params)
-    if @contact_us_quote.save
+    if verify_recaptcha(model: @contact_us_quote) && @contact_us_quote.save
       redirect_to quote_success_page_path, notice: "Message was successfully sent. You will be receiving an email confirmation shortly at this email: #{@contact_us_quote.email}"       
     else
       render :contact_us 
