@@ -22,6 +22,34 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->  
+
+ <script type="text/javascript">
+      var verifyCallback = function(response) {
+        alert(response);
+      };
+      var widgetId1;
+      var widgetId2;
+      var onloadCallback = function() {
+        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+        widgetId1 = grecaptcha.render('example1', {
+          'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>",
+          'theme' : 'light'
+        });
+        widgetId2 = grecaptcha.render(document.getElementById('example2'), {
+          'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>"
+        });
+        grecaptcha.render('example3', {
+          'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>",
+          'callback' : verifyCallback,
+          'theme' : 'dark'
+        });
+        grecaptcha.render('example4', {
+          'sitekey' : "<%= ENV['RECAPTCHA_SITE_KEY'] %>",
+          'theme' : 'dark'
+        });
+      };
+    </script>
 </head>
 <body>
 
@@ -184,6 +212,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
-
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 </body>
 </html>

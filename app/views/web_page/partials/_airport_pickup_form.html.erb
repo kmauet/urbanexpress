@@ -40,17 +40,20 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-group  col-md-3">
+      <div class="form-group  col-md-2">
         <%= f.input :pay_method, autofocus: true, input_html: {class: "form-control white_bg"} %>
       </div>
       <div class="form-group  col-md-6">
-        <%= f.input :additional_notes, autofocus: true, input_html: {class: "white_bg", :cols => 65, :rows => 8 } %>
+        <%= f.input :additional_notes, autofocus: true, input_html: {class: "white_bg", :cols => 75, :rows => 8 } %>
       </div>
-      <div class="form-group">
+      <div class="form-group col-md-4">
+        <div id="example1"></div>
+        <br />
         <%= f.button :submit, "Submit Quote"%>
       </div>
-      <%= recaptcha_tags %>
     </div>
+
+
   </div>
 
 <% end %>
