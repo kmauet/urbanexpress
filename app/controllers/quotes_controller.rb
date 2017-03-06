@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
   # GET /quotes.json
   def index
     @q = Quote.ransack(params[:q])
-    @quotes = @q.result(distinct: true).paginate(:page => params[:page], per_page: 12)
+    @quotes = @q.result(distinct: true).order('updated_at desc').paginate(:page => params[:page], per_page: 12)
     @users_select = User.all.map {|u| [u.email, u.id]}
   end
 
@@ -59,7 +59,7 @@ class QuotesController < ApplicationController
 
   def update_quote_assigned_user
     respond_to do |format|
-      if @quote.update(quote_params)
+      if not(quote_params[:user_id].blank?) and @quote.update(quote_params)
         format.html { redirect_to quotes_path, notice: 'User was successfully assigned.' }
         @quote.send_quote_assignment_notice
       else
