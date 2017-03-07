@@ -1,0 +1,3 @@
+<p> Invoice Amount Due: <%= number_to_currency(@invoice.price, precision: 2) %>
+  <%= render 'payola/transactions/checkout', sellable: @invoice, custom_fields: { "data-billing-address" => 'true' } %>
+</p>

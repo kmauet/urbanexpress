@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require payola
 //= require jquery_ujs
 //= require car_theme/js/bootstrap
 //= require car_theme/js/interface

@@ -2,6 +2,7 @@ class Quote < ApplicationRecord
   has_many :messages, dependent: :destroy
   belongs_to :user
   belongs_to :customer
+  has_many :invoices
   
   validates_presence_of :email
   validates_presence_of :first_name

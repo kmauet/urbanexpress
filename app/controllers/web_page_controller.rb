@@ -106,6 +106,12 @@ class WebPageController < ApplicationController
     end
   end
 
+  def show_unpaid_customer_invoice
+    return unless current_customer
+    @current_customer = current_customer
+    @invoice = current_customer.invoices.last
+  end
+
   def vehicule_details
     @current_menu_item = "fleet"
     @vehicule = Vehicule.find(params[:id])
