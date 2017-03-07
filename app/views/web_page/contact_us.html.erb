@@ -41,10 +41,16 @@
             <div class="form-group">
               <%= f.input :additional_notes, autofocus: true, as: :text, input_html: {class: "white_bg", :cols => 60, :rows => 8 } %>
             </div>
-            <div class="form-group">
-              <%= f.button :submit, "Send Message"%>
+            <div  class="row">
+              <div class="form-group">
+                <div class="col-md-8">
+                  <%= recaptcha_tags %>
+                </div>
+                <div class="col-md-3">
+                  <%= f.button :submit, "Send"%>
+                </div>
+              </div>
             </div>
-            <%= recaptcha_tags %>
           <% end %>
         </div>
       </div>
