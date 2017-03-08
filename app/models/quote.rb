@@ -27,4 +27,8 @@ class Quote < ApplicationRecord
       :departure_time, :departure_address, :flight_num, :pay_method, :num_of_passengers, :total_num_of_days, :return_date, :return_time, 
       :return_address, :itinirary]
   end
+
+  def full_name
+    (first_name || '') + ' ' + ( last_name || '')
+  end
 end

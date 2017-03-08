@@ -95,7 +95,7 @@
               <div class="chat-body clearfix">
                   <div class="header">
                       <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><%= message.created_at.strftime("%b-%d-%Y at %I:%M %p") %></small>
-                      <strong class="pull-right primary-font"><%= message.customer.full_name %></strong>
+                      <strong class="pull-right primary-font"><%= message.quote.full_name %></strong>
                   </div>
                   <%= simple_format message.body %>
               </div>

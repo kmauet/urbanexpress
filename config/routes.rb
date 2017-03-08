@@ -42,5 +42,7 @@ Rails.application.routes.draw do
       passwords: 'customers/passwords'
     }
     
+  get '/customer/confirmation', :controller => 'confirmations', :action => 'update', :conditions => { :method => :put }, as: :update_customer_confirmation
+
   mount_griddler
 end
