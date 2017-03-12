@@ -574,7 +574,7 @@ blockquote,
 .checkbox input[type=checkbox] {
 	display: none;
 }
-.radio label:before {
+/*.radio label:before {
     background-color:transparent;
 	border-style:solid;
 	border-width:1px;
@@ -586,7 +586,7 @@ blockquote,
 	top:4px;
     position: absolute;
     width: 15px;	
-}
+}*/
 .checkbox label::before {
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #111111;
