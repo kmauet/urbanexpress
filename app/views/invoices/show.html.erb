@@ -1,29 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h2>Invoice</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td style="width:50%"><strong>Date Reserved:</strong> <%= @invoice.date_reserved %></td>
+        <td><strong>Sales Rep:</strong> <%= @invoice.sales_rep.try(:full_name) %></td>
+      </tr>
+      <tr>
+        <td><strong>Date Needed:</strong> <%= @invoice.date_needed %></td>        
+        <td><strong>Name:</strong> <%= @invoice.customer.try(:full_name) %></td>
+      </tr>
+      <tr>
+        <td><strong>Phone:</strong> <%= @invoice.phone %></td>
+        <td><strong>Email:</strong> <%= @invoice.email %></td>
+      </tr>
+      <tr>
+        <td><strong>Vehicle:</strong> <%= @invoice.vehicule.try(:name) %></td>
+        <td><strong>Time:</strong> <%= @invoice.time_reserved %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>Itinerary:</strong>  <%= @invoice.itinerary %></td>
+      </tr>
+      <tr>
+        <td><strong>Handicap Accessible Required:</strong> <%= @invoice.handicap_accessible %></td>
+        <td><strong>Is this event for which you are requesting our services available to the public?:</strong> <%= @invoice.public_availability %></td>
+      </tr>
+      <tr>
+        <td><strong>Method of Pay:</strong><%= @invoice.method_of_pay %></td>
+        <td><strong>Rate:</strong> <%= number_to_currency(@invoice.rate, precision: 2) %></td>
+      </tr>
+      <tr>
+        <td><strong>Sales Tax:</strong> <%= number_to_currency(@invoice.sales_tax, precision: 2) %></td>
+        <td><strong>Deposit:</strong> <%= number_to_currency(@invoice.deposit, precision: 2) %></td>
+      </tr>
+      <tr>
+        <td><strong>Amount due:</strong> <%= number_to_currency(@invoice.amount_due, precision: 2) %></td>
+        <td><strong>Additional Charges:</strong> <%= number_to_currency(@invoice.additional_charges, precision: 2) %></td>
+      </tr>
+      <tr>
+        <td><strong>Total Amount Collected:</strong> <%= number_to_currency(@invoice.total_collected, precision: 2) %></td>
+        <td><strong>Accepted:</strong> <%= @invoice.accepted %></td>
+      </tr>
+    </tbody>
+  </table>  
 
-<p>
-  <strong>Price:</strong>
-  <%= @invoice.price %>
-</p>
+  <%= link_to 'Edit', edit_invoice_path(@invoice), class: "btn" %> |
+  <%= link_to 'Back', invoices_path, class: "btn" %>
+</div>
 
-<p>
-  <strong>Permalink:</strong>
-  <%= @invoice.permalink %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @invoice.name %>
-</p>
-
-<p>
-  <strong>Quote:</strong>
-  <%= @invoice.quote %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @invoice.customer %>
-</p>
-
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>

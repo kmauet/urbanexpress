@@ -19,6 +19,8 @@
 //= require car_theme/js/slick.min
 //= require car_theme/js/owl.carousel
 //= require lightbox
+//= require chosen-jquery
+//= require scaffold
 //= require_tree .
 
 hide_all_info = function() {
@@ -50,11 +52,19 @@ $(document).ready(function(){
     $("input.datepicker").datepicker({});
     //make tabs in quote-request page persist in url
     if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
-      return $('a[data-toggle="tab"]').on('shown', function(e) {
+    $('.vehic-side-img').hide();
+    $("#vehic-img-options input").click(function(e) {
+      $('.vehic-side-img').hide();
+      vehicule_id = e.target.value
+      $('#vehic-side-image-' + vehicule_id).show();
+      //return false;
+    });
+
+    return $('a[data-toggle="tab"]').on('shown', function(e) {
       return location.hash = $(e.target).attr('href').substr(1);
     });
-  }
-);
+
+});
 
 $("#driver-job-info").on('click', function(e) {
   e.preventDefault()  ;
@@ -81,3 +91,9 @@ $("#mechanic-job-info").on('click', function(e) {
   $(".mechanics-job-info").show();
   $("#mechanic-job-info").addClass('active_job');
 });
+
+$(function() {
+  
+
+});
+

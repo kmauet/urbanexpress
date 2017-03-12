@@ -16,9 +16,11 @@ class WebPageController < ApplicationController
 
   def quote_request
     @current_menu_item = "request_quote"
+    @all_vehicules = Vehicule.all
     @airport_pickup_quote = AirportPickupQuote.new
     @airport_dropoff_quote = AirportDropoffQuote.new
     @out_of_town_quote = OutOfTownQuote.new
+    @special_event_quote = SpecialEventQuote.new
     @contract_quote = ContractQuote.new
   end
 
@@ -32,29 +34,34 @@ class WebPageController < ApplicationController
   end
 
   def create_quote_request
-    
+    captcha_verified = verify_recaptcha(model: @quote)
     if quote_request_params[:type] == "AirportPickupQuote"
       @quote = @airport_pickup_quote = AirportPickupQuote.new(quote_request_params)
-      save_result = @airport_pickup_quote.save
+      save_result = @airport_pickup_quote.save if captcha_verified
     elsif quote_request_params[:type] == "AirportDropoffQuote"
       @quote = @airport_dropoff_quote = AirportDropoffQuote.new(quote_request_params)
-      save_result = @airport_dropoff_quote.save
+      save_result = @airport_dropoff_quote.save if captcha_verified
     elsif quote_request_params[:type] == "OutOfTownQuote"
       @quote = @out_of_town_quote = OutOfTownQuote.new(quote_request_params)
-      save_result = @out_of_town_quote.save   
+      save_result = @out_of_town_quote.save if captcha_verified
+    elsif quote_request_params[:type] == "SpecialEventQuote"
+      @quote = @special_event_quote = SpecialEventQuote.new(quote_request_params)
+      save_result = @special_event_quote.save if captcha_verified
     else
       @quote = @contract_quote = ContractQuote.new(quote_request_params)
-      save_result = @contract_quote.save
+      save_result = @contract_quote.save if captcha_verified
     end
 
-    if verify_recaptcha(model: @quote) && save_result
+    if captcha_verified and save_result
       redirect_to quote_success_page_path, notice: "Quote was successfully created. You will be receiving an email confirmation shortly at this email: #{@quote.email}" 
     else
       @current_menu_item = "request_quote"
+      @all_vehicules = Vehicule.all
       @airport_pickup_quote = AirportPickupQuote.new unless @airport_pickup_quote
       @airport_dropoff_quote = AirportDropoffQuote.new unless @airport_dropoff_quote
       @out_of_town_quote = OutOfTownQuote.new unless @out_of_town_quote
       @contract_quote = ContractQuote.new unless @contract_quote
+      @special_event_quote = SpecialEventQuote.new unless @special_event_quote
       render :quote_request 
     end
   end
@@ -106,10 +113,32 @@ class WebPageController < ApplicationController
     end
   end
 
-  def show_unpaid_customer_invoice
+  def show_unpaid_customer_invoices
     return unless current_customer
     @current_customer = current_customer
-    @invoice = current_customer.invoices.last
+    @invoices = current_customer.invoices.where(payed: nil)
+    #@invoices_ready_to_pay = current_customer.invoices.where(accepted: nil, payed: nil)
+  end
+
+  def show_unpaid_customer_invoice
+    return unless current_customer
+    invoice_id = params[:id]
+    @current_customer = current_customer
+    @invoice = current_customer.invoices.where(payed: nil, id: invoice_id).first
+    #@invoice_ready_to_pay = current_customer.invoices.where(accepted: true, payed: nil, id: invoice_id).first
+  end
+
+  def submit_accepted_invoice
+    @invoice = Invoice.find(invoice_params[:id])
+    respond_to do |format|
+      if @invoice.update(invoice_params)
+        format.html { redirect_to show_unpaid_customer_invoice_path(@invoice), notice: 'Invoice was successfully updated.' }
+        format.json { render :show, status: :ok, location: @invoice }
+      else
+        format.html { redirect_to show_unpaid_customer_invoice_path(@invoice) }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def vehicule_details
@@ -131,6 +160,9 @@ class WebPageController < ApplicationController
     @current_menu_item = "jobs"
   end
   private
+    def invoice_params
+      params.require(:invoice).permit(:id, :accepted)
+    end
     def customer_params
       params.require(:customer).permit(:first_name, :last_name, :email, :phone_number)
     end
@@ -144,6 +176,8 @@ class WebPageController < ApplicationController
         result = params.require(:out_of_town_quote)    
       elsif params[:contract_quote]
         result = params.require(:contract_quote)
+      elsif params[:special_event_quote]
+        result = params.require(:special_event_quote)
       else
         result = params.require(:contact_us_quote)
       end

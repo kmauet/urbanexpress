@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get 'profile-settings' => 'web_page#profile_settings', as: :profile_settings
   get 'edit-profile-settings' => 'web_page#edit_profile_settings', as: :edit_profile_settings
   patch 'profile-settings' => 'web_page#update_profile_settings'
-  get 'unpaid-customer-invoice' =>'web_page#show_unpaid_customer_invoice', as: :show_unpaid_customer_invoice
+  get 'unpaid-customer-invoices' =>'web_page#show_unpaid_customer_invoices', as: :show_unpaid_customer_invoices
+  get 'unpaid-customer-invoice/:id' =>'web_page#show_unpaid_customer_invoice', as: :show_unpaid_customer_invoice
+  patch 'submit-accepted-invoice' =>'web_page#submit_accepted_invoice', as: :submit_accepted_invoice
   get 'quote-request' => 'web_page#quote_request'
   get 'quote-success' => 'web_page#quote_success_page', as: :quote_success_page
   post 'quote-request' => 'web_page#create_quote_request', as: :create_quote_request

@@ -19,6 +19,7 @@
  *= require car_theme/css/font-awesome
  *= require car_theme/css/colors/red
  *= require lightbox
+ *= require chosen
  *= require_tree .
  *= require_self
  */
@@ -30,6 +31,14 @@
     color: #fff;
   }*/
 
+/*.radio label:before {
+    content: "\2022";
+    font-size: 15px;
+    text-align: center;
+    line-height: 11px;
+    color:#fa2837;
+    font-size: 35px;
+}*/
 #navigation li.active{
   background-color: red;
 }
@@ -184,6 +193,24 @@ body {
 textarea.white_bg{
 color: #888888;
 }
+
+#vehic-img-options input{
+  display: block;
+  width: 26px;
+  margin-left: -35px;
+  margin-top: -5px;
+}
+#vehic-img-options label{
+  margin-left: 35px;
+}
+#v-img{
+  padding-top: 20px;
+  color: white;
+}
+#vehic-img-options label.radio_buttons{
+  display: none;  
+}
+
 /****** end quote request *********/
 
 /****** Quote Message Display *********/
@@ -279,3 +306,8 @@ tr.message-display.customer{
   margin:30px;
 }
 /********* end footer **********/
+
+.invoice_form input[type="radio"], .invoice_form input[type="checkbox"]{
+  margin-top: 30px;
+}
+

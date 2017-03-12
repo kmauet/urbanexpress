@@ -71,8 +71,18 @@
       </dl>
     </div>
   </div>
-<hr style="clear:both"/>
-<div> <%= link_to "Convert to Invoice", "#" , class: "btn" %></div>
+  <hr style="clear:both"/>
+  <div>
+    <% if @quote.invoices.count > 0 %> 
+      <ul>
+        <% @quote.invoices.each do |invoice| %>
+          <li><%= link_to "Related Invoice", invoice_path(invoice.id) , class: "" %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= link_to "Convert to Invoice", new_invoice_path(quote_id: @quote.id) , class: "btn" %>
+    <% end %>
+  </div>
   <div class="panel-body">
     <ul class="chat">
       <% @messages.each do |message| %>

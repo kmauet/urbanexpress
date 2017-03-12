@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307204339) do
+ActiveRecord::Schema.define(version: 20170308182257) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -54,10 +54,33 @@ ActiveRecord::Schema.define(version: 20170307204339) do
     t.string   "name"
     t.integer  "quote_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+    t.date     "date_needed"
+    t.date     "date_reserved"
+    t.time     "time_reserved"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "email"
+    t.integer  "vehicule_id"
+    t.text     "itinerary"
+    t.boolean  "handicap_accessible"
+    t.boolean  "public_availability"
+    t.string   "method_of_pay"
+    t.float    "rate"
+    t.float    "sales_tax"
+    t.float    "deposit"
+    t.float    "amount_due"
+    t.float    "additional_charges"
+    t.float    "total_collected"
+    t.boolean  "accepted"
+    t.boolean  "payed"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["quote_id"], name: "index_invoices_on_quote_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
+    t.index ["vehicule_id"], name: "index_invoices_on_vehicule_id"
   end
 
   create_table "merit_actions", force: :cascade do |t|

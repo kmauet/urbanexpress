@@ -1,3 +1,68 @@
-<p> Invoice Amount Due: <%= number_to_currency(@invoice.price, precision: 2) %>
-  <%= render 'payola/transactions/checkout', sellable: @invoice, custom_fields: { "data-billing-address" => "true" } %>
-</p>
+<div class="container">
+  <h2>Invoice</h2>
+  <% unless @invoice.nil? or @invoice.accepted %>
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:50%"><strong>Date Reserved:</strong> <%= @invoice.date_reserved %></td>
+          <td><strong>Sales Rep:</strong> <%= @invoice.sales_rep.full_name %></td>
+        </tr>
+        <tr>
+          <td><strong>Date Needed:</strong> <%= @invoice.date_needed %></td>        
+          <td><strong>Name:</strong> <%= @invoice.customer.full_name %></td>
+        </tr>
+        <tr>
+          <td><strong>Phone:</strong> <%= @invoice.phone %></td>
+          <td><strong>Email:</strong> <%= @invoice.email %></td>
+        </tr>
+        <tr>
+          <td><strong>Vehicle:</strong> <%= @invoice.vehicule.name %></td>
+          <td><strong>Time:</strong> <%= @invoice.time_reserved %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Itinerary:</strong>  <%= @invoice.itinerary %></td>
+        </tr>
+        <tr>
+          <td><strong>Handicap Accessible Required:</strong> <%= @invoice.handicap_accessible %></td>
+          <td><strong>Is this event for which you are requesting our services available to the public?:</strong> <%= @invoice.public_availability %></td>
+        </tr>
+        <tr>
+          <td><strong>Method of Pay:</strong><%= @invoice.method_of_pay %></td>
+          <td><strong>Rate:</strong> <%= number_to_currency(@invoice.rate, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td><strong>Sales Tax:</strong> <%= number_to_currency(@invoice.sales_tax, precision: 2) %></td>
+          <td><strong>Deposit:</strong> <%= number_to_currency(@invoice.deposit, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td><strong>Amount due:</strong> <%= number_to_currency(@invoice.amount_due, precision: 2) %></td>
+          <td><strong>Additional Charges:</strong> <%= number_to_currency(@invoice.additional_charges, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td><strong>Total Amount Collected:</strong> <%= number_to_currency(@invoice.total_collected, precision: 2) %></td>
+        </tr>
+      </tbody>
+    </table>  
+    <%= simple_form_for(@invoice, url: submit_accepted_invoice_path, method: :patch) do |f| %>
+      <%= f.input :id, as: :hidden %>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <%= f.input :accepted, autofocus: true, label: "Accept", input_html: {class: "form-control white_bg"} %>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row">
+        <div class="form-group col-md-3">
+          <%= f.button :submit %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if not (@invoice.nil?) and @invoice.accepted and not(@invoice.payed) %>
+    <p> Invoice Amount Due: <%= number_to_currency(@invoice.Rate, precision: 2) %>
+      <%= render 'payola/transactions/checkout', sellable: @invoice, allow_remember_me: false %>
+    </p>
+  <% end %>
+</div>
+

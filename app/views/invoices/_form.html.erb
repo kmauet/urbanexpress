@@ -1,15 +1,99 @@
-<%= simple_form_for(@invoice) do |f| %>
-  <%= f.error_notification %>
+<div class="container invoice_form">
+  <%= simple_form_for(@invoice) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :price %>
-    <%= f.input :permalink %>
-    <%= f.input :name %>
-    <%= f.association :quote %>
-    <%= f.association :customer %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+
+      <%= f.input :price, as: :hidden %>
+      <%= f.input :permalink, as: :hidden %>
+      <%= f.input :name, as: :hidden %>
+      
+      
+      
+      <div class="row">
+        <div class="form-group col-md-6">
+          <%= f.association :quote, collection: Quote.all.map{|c| ["Quote# #{c.id} for #{c.email}", c.id]}, input_html: { class: 'chosen-select' } %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.association :customer, collection: Customer.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <%= f.association :sales_rep, collection: User.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.association :vehicule, collection: Vehicule.all.map{|c| [c.name, c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4">
+          <%= f.input :date_needed, autofocus: true, as: :string, input_html: {class: "form-control white_bg datepicker"} %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :date_reserved, autofocus: true, as: :string,  input_html: {class: "form-control white_bg datepicker"} %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :time_reserved, autofocus: true, as: :string, input_html: {class: "form-control white_bg", :data =>{:provide => "timepicker"}} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <%= f.input :first_name, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :last_name, autofocus: true,  input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :phone, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :email, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-10">
+          <%= f.input :itinerary, autofocus: true,  input_html: { class: "form-control white_bg", :cols => 65, :rows => 8} %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.input :handicap_accessible, autofocus: true, input_html: {class: "form-control white_bg"} %>
+          <br /><br /><br />
+          <%= f.input :public_availability, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="form-group col-md-3">
+          <%= f.input :method_of_pay, autofocus: true,  input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :rate, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :sales_tax, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :deposit, autofocus: true,  input_html: {class: "form-control white_bg"} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <%= f.input :amount_due, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :additional_charges, autofocus: true, input_html: {class: "form-control white_bg"} %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.input :total_collected, autofocus: true,  input_html: {class: "form-control white_bg"} %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

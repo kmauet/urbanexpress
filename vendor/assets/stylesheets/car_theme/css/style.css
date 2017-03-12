@@ -3541,7 +3541,7 @@ table.info-tabel tr td {
 	16. Profile-page
 ================================*/
 .profile_page {
-	background-image:url(/assets/images/1920x250.jpg);
+	background-image:url(/assets/images/profilepage.jpg);
 }
 .inner_pages {
 	padding:80px 0;
@@ -3886,7 +3886,7 @@ table.info-tabel tr td {
 	19. Compare-Page
 ================================*/
 .compare_page {
-	background-image:url(/assets/images/1920x250.jpg);
+	background-image:url(/assets/images/jobspage.jpg);
 }
 .compare_info table td, .compare_info table th {
 	font-size:16px;

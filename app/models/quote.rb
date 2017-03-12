@@ -3,6 +3,7 @@ class Quote < ApplicationRecord
   belongs_to :user
   belongs_to :customer
   has_many :invoices
+  belongs_to :vehicule, class_name: "Vehicule", foreign_key: "vehicule_type"
   
   validates_presence_of :email
   validates_presence_of :first_name
@@ -25,7 +26,7 @@ class Quote < ApplicationRecord
   def quote_fields
     [:first_name, :last_name, :email, :phone_number, :organization, :extension, :additional_notes, :departure_date, :airport, 
       :departure_time, :departure_address, :flight_num, :pay_method, :num_of_passengers, :total_num_of_days, :return_date, :return_time, 
-      :return_address, :itinirary]
+      :destination_address, :itinirary]
   end
 
   def full_name

@@ -1,9 +1,14 @@
 Payola.configure do |config|
   # Example subscription:
   # 
-  # config.subscribe 'payola.package.sale.finished' do |sale|
-  #   EmailSender.send_an_email(sale.email)
-  # end
+  config.subscribe 'payola.invoice.sale.finished' do |sale|
+     invoice = Invoice.find(sale.product_id)
+     invoice.payed = true
+     invoice.save
+     Rails.logger.debug invoice.errors.to_a
+     Rails.logger.debug invoice.errors.to_yaml
+     #EmailSender.send_an_email(sale.email)
+  end
   # 
   # In addition to any event that Stripe sends, you can subscribe
   # to the following special payola events:

@@ -15,6 +15,11 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    @invoice.quote_id = params[:quote_id]
+    random_num = rand(1..10000)
+    @invoice.name = "placeholder-#{random_num}"
+    @invoice.permalink = "placeholder-#{random_num}"
+    @invoice.price = 0
   end
 
   # GET /invoices/1/edit
@@ -69,6 +74,8 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:price, :permalink, :name, :quote_id, :customer_id)
+      params.require(:invoice).permit(:price, :permalink, :name, :quote_id, :customer_id, :date_reserved, :date_needed, :user_id, :first_name,
+        :last_name, :phone, :email, :itinerary, :handicap_accessible, :public_availability, :method_of_pay, :rate, :sales_tax, :deposit, :amount_due,
+        :additional_charges, :total_collected, :time_reserved, :vehicule_id, :accepted)
     end
 end

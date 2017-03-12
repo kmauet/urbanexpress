@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :quotes
   has_many :messages
+  has_many :invoices
   
   # Let the first declared role be the default.
   enum role: [:basic, :admin, :super_admin]

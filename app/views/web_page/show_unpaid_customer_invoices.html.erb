@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Invoices Due</h2>
+  <ul>
+    <% @invoices.each do |invoice| %>
+      <li><%= link_to "invoice", show_unpaid_customer_invoice_path(invoice) %></li>
+    <% end %>
+  </ul>
+</div>

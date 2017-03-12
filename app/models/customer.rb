@@ -45,4 +45,7 @@ class Customer < ApplicationRecord
     pending_any_confirmation {yield}
   end
   
+  def has_invoices_due?
+    invoices.where(payed: nil)
+  end
 end

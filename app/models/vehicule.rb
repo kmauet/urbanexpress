@@ -1,5 +1,7 @@
 class Vehicule < ApplicationRecord
   has_many :vehicule_images, dependent: :destroy
+  has_many :invoices
+  has_many :quotes
   accepts_nested_attributes_for :vehicule_images, reject_if: proc { |attributes| attributes[:photo].blank? }, allow_destroy: true
 
   enum vehicule_types: [:shuttle, :limousine, :sedan, :bus]

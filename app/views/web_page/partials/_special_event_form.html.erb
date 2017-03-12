@@ -1,0 +1,79 @@
+<%# @quote.type = "OutOfTownQuote" %>
+<%= simple_form_for(@special_event_quote, url: create_quote_request_path(anchor: "5b"), method: :post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :type, as: :hidden %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div id="v-img">
+          <% @all_vehicules.each do |v| %>
+            <div class="vehic-side-img" id=<%= "vehic-side-image-#{v.id}" %>>
+              <h5><%= v.name %></h5>
+              <%= image_tag( v.display_image_url(), class: "vehic-image vehic-image-#{v.id} img-responsive" )%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div id="vehic-img-options">
+          <%= f.association :vehicule, as: :radio_buttons, label: "",   collection: [["NONE", nil]] + @all_vehicules.map{|c| [c.name, c.id]} , input_html: { class: 'form-control white_bg' }  %>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.input :phone_number, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.input :departure_date, autofocus: true, as: :string, input_html: {class: "form-control white_bg datepicker"} %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.input :departure_time, autofocus: true, as: :string, input_html: {class: "form-control white_bg", :data =>{:provide => "timepicker"}}  %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.input :departure_address, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.input :return_time, autofocus: true, as: :string, input_html: {class: "form-control white_bg", :data =>{:provide => "timepicker"}}  %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.input :destination_address, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.input :num_of_passengers, autofocus: true, input_html: {class: "form-control white_bg"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= f.input :itinirary, autofocus: true, input_html: {class: "white_bg", :cols => 70, :rows => 8} %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.input :additional_notes, autofocus: true, input_html: {class: "white_bg", :cols => 65, :rows => 8 } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <div id="example5"></div>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.button :submit, "Submit Quote"%>
+    </div>
+  </div>
+<% end %>
