@@ -1,4 +1,4 @@
-
+<div class="container">
   <p id="notice"><%= notice %></p>
 
   <h1>Vehicules</h1>
@@ -14,14 +14,6 @@
         <th>Tv</th>
         <th>Bathroom</th>
         <th>Dvd player</th>
-        <th>Cd player</th>
-        <th>Am fm radio</th>
-        <th>Cooler</th>
-        <th>Nav system</th>
-        <th>Sound system</th>
-        <th>Wheelchair</th>
-        <th>Bluetooth</th>
-        <th>Leather</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -37,14 +29,6 @@
           <td><%= vehicule.tv %></td>
           <td><%= vehicule.bathroom %></td>
           <td><%= vehicule.dvd_player %></td>
-          <td><%= vehicule.cd_player %></td>
-          <td><%= vehicule.am_fm_radio %></td>
-          <td><%= vehicule.cooler %></td>
-          <td><%= vehicule.nav_system %></td>
-          <td><%= vehicule.sound_system %></td>
-          <td><%= vehicule.wheelchair %></td>
-          <td><%= vehicule.bluetooth %></td>
-          <td><%= vehicule.leather %></td>
           <td><%= link_to 'Show', vehicule %></td>
           <td><%= link_to 'Edit', edit_vehicule_path(vehicule) %></td>
           <td><%= link_to 'Destroy', vehicule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -56,3 +40,4 @@
   <br/>
 
   <%= link_to 'New Vehicule', new_vehicule_path, class: "btn" %>
+</div>

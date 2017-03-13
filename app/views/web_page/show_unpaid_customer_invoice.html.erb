@@ -60,7 +60,7 @@
   <% end %>
 
   <% if not (@invoice.nil?) and @invoice.accepted and not(@invoice.payed) %>
-    <p> Invoice Amount Due: <%= number_to_currency(@invoice.Rate, precision: 2) %>
+    <p> Invoice Amount Due: <%= number_to_currency(@invoice.rate, precision: 2) %>
       <%= render 'payola/transactions/checkout', sellable: @invoice, allow_remember_me: false %>
     </p>
   <% end %>
