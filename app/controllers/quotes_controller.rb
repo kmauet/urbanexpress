@@ -43,6 +43,17 @@ class QuotesController < ApplicationController
     end
   end
 
+  def create_message
+    @message = Message.new(message_params)
+    @message.user_id = current_user.try(:id)
+    if @message.save
+      redirect_to quote_path(@message.quote.id), notice: 'Message was successfully created.'
+    else
+      render "quotes/new" 
+    end
+  
+  end
+
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
   def update
@@ -84,6 +95,10 @@ class QuotesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_quote
       @quote = Quote.find(params[:id])
+    end
+
+    def message_params
+      params.require(:message).permit(:body, :quote_id, :user_id, :customer_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

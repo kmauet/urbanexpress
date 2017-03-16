@@ -24,22 +24,25 @@ RSpec.describe QuotesController, type: :controller do
   # Quote. As you add validations to Quote, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {first_name: 'bob', last_name: 'smith', email: 'bob@smith.com'}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {first_name: 'bob', last_name: 'smith', email: nil}
   }
-
+  let(:user) { User.create({email: "test@test.com", first_name: "bob", last_name: "smith"}) }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # QuotesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  #let(:valid_session) { {} }
+  before do
+    sign_in user
+  end
 
   describe "GET #index" do
     it "assigns all quotes as @quotes" do
       quote = Quote.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(assigns(:quotes)).to eq([quote])
     end
   end
@@ -47,14 +50,14 @@ RSpec.describe QuotesController, type: :controller do
   describe "GET #show" do
     it "assigns the requested quote as @quote" do
       quote = Quote.create! valid_attributes
-      get :show, params: {id: quote.to_param}, session: valid_session
+      get :show, params: {id: quote.to_param}
       expect(assigns(:quote)).to eq(quote)
     end
   end
 
   describe "GET #new" do
     it "assigns a new quote as @quote" do
-      get :new, params: {}, session: valid_session
+      get :new, params: {}
       expect(assigns(:quote)).to be_a_new(Quote)
     end
   end
@@ -62,7 +65,7 @@ RSpec.describe QuotesController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested quote as @quote" do
       quote = Quote.create! valid_attributes
-      get :edit, params: {id: quote.to_param}, session: valid_session
+      get :edit, params: {id: quote.to_param}
       expect(assigns(:quote)).to eq(quote)
     end
   end
@@ -71,30 +74,30 @@ RSpec.describe QuotesController, type: :controller do
     context "with valid params" do
       it "creates a new Quote" do
         expect {
-          post :create, params: {quote: valid_attributes}, session: valid_session
+          post :create, params: {quote: valid_attributes}
         }.to change(Quote, :count).by(1)
       end
 
       it "assigns a newly created quote as @quote" do
-        post :create, params: {quote: valid_attributes}, session: valid_session
+        post :create, params: {quote: valid_attributes}
         expect(assigns(:quote)).to be_a(Quote)
         expect(assigns(:quote)).to be_persisted
       end
 
       it "redirects to the created quote" do
-        post :create, params: {quote: valid_attributes}, session: valid_session
+        post :create, params: {quote: valid_attributes}
         expect(response).to redirect_to(Quote.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved quote as @quote" do
-        post :create, params: {quote: invalid_attributes}, session: valid_session
+        post :create, params: {quote: invalid_attributes}
         expect(assigns(:quote)).to be_a_new(Quote)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: {quote: invalid_attributes}, session: valid_session
+        post :create, params: {quote: invalid_attributes}
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +111,20 @@ RSpec.describe QuotesController, type: :controller do
 
       it "updates the requested quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: new_attributes}, session: valid_session
+        put :update, params: {id: quote.to_param, quote: new_attributes}
         quote.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested quote as @quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: valid_attributes}, session: valid_session
+        put :update, params: {id: quote.to_param, quote: valid_attributes}
         expect(assigns(:quote)).to eq(quote)
       end
 
       it "redirects to the quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: valid_attributes}, session: valid_session
+        put :update, params: {id: quote.to_param, quote: valid_attributes}
         expect(response).to redirect_to(quote)
       end
     end
@@ -129,13 +132,13 @@ RSpec.describe QuotesController, type: :controller do
     context "with invalid params" do
       it "assigns the quote as @quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: invalid_attributes}, session: valid_session
+        put :update, params: {id: quote.to_param, quote: invalid_attributes}
         expect(assigns(:quote)).to eq(quote)
       end
 
       it "re-renders the 'edit' template" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: invalid_attributes}, session: valid_session
+        put :update, params: {id: quote.to_param, quote: invalid_attributes}
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +148,13 @@ RSpec.describe QuotesController, type: :controller do
     it "destroys the requested quote" do
       quote = Quote.create! valid_attributes
       expect {
-        delete :destroy, params: {id: quote.to_param}, session: valid_session
+        delete :destroy, params: {id: quote.to_param}
       }.to change(Quote, :count).by(-1)
     end
 
     it "redirects to the quotes list" do
       quote = Quote.create! valid_attributes
-      delete :destroy, params: {id: quote.to_param}, session: valid_session
+      delete :destroy, params: {id: quote.to_param}
       expect(response).to redirect_to(quotes_url)
     end
   end

@@ -10,7 +10,7 @@ class Message < ApplicationRecord
   serialize :attachments, Array 
   serialize :headers, Hash 
 
-  after_create :send_message_quote_email
+  after_create :send_message_quote_email, unless: :skip_callbacks
 
   def owner
     return "none" if quote_id.nil?

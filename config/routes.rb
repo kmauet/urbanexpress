@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :vehicule_images
   resources :messages
   resources :quotes
+  post 'create-message-for-quote/:id' => 'quotes#create_message', as: :create_message_for_quote
   patch 'update_quote_assigned_user/:id' => 'quotes#update_quote_assigned_user', as: :update_quote_assigned_user
   resources :vehicules
   devise_for :users
