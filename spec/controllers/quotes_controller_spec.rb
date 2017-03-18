@@ -74,30 +74,30 @@ RSpec.describe QuotesController, type: :controller do
     context "with valid params" do
       it "creates a new Quote" do
         expect {
-          post :create, params: {quote: valid_attributes}
+          post :create, params: {airport_pickup_quote: valid_attributes}
         }.to change(Quote, :count).by(1)
       end
 
       it "assigns a newly created quote as @quote" do
-        post :create, params: {quote: valid_attributes}
+        post :create, params: {airport_pickup_quote: valid_attributes}
         expect(assigns(:quote)).to be_a(Quote)
         expect(assigns(:quote)).to be_persisted
       end
 
       it "redirects to the created quote" do
-        post :create, params: {quote: valid_attributes}
+        post :create, params: {airport_pickup_quote: valid_attributes}
         expect(response).to redirect_to(Quote.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved quote as @quote" do
-        post :create, params: {quote: invalid_attributes}
+        post :create, params: {airport_pickup_quote: invalid_attributes}
         expect(assigns(:quote)).to be_a_new(Quote)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: {quote: invalid_attributes}
+        post :create, params: {airport_pickup_quote: invalid_attributes}
         expect(response).to render_template("new")
       end
     end
@@ -111,20 +111,20 @@ RSpec.describe QuotesController, type: :controller do
 
       it "updates the requested quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: new_attributes}
+        put :update, params: {id: quote.to_param, airport_pickup_quote: new_attributes}
         quote.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested quote as @quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: valid_attributes}
+        put :update, params: {id: quote.to_param, airport_pickup_quote: valid_attributes}
         expect(assigns(:quote)).to eq(quote)
       end
 
       it "redirects to the quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: valid_attributes}
+        put :update, params: {id: quote.to_param, airport_pickup_quote: valid_attributes}
         expect(response).to redirect_to(quote)
       end
     end
@@ -132,13 +132,13 @@ RSpec.describe QuotesController, type: :controller do
     context "with invalid params" do
       it "assigns the quote as @quote" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: invalid_attributes}
+        put :update, params: {id: quote.to_param, airport_pickup_quote: invalid_attributes}
         expect(assigns(:quote)).to eq(quote)
       end
 
       it "re-renders the 'edit' template" do
         quote = Quote.create! valid_attributes
-        put :update, params: {id: quote.to_param, quote: invalid_attributes}
+        put :update, params: {id: quote.to_param, airport_pickup_quote: invalid_attributes}
         expect(response).to render_template("edit")
       end
     end

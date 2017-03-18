@@ -23,8 +23,12 @@ RSpec.describe InvoicesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Invoice. As you add validations to Invoice, be sure to
   # adjust the attributes here as well.
+  let(:quote) {
+    Quote.create({first_name: 'bob', last_name: 'smith', email: 'bob@smith.com'})
+  }
+
   let(:valid_attributes) {
-    {first_name: 'bob', last_name: 'smith', email: 'bob@smith.com', name: "first invoice", permalink: "first-invoice", price: "40"}
+    {first_name: 'bob', last_name: 'smith', email: 'bob@smith.com', name: "first invoice", permalink: "first-invoice", price: "40", quote_id: quote.id}
   }
 
   let(:invalid_attributes) {
@@ -108,7 +112,7 @@ RSpec.describe InvoicesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        {first_name: 'james', last_name: 'johnsons', email: 'james@jones.com', name: "second invoice", permalink: "second-invoice", price: "90"}
+        {first_name: 'james', last_name: 'johnsons', email: 'james@jones.com', name: "second invoice", permalink: "second-invoice", price: "90", quote_id: quote.id}
       }
 
       it "updates the requested invoice" do

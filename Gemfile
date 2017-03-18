@@ -45,7 +45,7 @@ gem 'griddler-sendgrid'
 gem 'ransack'
 gem 'will_paginate', '~> 3.1'
 gem 'payola-payments'
-
+gem "pundit"
 gem "recaptcha", require: "recaptcha/rails"
 group :development, :test do
   gem 'sqlite3'

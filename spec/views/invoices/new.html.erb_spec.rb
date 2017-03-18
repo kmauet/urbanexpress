@@ -1,12 +1,12 @@
-require 'rails_helper'
+  require 'rails_helper'
 
 RSpec.describe "invoices/new", type: :view do
   before(:each) do
     assign(:invoice, Invoice.new(
       :price => 1,
-      :permalink => "MyString",
-      :name => "MyString",
-      :quote => nil,
+      :permalink => "new-perma",
+      :name => "New name",
+      :quote => Quote.create({first_name: "jon", last_name: "jacob", email: "test@jacob.com", first_name: "jack", last_name: "hansen"}),
       :customer => nil
     ))
   end
@@ -22,9 +22,9 @@ RSpec.describe "invoices/new", type: :view do
 
       assert_select "input#invoice_name[name=?]", "invoice[name]"
 
-      assert_select "input#invoice_quote_id[name=?]", "invoice[quote_id]"
+      assert_select "select#invoice_quote_id[name=?]", "invoice[quote_id]"
 
-      assert_select "input#invoice_customer_id[name=?]", "invoice[customer_id]"
+      assert_select "select#invoice_customer_id[name=?]", "invoice[customer_id]"
     end
   end
 end

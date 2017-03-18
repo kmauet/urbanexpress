@@ -9,7 +9,7 @@ RSpec.describe "quotes/new", type: :view do
       :phone_number => "MyString",
       :service_type => "MyString",
       :vehicule_type => "MyString",
-      :number_of_people => 1
+      :num_of_passengers => 1
     ))
   end
 
@@ -30,7 +30,7 @@ RSpec.describe "quotes/new", type: :view do
 
       assert_select "input#quote_vehicule_type[name=?]", "quote[vehicule_type]"
 
-      assert_select "input#quote_number_of_people[name=?]", "quote[number_of_people]"
+      assert_select "input#quote_num_of_passengers[name=?]", "quote[num_of_passengers]"
     end
   end
 end

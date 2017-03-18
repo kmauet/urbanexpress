@@ -9,18 +9,19 @@ RSpec.describe "quotes/show", type: :view do
       :phone_number => "Phone Number",
       :service_type => "Service Type",
       :vehicule_type => "Vehicule Type",
-      :number_of_people => 2
+      :num_of_passengers => 2,
+      :messages => []
     ))
+    @messages = []
+    @message = Message.new
   end
 
-  it "renders attributes in <p>" do
+  it "renders attributes in <div>" do
     render
     expect(rendered).to match(/First Name/)
     expect(rendered).to match(/Last Name/)
     expect(rendered).to match(/Email/)
     expect(rendered).to match(/Phone Number/)
-    expect(rendered).to match(/Service Type/)
-    expect(rendered).to match(/Vehicule Type/)
     expect(rendered).to match(/2/)
   end
 end

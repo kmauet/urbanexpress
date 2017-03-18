@@ -75,79 +75,79 @@ RSpec.describe MessagesController, type: :controller do
     end
   end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Message" do
-        expect {
-          post :create, params: {message: valid_attributes}
-        }.to change(Message, :count).by(1)
-      end
+  # describe "POST #create" do
+  #   context "with valid params" do
+  #     it "creates a new Message" do
+  #       expect {
+  #         post :create, params: {message: valid_attributes}
+  #       }.to change(Message, :count).by(1)
+  #     end
 
-      it "assigns a newly created message as @message" do
-        post :create, params: {message: valid_attributes}
-        expect(assigns(:message)).to be_a(Message)
-        expect(assigns(:message)).to be_persisted
-      end
+  #     it "assigns a newly created message as @message" do
+  #       post :create, params: {message: valid_attributes}
+  #       expect(assigns(:message)).to be_a(Message)
+  #       expect(assigns(:message)).to be_persisted
+  #     end
 
-      it "redirects to the created message" do
-        post :create, params: {message: valid_attributes}
-        expect(response).to redirect_to(Message.last)
-      end
-    end
+  #     it "redirects to the created message" do
+  #       post :create, params: {message: valid_attributes}
+  #       expect(response).to redirect_to(Message.last)
+  #     end
+  #   end
 
-    context "with invalid params" do
-      it "assigns a newly created but unsaved message as @message" do
-        post :create, params: {message: invalid_attributes}
-        expect(assigns(:message)).to be_a_new(Message)
-      end
+  #   context "with invalid params" do
+  #     it "assigns a newly created but unsaved message as @message" do
+  #       post :create, params: {message: invalid_attributes}
+  #       expect(assigns(:message)).to be_a_new(Message)
+  #     end
 
-      it "re-renders the 'new' template" do
-        post :create, params: {message: invalid_attributes}
-        expect(response).to render_template("new")
-      end
-    end
-  end
+  #     it "re-renders the 'new' template" do
+  #       post :create, params: {message: invalid_attributes}
+  #       expect(response).to render_template("new")
+  #     end
+  #   end
+  # end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  # describe "PUT #update" do
+  #   context "with valid params" do
+  #     let(:new_attributes) {
+  #       skip("Add a hash of attributes valid for your model")
+  #     }
 
-      it "updates the requested message" do
-        message = Message.create! valid_attributes
-        put :update, params: {id: message.to_param, message: new_attributes}
-        message.reload
-        skip("Add assertions for updated state")
-      end
+  #     it "updates the requested message" do
+  #       message = Message.create! valid_attributes
+  #       put :update, params: {id: message.to_param, message: new_attributes}
+  #       message.reload
+  #       skip("Add assertions for updated state")
+  #     end
 
-      it "assigns the requested message as @message" do
-        message = Message.create! valid_attributes
-        put :update, params: {id: message.to_param, message: valid_attributes}
-        expect(assigns(:message)).to eq(message)
-      end
+  #     it "assigns the requested message as @message" do
+  #       message = Message.create! valid_attributes
+  #       put :update, params: {id: message.to_param, message: valid_attributes}
+  #       expect(assigns(:message)).to eq(message)
+  #     end
 
-      it "redirects to the message" do
-        message = Message.create! valid_attributes
-        put :update, params: {id: message.to_param, message: valid_attributes}
-        expect(response).to redirect_to(message)
-      end
-    end
+  #     it "redirects to the message" do
+  #       message = Message.create! valid_attributes
+  #       put :update, params: {id: message.to_param, message: valid_attributes}
+  #       expect(response).to redirect_to(message)
+  #     end
+  #   end
 
-    context "with invalid params" do
-      it "assigns the message as @message" do
-        message = Message.create! valid_attributes
-        put :update, params: {id: message.to_param, message: invalid_attributes}
-        expect(assigns(:message)).to eq(message)
-      end
+  #   context "with invalid params" do
+  #     it "assigns the message as @message" do
+  #       message = Message.create! valid_attributes
+  #       put :update, params: {id: message.to_param, message: invalid_attributes}
+  #       expect(assigns(:message)).to eq(message)
+  #     end
 
-      it "re-renders the 'edit' template" do
-        message = Message.create! valid_attributes
-        put :update, params: {id: message.to_param, message: invalid_attributes}
-        expect(response).to render_template("edit")
-      end
-    end
-  end
+  #     it "re-renders the 'edit' template" do
+  #       message = Message.create! valid_attributes
+  #       put :update, params: {id: message.to_param, message: invalid_attributes}
+  #       expect(response).to render_template("edit")
+  #     end
+  #   end
+  # end
 
   describe "DELETE #destroy" do
     it "destroys the requested message" do

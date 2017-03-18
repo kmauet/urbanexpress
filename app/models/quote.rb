@@ -11,6 +11,8 @@ class Quote < ApplicationRecord
 
   after_create :send_quote_confirmation
 
+  scope :by_user, ->(id) { where("user_id = ?", id)  }
+
   def send_quote_confirmation
     QuoteMailer.quote_confirmation_email(self).deliver 
   end

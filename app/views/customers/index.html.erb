@@ -1,7 +1,28 @@
 <div class="container">
   <h2>Customers List</h2>
-
+    <div>
+      <p>
+      <%= search_form_for @q do |f| %>
+        <div style="width:30%;float:left;padding-right:10px;padding-bottom:10px">
+          <%= f.label :email_cont%>
+          <%= f.search_field :email_cont, class: "form-control white_bg" %>
+        </div>
+        <div style="width:30%;float:left;padding-right:10px;padding-bottom:10px">
+          <%= f.label :first_name_cont%>
+          <%= f.search_field :first_name_cont, class: "form-control white_bg" %>
+        </div>
+        <div style="width:30%;float:left;padding-bottom:10px">
+          <%= f.label :last_name_cont%>
+          <%= f.search_field :last_name_cont, class: "form-control white_bg" %>
+        </div>
+        <div>
+          <%= f.submit class: "btn" %>
+        </div>
+      <% end %>
+      </p>
+    </div>
     <% if @customers.count > 0 %>
+      <div class="table-paginate"><%= will_paginate(@customers, :renderer => 'BootstrapPaginationHelper::LinkRenderer' ) %></div>
       <table class="table table-striped">
         <thead>
           <tr>

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -24,30 +24,29 @@ class MessagesController < ApplicationController
 
   # POST /messages
   # POST /messages.json
-  def create
-    @message = Message.new(message_params)
-    @message.user_id = current_user.try(:id)
-    if @message.save
-      redirect_to quote_path(@message.quote.id), notice: 'Message was successfully created.'
-    else
-      render :new
-    end
-  
-  end
+  # def create
+  #   @message = Message.new(message_params)
+  #   @message.user_id = current_user.try(:id)
+  #   if @message.save
+  #     redirect_to quote_path(@message.quote.id), notice: 'Message was successfully created.'
+  #   else
+  #     render :new
+  #   end
+  # end
 
   # PATCH/PUT /messages/1
   # PATCH/PUT /messages/1.json
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @message.update(message_params)
+  #       format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @message }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @message.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /messages/1
   # DELETE /messages/1.json

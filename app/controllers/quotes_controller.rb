@@ -10,6 +10,11 @@ class QuotesController < ApplicationController
     @users_select = User.all.map {|u| [u.email, u.id]}
   end
 
+  def my_quotes
+    @q = Quote.by_user(current_user.id).ransack(params[:q])
+    @quotes = @q.result(distinct: true).order('updated_at desc').paginate(:page => params[:page], per_page: 12)
+  end
+
   # GET /quotes/1
   # GET /quotes/1.json
   def show
@@ -51,7 +56,6 @@ class QuotesController < ApplicationController
     else
       render "quotes/new" 
     end
-  
   end
 
   # PATCH/PUT /quotes/1
@@ -110,7 +114,9 @@ class QuotesController < ApplicationController
       elsif params[:out_of_town_quote]
         result = params.require(:out_of_town_quote)
       elsif params[:contract_quote]
-        result = params.require(:contract_quote)    
+        result = params.require(:contract_quote)  
+      elsif params[:special_event_quote]
+        result = params.require(:special_event_quote)  
       else
         result = params.require(:contact_us_quote)
       end

@@ -72,11 +72,12 @@
     </div>
   </div>
   <hr style="clear:both"/>
-  <div>
+  <div style="padding:10px;background-color:#3deb73;">
     <% if @quote.invoices.count > 0 %> 
+      <h5>Related Invoice(s)</h5>
       <ul>
         <% @quote.invoices.each do |invoice| %>
-          <li><%= link_to "Related Invoice", invoice_path(invoice.id) , class: "" %></li>
+          <li style="font-size:1.5em"><%= link_to "Related Invoice", invoice_path(invoice.id)  %></li>
         <% end %>
       </ul>
     <% else %>
@@ -117,7 +118,7 @@
 
   <div class="row" style="padding-bottom:20px">
     <div class="col-md-12">
-      <%= simple_form_for(@message, url: create_message_for_quote(@quote), method: :post) do |f| %>
+      <%= simple_form_for(@message, url: create_message_for_quote_path(@quote), method: :post) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
