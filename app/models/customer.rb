@@ -10,9 +10,9 @@ class Customer < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :validatable,:trackable, :timeoutable,
-         :confirmable#, :rememberable
+  devise :database_authenticatable, #:registerable,
+         :recoverable, :validatable,:trackable, :timeoutable#,
+         #:confirmable#, :rememberable
 
   def full_name
     (first_name || '') + ' ' + ( last_name || '')
