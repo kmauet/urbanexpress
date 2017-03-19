@@ -46,7 +46,7 @@ class Customer < ApplicationRecord
   end
   
   def has_invoices_due?
-    invoices.where(payed: nil)
+    invoices.where(payed: nil).count > 0 
   end
 
   # Make password not be required for customers that are being created by administrators
