@@ -28,7 +28,8 @@ class EmailProcessor
       
     else
       #check_header_for_reply_to
-      message = create_message_from_email(@email, nil, user, customer)
+      quote = Quote.create(email: @email)
+      message = create_message_from_email(@email, quote.id, user, customer)
     end
     
   end
