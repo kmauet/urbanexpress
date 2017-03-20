@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :send_reset_password]
   before_action :verify_is_admin
 
   # GET /customers
@@ -21,6 +21,11 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+  end
+
+  def send_reset_password
+    @customer.send_reset_password_instructions
+    redirect_to @customer, notice: 'Password reset email was sent.'
   end
 
   # POST /customers

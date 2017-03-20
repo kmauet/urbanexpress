@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   scope "/admin" do
     resources :users
     resources :customers
+    post 'send-reset-password/:id' => 'customers#send_reset_password', as: :send_reset_password
   end
 
   devise_for :customers, controllers: {
