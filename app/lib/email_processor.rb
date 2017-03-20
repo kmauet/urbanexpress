@@ -22,8 +22,9 @@ class EmailProcessor
         #quote was found and user/custome email checks out
         message = create_message_from_email(@email, quote.id, user, customer)
       else
-        #quote not found
-        message = create_message_from_email(@email, nil, user, customer)
+        #quote not found 
+        quote = Quote.create(email: @email)
+        message = create_message_from_email(@email, quote.id, user, customer)
       end
       
     else
