@@ -54,6 +54,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
+  gem 'simplecov', :require => false
   gem 'seed_dump'
   gem 'localtunnel'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
