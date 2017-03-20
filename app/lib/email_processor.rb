@@ -23,13 +23,13 @@ class EmailProcessor
         message = create_message_from_email(@email, quote.id, user, customer)
       else
         #quote not found 
-        quote = Quote.create(email: @email)
+        quote = Quote.create(email: @from_email)
         message = create_message_from_email(@email, quote.id, user, customer)
       end
       
     else
       #check_header_for_reply_to
-      quote = Quote.create(email: @email)
+      quote = Quote.create(email: @from_email)
       message = create_message_from_email(@email, quote.id, user, customer)
     end
     
