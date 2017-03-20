@@ -20,6 +20,6 @@ class Message < ApplicationRecord
   end
 
   def send_message_quote_email
-    QuoteMailer.quote_message_email(self).deliver unless type.nil? #don't send emails if no type is set
+    QuoteMailer.quote_message_email(self).deliver unless quote.type.nil? #don't send emails if no type is set
    end
 end
