@@ -6,6 +6,8 @@ class Invoice < ApplicationRecord
   belongs_to :vehicule
 
   validates_presence_of :quote
+  validates_presence_of :customer
+  validates_presence_of :sales_rep
   
   after_create :update_payola_info
   before_save :update_payola_price_info

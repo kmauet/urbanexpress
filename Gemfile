@@ -46,6 +46,7 @@ gem 'ransack'
 gem 'will_paginate', '~> 3.1'
 gem 'payola-payments'
 gem "pundit"
+gem 'pundit-matchers', '~> 1.2.3' # For Rspec
 gem "recaptcha", require: "recaptcha/rails"
 group :development, :test do
   gem 'sqlite3'
@@ -58,6 +59,7 @@ group :development, :test do
   gem 'seed_dump'
   gem 'localtunnel'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do

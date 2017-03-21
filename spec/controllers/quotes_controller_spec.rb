@@ -30,7 +30,7 @@ RSpec.describe QuotesController, type: :controller do
   let(:invalid_attributes) {
     {first_name: 'bob', last_name: 'smith', email: nil}
   }
-  let(:user) { User.create({email: "test@test.com", first_name: "bob", last_name: "smith"}) }
+  let(:user) { FactoryGirl.create(:user)}
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # QuotesController. Be sure to keep this updated too.

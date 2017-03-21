@@ -31,7 +31,7 @@ RSpec.describe MessagesController, type: :controller do
   let(:invalid_attributes) {
     {to: nil, from: nil}
   }
-  let(:user) { User.create({email: "test@test.com", first_name: "bob", last_name: "smith"}) }
+  let(:user) { FactoryGirl.create(:user) }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # MessagesController. Be sure to keep this updated too.
@@ -46,7 +46,9 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "GET #index" do
     it "assigns all messages as @messages" do
-      message = Message.create! valid_attributes
+      message = Message.new valid_attributes
+      allow(message).to receive(:send_message_quote_email)
+      message.save!
       get :index
       expect(assigns(:messages)).to eq([message])
     end
@@ -54,7 +56,9 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested message as @message" do
-      message = Message.create! valid_attributes
+      message = Message.new valid_attributes
+      allow(message).to receive(:send_message_quote_email)
+      message.save!
       get :show, params: {id: message.to_param}
       expect(assigns(:message)).to eq(message)
     end
@@ -69,7 +73,9 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested message as @message" do
-      message = Message.create! valid_attributes
+      message = Message.new valid_attributes
+      allow(message).to receive(:send_message_quote_email)
+      message.save!
       get :edit, params: {id: message.to_param}
       expect(assigns(:message)).to eq(message)
     end
@@ -151,14 +157,18 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested message" do
-      message = Message.create! valid_attributes
+      message = Message.new valid_attributes
+      allow(message).to receive(:send_message_quote_email)
+      message.save!
       expect {
         delete :destroy, params: {id: message.to_param}
       }.to change(Message, :count).by(-1)
     end
 
     it "redirects to the messages list" do
-      message = Message.create! valid_attributes
+      message = Message.new valid_attributes
+      allow(message).to receive(:send_message_quote_email)
+      message.save!
       delete :destroy, params: {id: message.to_param}
       expect(response).to redirect_to(messages_url)
     end
