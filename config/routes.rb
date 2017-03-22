@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch 'update_quote_assigned_user/:id' => 'quotes#update_quote_assigned_user', as: :update_quote_assigned_user
   resources :vehicules
   devise_for :users
+  post 'change-user-points/:id' => 'customers#change_user_points', as: :change_user_points
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'home' => 'web_page#home'
   get 'contact-us' => 'web_page#contact_us'

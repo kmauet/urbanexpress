@@ -15,6 +15,15 @@
     <dt><strong>Reset Password:</strong></dt>
     <dd><%= link_to "Reset Password" , send_reset_password_path(@customer), method: :post, data: {confirm: " You are about to send a password reset email, are you sure!"}  %></dd>
 
+    <dt><strong>User Points:</strong></dt>
+    <dd><%= @customer.points %></dd>
+    <div>
+      <%= form_tag(change_user_points_path, method: "post") do %>
+        (Put a negative numbe to subtract)<br />
+        <%= number_field_tag(:add_points) %>
+        <%= submit_tag("Add Points") %> 
+      <% end %>
+    </div>
   </dl>
 
   <div class="form-actions">

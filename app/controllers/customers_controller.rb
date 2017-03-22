@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy, :send_reset_password]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :send_reset_password, :change_user_points]
   before_action :verify_is_admin
 
   # GET /customers
@@ -21,6 +21,19 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+  end
+
+  def change_user_points
+    if points = params[:add_points]
+      @customer.add_points(points.to_i)
+      notice = "#{points} points were successfully added." 
+    elsif points = params[:subtract_points]
+      @customer.subtract_points(points.to_i)
+      notice = "#{points} points were successfully subracted." 
+    else 
+      notice = 'Sorry, we were not able to perform operation' 
+    end
+    redirect_to @customer, notice: notice
   end
 
   def send_reset_password
