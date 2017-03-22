@@ -31,4 +31,12 @@ class QuoteMailer < ApplicationMailer
       :from => @quote.email_token + '@urbanexpress.zesasoccer.com',
       :subject => "Quote Request") 
   end
+
+  def invoice_notification_email(invoice)
+    @invoice = invoice
+    to_email = @invoice.customer.email
+    mail(:to => to_email,
+      :from => 'do-no-reply@urbanexpresscharter.com',
+      :subject => "You have a new invoice") 
+  end
 end

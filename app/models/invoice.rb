@@ -23,4 +23,8 @@ class Invoice < ApplicationRecord
   def update_payola_price_info
     self.price = 100 * (self.rate || 0)
   end
+
+  def send_invoice_notification
+
+  end
 end

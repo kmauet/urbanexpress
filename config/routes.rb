@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :invoices
+  post 'send-invoice-notification-email/:id' => 'invoices#send_invoice_notification_email', as: :send_invoice_notification_email
   mount Payola::Engine => '/payola', as: :payola
   resources :vehicule_images
   resources :messages

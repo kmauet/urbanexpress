@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308182257) do
+ActiveRecord::Schema.define(version: 20170322012619) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170308182257) do
     t.float    "total_collected"
     t.boolean  "accepted"
     t.boolean  "payed"
+    t.boolean  "emailsent"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["quote_id"], name: "index_invoices_on_quote_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"

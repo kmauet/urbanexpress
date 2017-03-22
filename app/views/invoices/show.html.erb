@@ -44,6 +44,10 @@
     </tbody>
   </table>  
 
+  <% unless @invoice.emailsent %>
+    <%= link_to 'Send Invoice Email Notice', send_invoice_notification_email_path(@invoice), class: "btn", method: :post %>
+  <% end %>
+
   <%= link_to 'Edit', edit_invoice_path(@invoice), class: "btn" %> |
   <%= link_to 'Back', invoices_path, class: "btn" %>
 </div>

@@ -3,20 +3,20 @@
 
   <div class="form-inputs">
     <div class="form-group">
-      <%= f.input :name %>
+      <%= f.input :name, input_html: {class: "form-control white_bg"}%>
     </div>
     <div class="form-group">
-      <%= f.input :vehicule_type, :as => :select, :collection => Vehicule.vehicule_types.keys.to_a %>
+      <%= f.input :vehicule_type, :as => :select, :collection => Vehicule.vehicule_types.keys.to_a, input_html: {class: "form-control white_bg"} %>
     </div>
     <div class="form-group">
-      <%= f.input :info %>
+      <%= f.input :info, input_html: {class: "white_bg", :cols => 85, :rows => 8 } %>
     </div>
     <%= image_tag @vehicule.display_image, height: '150' %>
     <div class="form-group">
       <%= f.file_field :display_image %>
     </div>
     <div class="form-group">
-      <%= f.input :seats %>
+      <%= f.input :seats, input_html: {class: "form-control white_bg"} %>
     </div>
     <div class="form-group">
       <%= f.input :tv %>

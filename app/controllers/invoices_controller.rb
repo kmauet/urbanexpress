@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_invoice_notification_email]
 
   # GET /invoices
   # GET /invoices.json
@@ -64,6 +64,12 @@ class InvoicesController < ApplicationController
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def send_invoice_notification_email
+    @invoice.send_invoice_notification
+    @invoice.update_attributes(emailsent: true)
+    redirect_to @invoice, notice: 'Invoice email notification was sent.'
   end
 
   private

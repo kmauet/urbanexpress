@@ -116,9 +116,11 @@ class QuotesController < ApplicationController
       elsif params[:contract_quote]
         result = params.require(:contract_quote)  
       elsif params[:special_event_quote]
-        result = params.require(:special_event_quote)  
+        result = params.require(:special_event_quote)
+      elsif params[:contact_us_quote]
+        result = params.require(:contact_us_quote)  
       else
-        result = params.require(:contact_us_quote)
+        result = params.require(:quote)
       end
       result.permit(:first_name, :last_name, :email, :phone_number, :service_type, :type, :customer_id, 
             :organization, :address, :extension, :departure_date, :departure_time, :departure_address, 
