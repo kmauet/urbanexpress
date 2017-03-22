@@ -23,6 +23,12 @@
     <div class="form-group">
       <%= f.input :admin, autofocus: true, input_html: {class: " "} %>
     </div>
+    <div class="form-group">
+      <%= f.input :password, label: "password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: "form-control white_bg"} %>
+      </div>
+    <div class="form-group">
+      <%= f.input :password_confirmation, label: "Confirm your new password", required: true, input_html: {class: "form-control white_bg"} %>
+    </div>
   </div>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

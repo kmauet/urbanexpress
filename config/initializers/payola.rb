@@ -6,7 +6,7 @@ Payola.configure do |config|
      invoice.payed = true
      invoice.save
      #Rails.logger.debug invoice.errors.to_a
-     #Rails.logger.debug invoice.errors.to_yaml
+     #:Rails.logger.debug invoice.errors.to_yaml
      #EmailSender.send_an_email(sale.email)
   end
   # 

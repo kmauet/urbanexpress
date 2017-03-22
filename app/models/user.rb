@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, #:registerable,
+  devise :database_authenticatable,# :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :quotes
@@ -17,5 +17,10 @@ class User < ApplicationRecord
 
   def full_name
     (first_name || '') + ' ' + ( last_name || '')
+  end
+
+  # Make password not be required for users that are being created by administrators
+  def password_required?
+   new_record? ? false : super
   end
 end
