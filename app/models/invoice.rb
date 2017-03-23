@@ -14,7 +14,7 @@ class Invoice < ApplicationRecord
 
   def update_payola_info
     self.name = "Invoice ##{self.id}" 
-    self.permalink =  "invoice/#{self.id}"
+    self.permalink =  "invoice-#{self.id}"
     self.price = 100 * (self.rate || 0)
     self.save
   end
@@ -25,6 +25,6 @@ class Invoice < ApplicationRecord
   end
 
   def send_invoice_notification
-
+    QuoteMailer.invoice_notification_email(self).deliver
   end
 end

@@ -131,7 +131,7 @@
           <li <%= "class=active" if @current_menu_item == "about_us"%>><a href="/about-us">About Us</a></li>
           <li <%= "class=active" if @current_menu_item == "contact_us"%>><a href="/contact-us">Contact Us</a></li>
           <% if user_signed_in?  %>
-            <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+            <li class="<%= 'active' if @current_menu_item == 'admin'%> dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
               <ul class="dropdown-menu">
                 <li><a href="/my-quotes">my quotes</a></li>
                 <% if current_user.admin?  %>
