@@ -21,6 +21,6 @@ class User < ApplicationRecord
 
   # Make password not be required for users that are being created by administrators
   def password_required?
-   new_record? ? false : super
+   false
   end
 end
