@@ -54,14 +54,17 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'database_cleaner'
-  gem 'simplecov', :require => false
   gem 'seed_dump'
   gem 'localtunnel'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem "factory_girl_rails", "~> 4.0"
 end
-
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov', require: false
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'

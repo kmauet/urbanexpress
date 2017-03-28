@@ -14,7 +14,10 @@ class Quote < ApplicationRecord
   scope :by_user, ->(id) { where("user_id = ?", id)  }
 
   def send_quote_confirmation
-    QuoteMailer.quote_confirmation_email(self).deliver 
+    #don't send quote received confirmation if type is nil (i.e. we received an email)
+    unless self.type.nil?
+      QuoteMailer.quote_confirmation_email(self).deliver 
+    end
   end
 
   def send_quote_assignment_notice

@@ -24,11 +24,17 @@ RSpec.describe InvoicesController, type: :controller do
   # Invoice. As you add validations to Invoice, be sure to
   # adjust the attributes here as well.
   let(:quote) {
-    Quote.create({first_name: 'bob', last_name: 'smith', email: 'bob@smith.com'})
+    FactoryGirl.create(:quote)
   }
-
+  let(:user) {
+    FactoryGirl.create(:user)
+  }
+  let(:customer) {
+    FactoryGirl.create(:customer)
+  }
   let(:valid_attributes) {
-    {first_name: 'bob', last_name: 'smith', email: 'bob@smith.com', name: "first invoice", permalink: "first-invoice", price: "40", quote_id: quote.id}
+    {first_name: 'bob', last_name: 'smith', email: 'bob@smith.com', name: "first invoice", permalink: "first-invoice", 
+      price: "40", quote: quote, sales_rep: user, customer: customer}
   }
 
   let(:invalid_attributes) {

@@ -4,7 +4,7 @@ FactoryGirl.define do
     first_name "bob"
     last_name "smith"
     email "test@test.com"
-    #user FactoryGirl.create(:user)
+    association  :user, factory: :user
   end
 
 end

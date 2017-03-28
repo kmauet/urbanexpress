@@ -4,7 +4,9 @@ FactoryGirl.define do
     sequence(:permalink) { |n| "permalink_#{n}"}
     sequence(:name) { |n| "name #{n}"}
     price 5
-    quote Quote.new
+    association :quote, factory: :quote
+    association :customer, factory: :customer
+    association :sales_rep, factory: :user
   end
 
 end
