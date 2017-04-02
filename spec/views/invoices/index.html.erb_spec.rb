@@ -4,6 +4,12 @@ RSpec.describe "invoices/index", type: :view do
   let(:quote) {
       Quote.create({first_name: 'bob', last_name: 'smith', email: 'bob@smith.com'})
   }
+  let(:customer) {
+      Customer.create({first_name: 'bob', last_name: 'smith', email: 'customer@smith.com'})
+  }
+  let(:user) {
+      User.create({first_name: 'tim', last_name: 'tom', email: 'tim@email.com'})
+  }
   before(:each) do
     assign(:invoices, [
       Invoice.create!(
@@ -13,8 +19,9 @@ RSpec.describe "invoices/index", type: :view do
         :first_name => "jim",
         :last_name => "smith",
         :rate => 234,
+        :sales_rep => user,
         :quote => quote,
-        :customer => nil
+        :customer => customer
       ),
       Invoice.create!(
         :price => 2,
@@ -23,8 +30,9 @@ RSpec.describe "invoices/index", type: :view do
         :first_name => "jim",
         :last_name => "smith",
         :rate => 234,
+        :sales_rep => user,
         :quote => quote,
-        :customer => nil
+        :customer => customer
       )
     ])
   end

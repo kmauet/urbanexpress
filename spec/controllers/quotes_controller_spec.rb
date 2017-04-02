@@ -39,6 +39,32 @@ RSpec.describe QuotesController, type: :controller do
     sign_in user
   end
 
+  describe "POST #create_message" do
+    let(:quote) {FactoryGirl.create(:quote)}
+    it "creates a new message @message that belongs to quote" do
+      post :create_message, params: {id: quote.to_param, message: {quote_id: quote.id, body: "My test body"}}
+      expect(assigns(:message)).to eq(quote.messages.last)
+      expect(assigns(:message).user).to eq(quote.messages.last.user)
+    end
+  end
+
+  describe "GET #my-quotes" do
+    let(:myquote) {FactoryGirl.create(:quote, user_id: user.id)}
+    let(:other_quote) {FactoryGirl.create(:quote)}
+    it "assigns only logged in user's quotes as @quotes" do
+      get :my_quotes, params: {}
+      expect(assigns(:quotes)).to eq([myquote])
+    end
+  end
+
+  describe "PATCH #update_quote_assigned_user" do
+    let(:quote) {FactoryGirl.create(:quote, user_id: nil)}
+    it "assigns quote's sales_rep as passed in user" do
+      patch :update_quote_assigned_user, params: {id: quote.to_param, quote: {user_id: user.id}}
+      expect(assigns(:quote).user).to eq(user)
+    end
+  end
+
   describe "GET #index" do
     it "assigns all quotes as @quotes" do
       quote = Quote.create! valid_attributes

@@ -23,25 +23,25 @@ RSpec.describe InvoicesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Invoice. As you add validations to Invoice, be sure to
   # adjust the attributes here as well.
-  let(:quote) {
-    FactoryGirl.create(:quote)
-  }
   let(:user) {
     FactoryGirl.create(:user)
+  }
+  let(:quote) {
+    #make sure user can manage the invoice (pundit authorization)
+    FactoryGirl.create(:quote, user_id: user.id)
   }
   let(:customer) {
     FactoryGirl.create(:customer)
   }
   let(:valid_attributes) {
     {first_name: 'bob', last_name: 'smith', email: 'bob@smith.com', name: "first invoice", permalink: "first-invoice", 
-      price: "40", quote: quote, sales_rep: user, customer: customer}
+      price: "40", quote_id: quote.id, user_id: user.id, customer_id: customer.id}
   }
 
   let(:invalid_attributes) {
     {first_name: 'bob', last_name: 'smith', name: nil}
   }
 
-  let(:user) { User.create({email: "test@test.com", first_name: "bob", last_name: "smith"}) }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # InvoicesController. Be sure to keep this updated too.

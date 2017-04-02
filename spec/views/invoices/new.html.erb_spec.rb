@@ -6,8 +6,9 @@ RSpec.describe "invoices/new", type: :view do
       :price => 1,
       :permalink => "new-perma",
       :name => "New name",
+      :sales_rep => User.create({first_name: 'tim', last_name: 'tom', email: 'sales_rep@email.com'}),
       :quote => Quote.create({first_name: "jon", last_name: "jacob", email: "test@jacob.com", first_name: "jack", last_name: "hansen"}),
-      :customer => nil
+      :customer => Customer.create({first_name: 'bob', last_name: 'smith', email: 'customer@smith.com'})
     ))
   end
 
@@ -22,7 +23,7 @@ RSpec.describe "invoices/new", type: :view do
 
       assert_select "input#invoice_name[name=?]", "invoice[name]"
 
-      assert_select "select#invoice_quote_id[name=?]", "invoice[quote_id]"
+      assert_select "input#invoice_quote_id[name=?]", "invoice[quote_id]"
 
       assert_select "select#invoice_customer_id[name=?]", "invoice[customer_id]"
     end

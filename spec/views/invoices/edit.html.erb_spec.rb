@@ -4,6 +4,12 @@ RSpec.describe "invoices/edit", type: :view do
   let(:quote) {
       Quote.create({first_name: 'bob', last_name: 'smith', email: 'bob@smith.com'})
   }
+  let(:customer) {
+      Customer.create({first_name: 'bob', last_name: 'smith', email: 'customer@smith.com'})
+  }
+  let(:user) {
+      User.create({first_name: 'tim', last_name: 'tom', email: 'tim@email.com'})
+  }
   before(:each) do
     @invoice = assign(:invoice, Invoice.create!(
       :price => 1,
@@ -11,8 +17,9 @@ RSpec.describe "invoices/edit", type: :view do
       :name => "MyString",
       :first_name => "bobby",
       :last_name => "smith",
+      :sales_rep => user,
       :quote => quote,
-      :customer => nil
+      :customer => customer
     ))
   end
 

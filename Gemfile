@@ -64,6 +64,7 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
+  gem 'pundit-matchers', '~> 1.2.3'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

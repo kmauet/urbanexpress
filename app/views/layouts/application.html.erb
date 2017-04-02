@@ -133,12 +133,12 @@
           <% if user_signed_in?  %>
             <li class="<%= 'active' if @current_menu_item == 'admin'%> dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
               <ul class="dropdown-menu">
-                <li><a href="/my-quotes">my quotes</a></li>
+                <li><%= link_to "my quotes", my_quotes_path %></li>
                 <% if current_user.admin?  %>
-                  <li><a href="/quotes">quotes</a></li>
-                  <li><a href="/admin/users">user management</a></li>
-                  <li><a href="/admin/customers">customer management</a></li>
-                  <li><a href="/vehicules">fleet management</a></li>
+                  <li><%= link_to "all quotes", quotes_path %></li>
+                  <li><%= link_to "user management", users_path %></li>
+                  <li><%= link_to "customer management", customers_path %></li>
+                  <li><%= link_to "fleet management", vehicules_path %></li>
                 <% end %>
                 <li><%= link_to("Sign Out", destroy_user_session_path, method: :post) %></li>
               </ul>
