@@ -1,5 +1,5 @@
 class QuoteMailer < ApplicationMailer
-  default :from => 'inof@urbanexpresscharter.com'
+  default :from => 'info@urbanexpresscharter.com'
 
 
 
@@ -19,6 +19,7 @@ class QuoteMailer < ApplicationMailer
     @quote = quote
     to_email = @quote.email
     mail(:to => to_email,
+      :bcc => 'kmauet@yahoo.com',
       :from => @quote.email_token + '@urbanexpress.biz',
       :subject => "Quote Request") 
   end
