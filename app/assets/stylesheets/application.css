@@ -298,12 +298,17 @@ tr.message-display.customer{
 
 /********* footer **********/
 .footer-top{
+  background-color:white;
   padding: 0;
+}
+.footer-top ul li a{
+  color: black;
 }
 .footer-top ul li{
   list-style: none;
   float: left;
   margin:30px;
+  margin-bottom: 0;
 }
 /********* end footer **********/
 
@@ -311,3 +316,8 @@ tr.message-display.customer{
   margin-top: 30px;
 }
 
+
+#banner2 .carousel-caption{
+  top:inherit;
+  padding-bottom:20:px;
+}
