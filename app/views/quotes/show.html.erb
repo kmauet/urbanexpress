@@ -22,7 +22,7 @@
         <dt><strong>flight num:</strong></dt>
         <dd><%= @quote.flight_num %></dd>
         <dt><strong>flight departure time:</strong></dt>
-        <dd><%= @quote.flight_departure_time %></dd>
+        <dd><%= @quote.departure_time.strftime("%I:%M %p") %></dd>
 
       </dl>
     </div>
@@ -65,7 +65,7 @@
         <dt><strong>Return date:</strong></dt>
         <dd><%= @quote.return_date %></dd>
         <dt><strong>return time:</strong></dt>
-        <dd><%= @quote.return_time %></dd>
+        <dd><%= @quote.return_time.strftime("%I:%M %p") %></dd>
         <dt><strong>Payment method:</strong></dt>
         <dd><%= @quote.pay_method %></dd>
       </dl>
