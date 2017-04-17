@@ -298,8 +298,11 @@ tr.message-display.customer{
 
 /********* footer **********/
 .footer-top{
-  background-color:white;
+  background-color:#ccc;
   padding: 0;
+}
+.footer-top h6{
+  margin-bottom: 0;
 }
 .footer-top ul li a{
   color: black;
@@ -308,6 +311,7 @@ tr.message-display.customer{
   list-style: none;
   float: left;
   margin:30px;
+  margin-top: 22px;
   margin-bottom: 0;
 }
 /********* end footer **********/

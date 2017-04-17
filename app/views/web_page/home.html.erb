@@ -106,7 +106,7 @@
                     </div>
                     <h5>Corporate Transportation</h5>
                     <p>Individual and group transportation for corporate functions and affairs by bus, shuttle, limousine, and sedan . </p>
-                    <a href="/services" class="btn">More</a>
+                    <a href="/services#corporate-transportation" class="btn">More</a>
                 </div>
             </div>
             
@@ -117,7 +117,7 @@
                     </div>
                     <h5>Event Transportation</h5>
                     <p>Economic limousine, bus, shuttle, and trolley rentals for weddings, parties, and other important events. </p>
-                    <a href="/services" class="btn">More</a>
+                    <a href="/services#event-transportation" class="btn">More</a>
                 </div>
             </div>
             
@@ -128,7 +128,7 @@
                     </div>
                     <h5>Handicap Accessible</h5>
                     <p>We offer vehicles that are wheelchair accessible and include amenities for the disabled. </p>
-                    <a href="/services" class="btn">More</a>
+                    <a href="/services#handicap-transportation" class="btn">More</a>
                 </div>
             </div>
         </div>
@@ -196,27 +196,25 @@
 <!-- Services -->
 <section id="our_services" class="dark-bg vc_row page-header">
   <div class=" col-md-8 vc_col section-padding">
-      <!--<div class="our_services white-text">
-          <h2>Our Services</h2>
-          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised 
-          words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing 
-          hidden in the middle of text. </p>
+      <div class="our_services white-text">
+          <h2>Anouncing our new Rewards Program!</h2>
+          <p>Urban Express is happy to announce our new Rewards program for our valued customers. <%= link_to "Register",new_customer_registration_path %> with us and <%= link_to "Login", new_customer_session_path %> to access your reward points.</p>
           <div class="services_info">
               <div class="icon_box">
-                  <i class="fa fa-car" aria-hidden="true"></i>
+                  <i class="fa fa-money" aria-hidden="true"></i>
               </div>
-              <h4><a href="#">Sale New Cars</a></h4>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+              <h4>Earn points with every booking</h4>
+              <p>With each booking, reward points will be added to your account.</p>
           </div>
           
           <div class="services_info">
               <div class="icon_box">
                   <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
               </div>
-              <h4><a href="#">Sale Used Cars</a></h4>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+              <h4>Use earned points towards future bookings</h4>
+              <p>You can redeem points by applying them towards a booking request.</p>
           </div>
-      </div>-->
+      </div>
   </div>
   <div class=" col-md-4 section-padding">
       <div class="contact_form white-text">
@@ -225,19 +223,19 @@
           <%= f.error_notification %>
           <%= f.input :type, as: :hidden %>
           <div class="form-group" style="float:left;width:50%;padding-right:10px;">
-            <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+            <%= f.input :first_name, required: true, input_html: {class: "form-control white_bg"} %>
           </div>
           <div class="form-group" style="float:left;width:50%;padding-left:10px;">
-            <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+            <%= f.input :last_name, required: true, input_html: {class: "form-control white_bg"} %>
           </div>
           <div class="form-group" style="float:left;width:50%;padding-right:10px;">
-            <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control white_bg"} %>
+            <%= f.input :email, required: true, input_html: {class: "form-control white_bg"} %>
           </div>
           <div class="form-group" style="float:left;width:50%;padding-left:10px;">
-            <%= f.input :phone_number, autofocus: true, input_html: {class: "form-control white_bg"} %>
+            <%= f.input :phone_number, input_html: {class: "form-control white_bg"} %>
           </div>
           <div class="form-group" style="clear:both;">
-            <%= f.input :additional_notes, autofocus: true, as: :text, input_html: {class: "white_bg", :cols => 80, :rows => 8 } %>
+            <%= f.input :additional_notes, as: :text, input_html: {class: "white_bg", :cols => 80, :rows => 8 } %>
           </div>
           <div class="row">
             <div class="form-group col-md-8">

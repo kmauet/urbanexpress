@@ -34,7 +34,7 @@ class WebPageController < ApplicationController
   end
 
   def create_quote_request
-    captcha_verified = verify_recaptcha(model: @quote)
+    captcha_verified = verify_recaptcha(model: @quote, env: ENV["RAILS_ENV"] )
     if quote_request_params[:type] == "AirportPickupQuote"
       @quote = @airport_pickup_quote = AirportPickupQuote.new(quote_request_params)
       save_result = @airport_pickup_quote.save if captcha_verified

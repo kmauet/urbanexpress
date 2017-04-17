@@ -49,7 +49,7 @@ default_job = function(){
 
 $(document).ready(function(){
     default_job();
-    $("input.datepicker").datepicker({});
+    $("input.datepicker").datepicker({format: 'yyyy-mm-dd'});
     //make tabs in quote-request page persist in url
     if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
     $('.vehic-side-img').hide();
