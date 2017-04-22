@@ -17,7 +17,7 @@
         </tr>
         <tr>
           <td><strong>Vehicle:</strong> <%= @invoice.vehicule.name %></td>
-          <td><strong>Time:</strong> <%= @invoice.time_reserved %></td>
+          <td><strong>Time:</strong> <%= @invoice.time_reserved.strftime("%I:%M %p") unless @invoice.time_reserved.nil? %></td>
         </tr>
         <tr>
           <td colspan="2"><strong>Itinerary:</strong>  <%= @invoice.itinerary %></td>
@@ -27,7 +27,7 @@
           <td><strong>Is this event for which you are requesting our services available to the public?:</strong> <%= @invoice.public_availability %></td>
         </tr>
         <tr>
-          <td><strong>Method of Pay:</strong><%= @invoice.method_of_pay %></td>
+          <td><strong>Method of Payment:</strong><%= @invoice.method_of_pay %></td>
           <td><strong>Rate:</strong> <%= number_to_currency(@invoice.rate, precision: 2) %></td>
         </tr>
         <tr>
@@ -43,11 +43,35 @@
         </tr>
       </tbody>
     </table>  
+    <div class ="invoice_terms_cond">
+      <p>TERMS AND CONDITIONS</p>
+      <u><p><strong>
+        THE CLIENT ASSUMES FULL FINANCIAL RESPONSIBILITY AND AUTHORIZES CREDIT CARD CHARGES FOR: ANY DAMAGESTO THE VEHICLE AND/OR PROPERTY CAUSED BY THE CLIENT AND/OR HIS/HER GUESTS, WHETHER CAUSED BY ACCIDENT,NEGLECT, OR INTENT, OVERTIME FEES, AND ANY OTHER COSTS DUE AND NOT COLLECTED AT THE END OF THE CHARTER.NOT RESPONSIBLE FOR ANY LOST, STOLEN OR MISPLACED ITEMS. UNUSED TIME IS NOT REFUNDED. ADDITIONAL FEESASSOCIATED WITH TRIP SUCH AS INSURANCE FEE FOR CERTIFICATE, ADDITIONAL INSURED OR WAIVER OF SUBROGATION ETC.WILL AUTOMATICALLY BE CHARGED.</strong>
+      </p>
+      <p><strong>
+        PER D.O.T. REGULATIONS, AFTER 10 HOURS OF DRIVING OR 14 HOURS OF SERVICE (WHICHEVERCOMES FIRST), THE DRIVER MUST TAKE 10 HOURS OFF DUTY BEFORE RETURNING TO WORK.</strong>
+      </p>
+      <p><strong>
+        THE DRIVER MAY, AT HIS OR HER DISCRETION, TERMINATE THE CHARTER WITHOUT REFUND SHOULD HE/SHE DEEM THECLIENT AND/OR ANYONE IN THE CLIENT’S PARTY, UNRULY, INTERFERING WITH SAFE OPERATION OF THE VEHICLE, ORENGAGING IN ANY ILLEGAL ACTIVITY. SMOKING IN THE VEHICLES IS PROHIBITED. NO ALCOHOLIC BEVERAGES AREPERMITTED IF ANYONE UNDER THE AGE OF 21 IS BEING TRANSPORTED.</strong>
+      </p>
+      <p style="color:red"><strong>
+        A 20% DEPOSIT IS REQUIRED TO RESERVE ANY VEHICLE. ALL MONEY PAID TOWARDS THE TRIP ISNON-REFUNDABLE. BALANCE TO BE PAID PRIOR TO SERVICE DATE.</strong>
+      </p>
+      <p><strong>
+        **ADDITIONAL CHARGES: SICK/VOMIT FEE: $100.00, PER OCCURRENCE. EXCESSIVE CLEANING FEE: $100.00, DAMAGES: PERESTIMATE, OVERTIME: HOURLY RATE** </strong>
+      </p>
+      <p><strong>
+        URBAN EXPRESS DOES NOT PROVIDE CAR SEATS. SOME VEHICLES BY DESIGN DO NOT REQUIRE SEAT BELTS. BY SIGNING THISCONTRACT, YOU AGREE TO HOLD URBAN EXPRESS HARMLESS FROM ANY ISSUE THAT MAY ARISE DUE TO THESE FACT.
+      </p></strong>
+      <p><strong>
+        URBAN EXPRESS CHARTER CANNOT BE HELD LIABLE FOR MISSING, LOST, OR STOLEN ITEMS. URBAN EXPRESS CHARTERCANNOT BE HELD RESPONSIBLE FOR DELAYS OR INCONVENIENCES DUE TO TRAFFIC, UNKNOWN/UNSEEN MECHANICALFAILURES AND/OR SITUATIONS DEEMED AN ACT OF GOD. ANY BY SIGNING BELOW THE CLIENT AGREES TO ALL OF THE ABOVETERMS AND CONDITIONS.</strong>
+      </p></u>
+    </div>
     <%= simple_form_for(@invoice, url: submit_accepted_invoice_path, method: :patch) do |f| %>
       <%= f.input :id, as: :hidden %>
       <div class="row">
         <div class="form-group col-md-3">
-          <%= f.input :accepted, autofocus: true, label: "Accept", input_html: {class: "form-control white_bg"} %>
+          <%= f.input :accepted, label: "Accept", input_html: {class: "form-control white_bg"} %>
         </div>
       </div>
       <br /><br />
@@ -60,9 +84,10 @@
   <% end %>
 
   <% if not (@invoice.nil?) and @invoice.accepted and not(@invoice.payed) %>
-    <p> Invoice Amount Due: <%= number_to_currency(@invoice.rate, precision: 2) %>
+    <div><h4><u><%= link_to "View Invoice", show_unpaid_customer_invoice_path(@invoice) %></u></h4></div>
+    <p><strong>Invoice Amount Due:</strong> <%= number_to_currency(@invoice.rate, precision: 2) %>
       <%# should send email conf and update status to payed in config/initializer/payola %>
-      <%= render 'payola/transactions/checkout', sellable: @invoice, allow_remember_me: false %>
+      <%= render 'payola/transactions/checkout', sellable: @invoice, allow_remember_me: false, billing_address: true %>
     </p>
   <% end %>
 </div>

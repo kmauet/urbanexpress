@@ -51,6 +51,18 @@
         });
       };
     </script>
+    <% unless current_user %>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-97696807-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+    <% end %>
 </head>
 <body>
 
@@ -156,7 +168,7 @@
 <% if current_customer and current_customer.has_invoices_due? %>
   <div class="outer-customer-notification" style="background-color:#e9f71a">
     <div class="customer-notification alert" style="width:1170px;margin:auto;padding-bottom:8px;">
-        <h3><u><%= link_to "You have invoice(s) due", show_unpaid_customer_invoices_path  %></u></h3>
+        <h3>You have invoice(s) due. <u><%= link_to "Click Here To View.", show_unpaid_customer_invoices_path  %></u></h3>
     </div>
   </div>
 <% end %>

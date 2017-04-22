@@ -27,7 +27,7 @@
           <td><%= vehicule.tv %></td>
           <td><%= vehicule.bathroom %></td>
           <td><%= vehicule.dvd_player %></td>
-          <td><%= link_to 'Show', vehicule %></td>
+          <td><%= link_to 'View', vehicule %>/<%= link_to 'Edit', edit_vehicule_path(vehicule) %></td>
         </tr>
       <% end %>
     </tbody>
