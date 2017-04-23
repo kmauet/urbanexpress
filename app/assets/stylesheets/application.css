@@ -325,3 +325,9 @@ tr.message-display.customer{
   top:inherit;
   padding-bottom:20px;
 }
+
+ul.quote-invoice-status{
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}

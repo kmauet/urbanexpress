@@ -27,4 +27,10 @@ class Invoice < ApplicationRecord
   def send_invoice_notification
     QuoteMailer.invoice_notification_email(self).deliver
   end
+
+  def status
+    return "paid" if payed
+    return "accepted" if accepted
+    return  "pending"
+  end
 end

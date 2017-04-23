@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322012619) do
+ActiveRecord::Schema.define(version: 20170423054407) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20170322012619) do
     t.string   "name"
     t.integer  "quote_id"
     t.integer  "customer_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "user_id"
     t.date     "date_needed"
     t.date     "date_reserved"
@@ -66,18 +66,18 @@ ActiveRecord::Schema.define(version: 20170322012619) do
     t.string   "email"
     t.integer  "vehicule_id"
     t.text     "itinerary"
-    t.boolean  "handicap_accessible"
+    t.boolean  "handicap_accessible", default: false
     t.boolean  "public_availability"
     t.string   "method_of_pay"
-    t.float    "rate"
-    t.float    "sales_tax"
-    t.float    "deposit"
-    t.float    "amount_due"
-    t.float    "additional_charges"
-    t.float    "total_collected"
-    t.boolean  "accepted"
-    t.boolean  "payed"
-    t.boolean  "emailsent"
+    t.float    "rate",                default: 0.0
+    t.float    "sales_tax",           default: 0.0
+    t.float    "deposit",             default: 0.0
+    t.float    "amount_due",          default: 0.0
+    t.float    "additional_charges",  default: 0.0
+    t.float    "total_collected",     default: 0.0
+    t.boolean  "accepted",            default: false
+    t.boolean  "payed",               default: false
+    t.boolean  "emailsent",           default: false
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["quote_id"], name: "index_invoices_on_quote_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"
