@@ -43,7 +43,7 @@ class VehiculesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicule.update(vehicule_params)
-        format.html { redirect_to @vehicule, notice: 'Vehicule was successfully updated.' }
+        format.html { redirect_to vehicules_path, notice: 'Vehicule was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicule }
       else
         format.html { render :edit }
