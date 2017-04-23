@@ -64,7 +64,7 @@ RSpec.describe WebPageController, type: :controller do
     end
 
     it "doesn't include payed invoices as @invoices" do
-      invoice = FactoryGirl.create(:invoice, customer_id: customer.id, payed: nil)
+      invoice = FactoryGirl.create(:invoice, customer_id: customer.id, payed: false)
       second_invoice = FactoryGirl.create(:invoice, customer_id: customer.id, payed: true)
       get :show_unpaid_customer_invoices
       expect(assigns(:invoices)).to eq([invoice])
@@ -82,7 +82,7 @@ RSpec.describe WebPageController, type: :controller do
 
   describe "PATCH #show_unpaid_customer_invoice" do
     it "it assigns invoice with that id to @invoice if unpaid" do
-      unpaid_invoice = FactoryGirl.create(:invoice, customer_id: customer.id, payed: nil)
+      unpaid_invoice = FactoryGirl.create(:invoice, customer_id: customer.id, payed: false)
       get :show_unpaid_customer_invoice, params: {id: unpaid_invoice.to_param}
       expect(assigns(:invoice)).to eq(unpaid_invoice)
     end

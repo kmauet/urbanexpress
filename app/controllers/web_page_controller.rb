@@ -116,7 +116,7 @@ class WebPageController < ApplicationController
   def show_unpaid_customer_invoices
     return unless current_customer
     @current_customer = current_customer
-    @invoices = current_customer.invoices.where(payed: nil).to_a
+    @invoices = current_customer.invoices.where(payed: false).to_a
     #@invoices_ready_to_pay = current_customer.invoices.where(accepted: nil, payed: nil)
   end
 
@@ -124,7 +124,7 @@ class WebPageController < ApplicationController
     return unless current_customer
     invoice_id = params[:id]
     @current_customer = current_customer
-    @invoice = current_customer.invoices.where(payed: nil, id: invoice_id).first
+    @invoice = current_customer.invoices.where(payed: false, id: invoice_id).first
     if @invoice.blank?
       redirect_to show_unpaid_customer_invoices_path(), notice: 'Could not access invoice.'
     end
