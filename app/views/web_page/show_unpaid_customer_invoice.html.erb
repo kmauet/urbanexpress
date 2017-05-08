@@ -83,6 +83,9 @@
     <% end %>
   <% end %>
 
+  <%= link_to "Print", '#', class: "print-page btn btn-primary", 
+            onclick: 'window.print();return false;' %>
+
   <% if not (@invoice.nil?) and @invoice.accepted and not(@invoice.payed) %>
     <div><h4><u><%= link_to "View Invoice", show_unpaid_customer_invoice_path(@invoice) %></u></h4></div>
     <p><strong>Invoice Amount Due:</strong> <%= number_to_currency(@invoice.rate, precision: 2) %>

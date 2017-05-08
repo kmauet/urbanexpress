@@ -320,7 +320,10 @@ tr.message-display.customer{
   margin-top: 30px;
 }
 
-
+.invoice_terms_cond p{
+  font-size: 1em ;
+  line-height: 20px;
+}
 #banner2 .carousel-caption{
   top:inherit;
   padding-bottom:20px;

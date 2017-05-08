@@ -1,0 +1,5 @@
+@media print {
+  footer, .btn, input.btn, .outer-customer-notification, .invoice_accepted {
+    display: none;
+  }
+}
