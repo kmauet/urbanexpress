@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy, :send_reset_password, :change_user_points]
   before_action :verify_is_admin
+  before_action :verify_is_super_admin, only: [:change_user_points]
 
   # GET /customers
   # GET /customers.json
@@ -12,6 +13,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @current_user = current_user
   end
 
   # GET /customers/new
@@ -84,6 +86,10 @@ class CustomersController < ApplicationController
   private
     def verify_is_admin
       (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
+    end
+
+    def verify_is_super_admin
+      (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.super_admin?)
     end
 
     # Use callbacks to share common setup or constraints between actions.

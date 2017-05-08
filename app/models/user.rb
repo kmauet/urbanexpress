@@ -15,6 +15,10 @@ class User < ApplicationRecord
     return admin == true
   end
 
+  def super_admin?
+    return role == "super_admin"
+  end
+
   def full_name
     (first_name || '') + ' ' + ( last_name || '')
   end
