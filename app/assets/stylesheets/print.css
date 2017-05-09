@@ -1,5 +1,5 @@
 @media print {
-  footer, .btn, input.btn, .outer-customer-notification, .invoice_accepted {
+  footer, .btn, input.btn, .outer-customer-notification, .invoice_accepted, .payola-payment {
     display: none;
   }
 }
