@@ -9,7 +9,11 @@
     <ul>
       <% @quote.quote_fields.each do |field| %>
         <li>
-          <%= field.to_s + ": " + (@quote.send(field).to_s || "") %>
+          <% if @quote.send(field) === ActiveSupport::TimeWithZone %>
+            <%= field.to_s + ": " + (@quote.send(field).strftime("%I:%M %p")) %>
+          <% else %>
+            <%= field.to_s + ": " + (@quote.send(field).to_s || "") %>
+          <% end %>
         </li> 
       <% end %>
     </ul>
