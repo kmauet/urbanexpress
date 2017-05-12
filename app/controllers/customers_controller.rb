@@ -49,7 +49,8 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
-      if verify_recaptcha(model: @customer) and @customer.save
+      #don't do captcha if a site admin/user is creating customer
+      if (current_user or verify_recaptcha(model: @customer)) and @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
