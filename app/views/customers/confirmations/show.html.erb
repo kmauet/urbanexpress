@@ -1,8 +1,7 @@
 <h2>Account Activation</h2>
-<% form_for resource_name, resource, :url => update_customer_confirmation_path, :html => {:method => 'put'}, :id => 'activation-form' do |f| %>
-  <%= f.error_messages %>
+<%= form_for resource, as: resource_name, :url => update_customer_confirmation_path, :html => {:method => 'patch'}, :id => 'activation-form' do |f| %>
   <fieldset>
-    <legend>Account Activation<% if resource.customer_name %> for <%= resource.customer_name %><% end %></legend>
+    <legend>Account Activation<% if resource.full_name %> for <%= resource.full_name %><% end %></legend>
 
   <% if @requires_password %>
       <p><%= f.label :password,'Choose a Password:' %> <%= f.password_field :password %></p>

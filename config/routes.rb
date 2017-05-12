@@ -19,7 +19,6 @@ Rails.application.routes.draw do
       resources :users
       post 'send-reset-password/:id' => 'customers#send_reset_password', as: :send_reset_password
 
-      get '/customer/confirmation', :controller => 'confirmations', :action => 'update', :conditions => { :method => :put }, as: :update_customer_confirmation
       resources :customers #, except: [:create, :edit, :update]
       
     end
@@ -31,14 +30,20 @@ Rails.application.routes.draw do
   mount Payola::Engine => '/payola', as: :payola
 
   # Customer Web Pages
+  #patch '/customer/confirmation', :controller => 'customers/confirmations', :action => 'update', :conditions => { :method => :patch }, as: :update_customer_confirmation
+
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
     sessions: 'customers/sessions',
-    passwords: 'customers/passwords'
+    passwords: 'customers/passwords',
+    confirmations: 'customers/confirmations'
   }
+
+
   devise_scope :customer do
     get "/change-password" => "customers/registrations#edit"
     post "/change-password" => "customers/registrations#update"
+    patch '/customer/confirmation' => 'customers/confirmations#update', as: :update_customer_confirmation
   end
   get 'home' => 'web_page#home'
   get 'contact-us' => 'web_page#contact_us'

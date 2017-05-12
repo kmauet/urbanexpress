@@ -11,8 +11,8 @@ class Customer < ApplicationRecord
   validates :email, presence: true
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :validatable,:trackable, :timeoutable#,
-         #:confirmable#, :rememberable
+         :recoverable, :validatable,:trackable, :timeoutable,
+         :confirmable#, :rememberable
 
   def full_name
     (first_name || '') + ' ' + ( last_name || '')
