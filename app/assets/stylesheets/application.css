@@ -50,6 +50,9 @@
   .footer-top{
     display: none;
   }
+  .product-listing-content .btn{
+    padding: 6px 12px;
+  }
 }
 #navigation li.active{
   background-color: red;
