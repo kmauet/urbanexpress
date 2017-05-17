@@ -47,6 +47,9 @@
     margin-top: 15px;
     display:block;
   }
+  .footer-top{
+    display: none;
+  }
 }
 #navigation li.active{
   background-color: red;
