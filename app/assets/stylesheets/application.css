@@ -53,6 +53,11 @@
   .product-listing-content .btn{
     padding: 6px 12px;
   }
+
+  .main_features ul li {
+    margin: 0 5px 10px 0;
+    min-width:115px;
+  }
 }
 #navigation li.active{
   background-color: red;
