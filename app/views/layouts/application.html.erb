@@ -168,7 +168,7 @@
 <%= flash_messages %>
 <% if current_customer and current_customer.has_invoices_due? %>
   <div class="outer-customer-notification" style="background-color:#e9f71a">
-    <div class="customer-notification alert" style="width:1170px;margin:auto;padding-bottom:8px;">
+    <div class="customer-notification alert" style="margin:auto;padding-bottom:8px;">
         <h3>You have invoice(s) due. <u><%= link_to "Click Here To View.", show_unpaid_customer_invoices_path  %></u></h3>
     </div>
   </div>
