@@ -39,6 +39,15 @@
     color:#fa2837;
     font-size: 35px;
 }*/
+@media (max-width:767px) {
+  header .social-follow ul{
+    display: none;
+  }
+   header .social-follow {
+    margin-top: 15px;
+    display:block;
+  }
+}
 #navigation li.active{
   background-color: red;
 }
