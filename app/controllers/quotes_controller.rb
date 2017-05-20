@@ -50,6 +50,7 @@ class QuotesController < ApplicationController
 
   def create_message
     @message = Message.new(message_params)
+    @message.raw_body = Sanitize.fragment(@message.body, Sanitize::Config::RELAXED)
     @message.user_id = current_user.try(:id)
     if @message.save
       redirect_to quote_path(@message.quote.id), notice: 'Message was successfully created.'
