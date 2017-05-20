@@ -24,7 +24,7 @@ RSpec.describe MessagesController, type: :controller do
   # Message. As you add validations to Message, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {to: [{:token=>"email", :host=>"urbanexpress.biz", :email=>"email@urbanexpress.biz", :full=>"email@urbanexpress.biz", :name=>nil}], 
+    {to: [{:token=>"email", :host=>"urbanexpresscharter.com", :email=>"email@urbanexpresscharter.com", :full=>"email@urbanexpresscharter.com", :name=>nil}], 
     from: {:token=>"ousmane.kebe", :host=>"gmail.com", :email=>"ousmane.kebe@gmail.com", :full=>"ousmane kebe <ousmane.kebe@gmail.com>", :name=>"ousmane kebe"}}
   }
 
