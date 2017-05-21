@@ -42,6 +42,7 @@
 a.adm-log, div a.adm-log:visited, div a.adm-log:hover {
   background:black;
   color: #555;
+  
 }
 @media (max-width:767px) {
   header .social-follow ul{
