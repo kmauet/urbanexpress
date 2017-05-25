@@ -56,10 +56,6 @@
   <div class="col-md-4 col-sm-8">
     <div class="profile_wrap">
       <dl class="dl-horizontal">
-        <dt><strong>itinirary:</strong></dt>
-        <dd><%= @quote.itinirary %></dd>
-        <dt><strong>Additional Notes:</strong></dt>
-        <dd><%= @quote.additional_notes %></dd>
         <dt><strong>total_num_of_days:</strong></dt>
         <dd><%= @quote.total_num_of_days %></dd>
         <dt><strong>Return date:</strong></dt>
@@ -71,6 +67,24 @@
       </dl>
     </div>
   </div>
+
+  <div class="col-md-12">
+    <div class="profile_wrap">
+      <dl class="dl-horizontal">
+        <dt><strong>itinirary:</strong></dt>
+        <dd><%= @quote.itinirary %></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="profile_wrap">
+      <dl class="dl-horizontal">
+        <dt><strong>Additional Notes:</strong></dt>
+        <dd><%= @quote.additional_notes %></dd>
+      </dl>
+    </div>
+  </div>
+
   <hr style="clear:both"/>
   <div style="padding:10px;background-color:#3deb73;">
     <% if @quote.invoices.count > 0 %> 
