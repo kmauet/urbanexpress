@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
       
       resources :users
+      get 'training-videos' => 'users#training_videos', as: :training_videos
       post 'send-reset-password/:id' => 'customers#send_reset_password', as: :send_reset_password
 
       resources :customers #, except: [:create, :edit, :update]

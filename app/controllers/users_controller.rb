@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :verify_is_admin
+  before_action :verify_is_admin, except: [:training_videos]
+
+  def training_videos
+  end
 
   # GET /users
   # GET /users.json
