@@ -7,20 +7,20 @@
     <%= f.input :name, as: :hidden %>
     
     <div class="row">
-      <div class="form-group col-md-6">
-        <%= f.input :quote_id, as: :hidden %>
-        <%#= f.association :quote, collection: Quote.all.map{|c| ["Quote# #{c.id} for #{c.email}", c.id]}, input_html: { class: 'chosen-select' } %>
-      </div>
+      <%= f.input :quote_id, as: :hidden %>
       <div class="form-group col-md-6">
         <%= f.association :customer, collection: Customer.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select' } %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.association :sales_rep, collection: User.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6">
-        <%= f.association :sales_rep, collection: User.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
+        <%= f.association :vehicule, collection: Vehicule.all.map{|c| [c.name, c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
       </div>
       <div class="form-group col-md-6">
-        <%= f.association :vehicule, collection: Vehicule.all.map{|c| [c.name, c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
+        <%= f.input :unit, input_html: {class: "form-control white_bg"} %>
       </div>
     </div>
 

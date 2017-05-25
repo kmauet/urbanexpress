@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525045237) do
+ActiveRecord::Schema.define(version: 20170525162619) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "first_name"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170525045237) do
     t.boolean  "accepted",            default: false
     t.boolean  "payed",               default: false
     t.boolean  "emailsent",           default: false
+    t.string   "unit"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["quote_id"], name: "index_invoices_on_quote_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"

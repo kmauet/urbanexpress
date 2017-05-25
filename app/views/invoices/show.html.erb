@@ -15,7 +15,7 @@
         <td><strong>Email:</strong> <%= @invoice.email %></td>
       </tr>
       <tr>
-        <td><strong>Vehicle:</strong> <%= @invoice.vehicule.try(:name) %></td>
+        <td><strong>Vehicle:</strong> <%= @invoice.vehicule.try(:name) %> - <%= @invoice.unit %></td>
         <td><strong>Time:</strong> <%= @invoice.time_reserved %></td>
       </tr>
       <tr>

@@ -23,7 +23,7 @@
         <td><strong>Email:</strong> <%= @invoice.email %></td>
       </tr>
       <tr>
-        <td><strong>Vehicle:</strong> <%= @invoice.try(:vehicule).try(:name) %></td>
+        <td><strong>Vehicle:</strong> <%= @invoice.try(:vehicule).try(:name) %> - <%= @invoice.unit %></td>
         <td><strong>Time:</strong> <%= @invoice.time_reserved.strftime("%I:%M %p") unless @invoice.time_reserved.nil? %></td>
       </tr>
       <tr>

@@ -19,7 +19,7 @@
       <% @invoices.each do |invoice| %>
         <tr>
           <td><%= invoice.rate %></td>
-          <td><%= invoice.vehicule.try(:name) %></td>
+          <td><%= invoice.vehicule.try(:name) %> - <%= invoice.unit %></td>
           <td><%= invoice.sales_rep.try(:full_name) %></td>
           <td><%= "Quote# #{invoice.quote.id} for (#{invoice.quote.email})" %></td>
           <td><%= "#{invoice.customer.try(:full_name)} - (#{invoice.customer.try(:email)})" %></td>

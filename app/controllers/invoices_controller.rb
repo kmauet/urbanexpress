@@ -82,6 +82,6 @@ class InvoicesController < ApplicationController
     def invoice_params
       params.require(:invoice).permit(:price, :permalink, :name, :quote_id, :customer_id, :date_reserved, :date_needed, :user_id, :first_name,
         :last_name, :phone, :email, :itinerary, :handicap_accessible, :public_availability, :method_of_pay, :rate, :sales_tax, :deposit, :amount_due,
-        :additional_charges, :total_collected, :time_reserved, :vehicule_id, :accepted)
+        :additional_charges, :total_collected, :time_reserved, :vehicule_id, :accepted, :unit)
     end
 end
