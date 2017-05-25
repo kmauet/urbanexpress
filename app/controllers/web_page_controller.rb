@@ -161,7 +161,27 @@ class WebPageController < ApplicationController
   def jobs
     @current_menu_item = "jobs"
   end
+
+  def apply_job
+    @current_menu_item = "jobs"
+    @applicant = Applicant.new
+  end
+
+  def create_job_application
+    @current_menu_item = "jobs"
+    @applicant = Applicant.new(applicant_params)
+    if verify_recaptcha(model: @applicant, env: ENV["RAILS_ENV"]) && @applicant.save
+      redirect_to jobs_path, notice: "Application was successfully submitted."
+    else
+      render :apply_job
+    end
+  end
+
   private
+    def applicant_params
+      params.require(:applicant).permit(:first_name, :last_name, :email, :phone, :position, :note, :resume)
+    end
+
     def invoice_params
       params.require(:invoice).permit(:id, :accepted)
     end

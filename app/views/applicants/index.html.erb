@@ -1,0 +1,43 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Applicants</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Created</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Position</th>
+        <th>Resume</th>
+        <th>Note</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @applicants.each do |applicant| %>
+        <tr>
+          <td><%= applicant.created_at.strftime("%m/%d/%Y %I:%M %p") %></td>
+          <td><%= applicant.first_name %></td>
+          <td><%= applicant.last_name %></td>
+          <td><%= applicant.email %></td>
+          <td><%= applicant.phone %></td>
+          <td><%= applicant.position %></td>
+          <td><%= link_to "Resume", applicant.resume_url() if applicant.resume? %></td>
+          <td><%= applicant.note %></td>
+          <td><%= link_to 'Show', applicant %></td>
+          <td><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
+          <td><%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Applicant', new_applicant_path, class: "btn  " %>
+</div>

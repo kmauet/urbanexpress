@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   authenticated :user do
     scope "/admin" do
+      resources :applicants
       resources :invoices
-      post 'send-invoice-notification-email/:id' => 'invoices#send_invoice_notification_email', as: :send_invoice_notification_email
+          post 'send-invoice-notification-email/:id' => 'invoices#send_invoice_notification_email', as: :send_invoice_notification_email
       
       resources :vehicule_images
       resources :messages
@@ -63,5 +64,7 @@ Rails.application.routes.draw do
   post 'contact-us' => 'web_page#create_contact_us_quote_request', as: :create_contact_us_quote_request
   get 'history' => 'web_page#history'
   get 'jobs' => 'web_page#jobs'
+  get 'jobs/apply' => 'web_page#apply_job'
+  post 'jobs/apply' => 'web_page#create_job_application', as: :create_job_application
   root 'web_page#home'
 end
