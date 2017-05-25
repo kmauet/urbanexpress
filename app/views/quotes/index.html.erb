@@ -65,7 +65,7 @@
                 </div>
               <% end %>
             <% else %>
-              <%= quote.user.email %>
+              <%= quote.user.full_name %>
             <% end %>
           </td> 
           <td><%= link_to 'Show', quote_path(quote) %></td>

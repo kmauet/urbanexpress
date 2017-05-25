@@ -86,7 +86,7 @@
   </div>
 
   <hr style="clear:both"/>
-  <div style="padding:10px;background-color:#3deb73;">
+  <div class="col-md-9" style="padding:10px;background-color:#3deb73;">
     <% if @quote.invoices.count > 0 %> 
       <h5>Related Invoice(s)</h5>
       <ul>
@@ -98,6 +98,18 @@
       <%= link_to "Convert to Invoice", new_invoice_path(quote_id: @quote.id) , class: "btn" %>
     <% end %>
   </div>
+
+  <div class="col-md-3">
+    <%= simple_form_for @quote, url: update_quote_assigned_user_path(@quote), method: :patch do |f| %>
+      <div class="form-group select">
+        <%= f.input :user_id , collection: @users_select, input_html: { class: "form-control white_bg" }, label: false %>
+      </div>
+      <div class="form-group">
+        <%= f.button :submit, value: "Re-Assign", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="panel-body">
     <ul class="chat">
       <% @messages.each do |message| %>
