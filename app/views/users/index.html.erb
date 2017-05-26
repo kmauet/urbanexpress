@@ -20,7 +20,7 @@
               <td><%= link_to user.first_name, user_path(user) %></td>
               <td><%= link_to user.last_name, user_path(user) %></td>
               <td><%= link_to user.email, user_path(user) %></td>
-              <td><%= link_to user.admin, user_path(user) %></td>
+              <td><%=  user.admin %></td>
               <td>
                 <% if current_user.admin? %>
                   <%= link_to t('.edit', :default => t("helpers.links.edit")),
