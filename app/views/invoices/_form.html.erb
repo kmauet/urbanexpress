@@ -9,10 +9,10 @@
     <div class="row">
       <%= f.input :quote_id, as: :hidden %>
       <div class="form-group col-md-6">
-        <%= f.association :customer, collection: Customer.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select' } %>
+        <%= f.association :customer, collection: Customer.where(active: true).map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select' } %>
       </div>
       <div class="form-group col-md-6">
-        <%= f.association :sales_rep, collection: User.all.map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
+        <%= f.association :sales_rep, collection: User.where(active: true).map{|c| ["#{c.full_name} - (#{c.email})", c.id]}, input_html: { class: 'chosen-select form-control white_bg' } %>
       </div>
     </div>
     <div class="row">

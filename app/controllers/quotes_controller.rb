@@ -7,7 +7,7 @@ class QuotesController < ApplicationController
   def index
     @q = Quote.ransack(params[:q])
     @quotes = @q.result(distinct: true).order('updated_at desc').paginate(:page => params[:page], per_page: 12)
-    @users_select = User.all.map {|u| [u.full_name, u.id]}
+    @users_select = User.where(active: true).map {|u| [u.full_name, u.id]}
   end
 
   def my_quotes
@@ -20,7 +20,7 @@ class QuotesController < ApplicationController
   def show
     @messages = @quote.messages
     @message = @quote.messages.build
-    @users_select = User.all.map {|u| [u.full_name, u.id]}
+    @users_select = User.where(active: true).map {|u| [u.full_name, u.id]}
     #@message.user_id = current_user.try(:id)
   end
 

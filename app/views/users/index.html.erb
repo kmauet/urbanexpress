@@ -10,6 +10,7 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Admin</th>
+            <th>Active</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
@@ -20,7 +21,8 @@
               <td><%= link_to user.first_name, user_path(user) %></td>
               <td><%= link_to user.last_name, user_path(user) %></td>
               <td><%= link_to user.email, user_path(user) %></td>
-              <td><%=  user.admin %></td>
+              <td><%= user.admin %></td>
+              <td><%= user.active %></td>
               <td>
                 <% if current_user.admin? %>
                   <%= link_to t('.edit', :default => t("helpers.links.edit")),
