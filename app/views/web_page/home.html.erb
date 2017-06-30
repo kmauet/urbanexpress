@@ -194,7 +194,7 @@
 
 <!-- Services -->
 <section id="our_services" class="dark-bg vc_row page-header">
-  <div class=" col-md-8 vc_col section-padding">
+  <div class=" col-md-6 vc_col section-padding">
       <div class="our_services white-text">
           <h2>Announcing our new Rewards Program!</h2>
           <p>Urban Express is happy to announce our new Rewards program for our valued customers. <%= link_to "Register",new_customer_registration_path %> with us and <%= link_to "Login", new_customer_session_path %> to access your reward points.</p>
@@ -234,13 +234,13 @@
             <%= f.input :phone_number, input_html: {class: "form-control white_bg"} %>
           </div>
           <div class="form-group" style="clear:both;">
-            <%= f.input :additional_notes, as: :text, input_html: {class: "white_bg", :cols => 80, :rows => 8 } %>
+            <%= f.input :additional_notes, as: :text, input_html: {class: "white_bg", :cols => 60, :rows => 8 } %>
           </div>
           <div class="row">
             <div class="form-group col-md-8">
               <%= recaptcha_tags %>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
               <%= f.button :submit, "Send Message"%>
             </div>
           </div>
