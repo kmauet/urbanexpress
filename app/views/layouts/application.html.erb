@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
+<%= stylesheet_link_tag    'application', media: 'all' %>
 <%= csrf_meta_tags %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,23 +71,6 @@
 </head>
 <body>
         
-       <noscript id="deferred-styles">
-      <link href="http://www.urbanexpresscharter.com/assets/application-8ef1a7b06fe21e65deeb625055ece0469b6270e3819b7f3458d093fcbedfc286.css" rel="stylesheet">
-    </noscript>
-    <script>
-      var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
-    </script> 
-
 <!--Header-->
 <header>
   <div class="default-header">
